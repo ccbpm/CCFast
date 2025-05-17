@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CallReg.aspx.cs" Inherits="CCFlow.Admin.WeChat.CallReg" %>
