@@ -1,0 +1,1 @@
+const A=new Map([["TS.AD.XS","/src/App/AD/XS"],["TS.AD.MeiTi","/src/App/AD/MeiTi"],["TS.AD.SPLX","/src/App/AD/Dict/SPLX"],["TS.AD.DiQu","/src/App/AD/Dict/DiQu"],["TS.AD.QuXian","/src/App/AD/Dict/QuXian"],["TS.AD.XiangZhen","/src/App/AD/Dict/XiangZhen"]]);export{A as classPathMap};

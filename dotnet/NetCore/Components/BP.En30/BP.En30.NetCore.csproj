@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Service References\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Service References\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Service References\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+    <Compile Remove="Sys\FormEventBase.cs" />
+    <Compile Remove="Web\BPPage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aliyun.OSS.SDK.NetCore" />
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="MySql.Data" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="NLog.Web.AspNetCore" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="NPOI" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" />
+    <PackageReference Include="SSH.NET" />
+    <PackageReference Include="System.CodeDom" />
+    <PackageReference Include="System.Data.Odbc" />
+    <PackageReference Include="System.Data.SqlClient" />
+    <PackageReference Include="System.Drawing.Common" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.ServiceModel.Http" />
+    <PackageReference Include="ThoughtWorks.QRCode.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\..\RefDLL\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DM.DmProvider">
+      <HintPath>..\..\RefDLL\DM.DmProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="FtpSupport">
+      <HintPath>..\..\RefDLL\FtpSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Kdbndp">
+      <HintPath>..\..\RefDLL\Kdbndp.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\RefDLL\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Nuxsql">
+      <HintPath>..\..\RefDLL\Nuxsql.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tools\NPinyin\" />
+  </ItemGroup>
+
+</Project>

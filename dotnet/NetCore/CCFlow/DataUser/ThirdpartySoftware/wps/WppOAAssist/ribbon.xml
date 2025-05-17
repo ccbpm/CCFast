@@ -1,0 +1,33 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="OnWPSWorkTabLoad" >
+  <ribbon startFromScratch="false">
+    <tabs>
+      <tab id="WPSWorkExtTab" label="OA辅助" getVisible="OnGetVisible">	<!-- OA菜单开启显隐处理-->
+        <group id="OAEntryGroup" label="OA常用功能">
+          <button id="btnSaveToServer" label="保存到OA" onAction="OnAction" 
+              getEnabled="OnGetEnabled" getImage="GetImage" size="large"/>
+          <button id="btnSaveAsFile" label="保存本地" getLabel="OnGetLabel"  onAction="OnAction"  
+              getEnabled="OnGetEnabled" getVisible="OnGetVisible" getImage="GetImage" size="large" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+  <commands>
+    <command idMso="ReviewTrackChangesMenu" label="修订" getEnabled="OnGetEnabled"/>
+    <command idMso="FileSaveAsMenu" label="另存为" getEnabled="OnGetEnabled"/>
+    <command idMso="FileSaveAs" label="另存为" getEnabled="OnGetEnabled"/>
+    <command idMso="FileSave" label="保存" getEnabled="OnGetEnabled"/>
+    <command idMso="FilePrint" label="打印" getEnabled="OnGetEnabled"/>
+    <command idMso="FilePrintMenu" label="打印" getEnabled="OnGetEnabled"/>
+    <command idMso="FilePrintPreview" label="打印预览" getEnabled="OnGetEnabled"/>
+    <command idMso="ReviewRejectChangeMenu" getEnabled="OnGetEnabled"/>
+    <command idMso="ReviewAcceptChangeMenu" getEnabled="OnGetEnabled"/>
+    <command idMso="FileSaveAsPdfOrXps" getEnabled="OnGetEnabled"/>
+    <command idMso="FileSaveAsPicture" getEnabled="OnGetEnabled" />
+    <command idMso="SaveAsPicture" getEnabled="OnGetEnabled" />
+    <command idMso="FileMenuSendMail" getEnabled="OnGetEnabled" />
+    <command idMso="SaveAsOfd" getEnabled="OnGetEnabled"/>
+    <command idMso="SaveAsPDF" getEnabled="OnGetEnabled"/>
+    <command idMso="MacroPlay" getEnabled="OnGetEnabled"/>
+    <command idMso="VisualBasic" getEnabled="OnGetEnabled"/>
+  </commands>
+</customUI>

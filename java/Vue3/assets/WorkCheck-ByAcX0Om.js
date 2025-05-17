@@ -1,0 +1,1 @@
+import{_ as e}from"./WorkCheck.vue_vue_type_script_setup_true_lang-C1ezxgpB.js";const o=Object.freeze(Object.defineProperty({__proto__:null,default:e},Symbol.toStringTag,{value:"Module"}));export{o as _};

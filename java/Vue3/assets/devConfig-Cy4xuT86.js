@@ -1,0 +1,1 @@
+const e={Prefessional:"专业模式",JiJian:"专业模式",FoolTruck:"累加模式",RefOneFrmTree:"绑定表单库的单表单",FrmTree:"绑定表单库的多表单",SDKFrm:"SDK表单",SelfFrm:"嵌入式表单",InternetOfThings:"物联网流程",Tree:"决策树流程"};export{e as FlowDevModel};

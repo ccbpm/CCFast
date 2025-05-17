@@ -1,0 +1,1 @@
+const r=(n,t,m)=>{let e=-1;return n==="enumsRadio"&&(e=3),n==="enumsCheckbox"&&(e=2),n==="enumsDropdown"&&(e=1),`./SysEnumList.htm?EnName=GPN_NewDDL&FrmID=${m}&GroupField=${t}&CtrlType=${e}`};export{r as getEnumsFieldUrl};

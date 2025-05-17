@@ -1,0 +1,1 @@
+import e from"./Comm-D0sZO1YO.js";import{d as o,l as t}from"./vue-BXIlYw1E.js";const n=o({name:"UniversalOptions",setup(){return()=>t(e)}}),m=Object.freeze(Object.defineProperty({__proto__:null,default:n},Symbol.toStringTag,{value:"Module"}));export{m as _};

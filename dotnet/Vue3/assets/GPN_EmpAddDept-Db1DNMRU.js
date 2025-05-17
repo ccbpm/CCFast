@@ -1,0 +1,6 @@
+var P=Object.defineProperty;var G=(o,e,t)=>e in o?P(o,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[e]=t;var N=(o,e,t)=>G(o,typeof e!="symbol"?e+"":e,t);var l=(o,e,t)=>new Promise((m,n)=>{var c=s=>{try{i(t.next(s))}catch(a){n(a)}},d=s=>{try{i(t.throw(s))}catch(a){n(a)}},i=s=>s.done?m(s.value):Promise.resolve(s.value).then(c,d);i((t=t.apply(o,e)).next())});import{b5 as h,aM as u,a2 as w,W as y,G as _,l as b}from"./entry/index-C6uBgOW5-1730430676707.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";class x extends h{constructor(){super("GPN_EmpAddDept");N(this,"NewDept",`
+  #### 帮助
+   - ccbpm支持一人多部门,每个部门支持多岗位.
+  #### 详细说明
+   - 组织结构可以与现在的系统集成, 集成信息: https://doc.ccbpm.cn
+`);this.PageTitle="增加部门",this.ForEntityClassID="TS.Port.DeptEmp"}Init(){this.AddGroup("Dep1t","选择部门"),this.SelectItemsByTree("Dept","选择部门",this.NewDept,!0,u.srcDeptLazily,u.srcDeptRoot)}GenerSorts(){return l(this,null,function*(){return Promise.resolve([])})}Save_TextBox_X(t,m,n,c,d){return l(this,null,function*(){const i=n.split(",").filter(r=>!!r),s=c.split(",").filter(r=>!!r),a=this.RefPKVal;for(let r=0;r<i.length;r++){const D=i[r],p=new w;p.MyPK=D+"_"+a,(yield p.RetrieveFromDBSources())!=1&&(p.FK_Emp=a,p.FK_Dept=D,p.DeptName=s[r],p.StationNo="",p.OrgNo=y.OrgNo,yield p.Insert())}return new _(b.CloseAndReload,"创建成功")})}}export{x as GPN_EmpAddDept};

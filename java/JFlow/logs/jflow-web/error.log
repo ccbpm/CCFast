@@ -1,0 +1,28 @@
+2024-10-19 17:06:04.475 ERROR  [main] o.s.b.diagnostics.LoggingFailureAnalysisReporter - [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter : report : 40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8009 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8009 or configure this application to listen on another port.
+
+2024-10-19 17:06:25.956 ERROR  [main] o.s.b.diagnostics.LoggingFailureAnalysisReporter - [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter : report : 40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8009 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8009 or configure this application to listen on another port.
+

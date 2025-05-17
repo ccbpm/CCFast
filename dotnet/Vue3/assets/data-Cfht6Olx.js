@@ -1,0 +1,1 @@
+import{f as o}from"./vue-BXIlYw1E.js";const c=o(12),n=(t=6,e=12)=>({min:t,max:e,marks:(()=>{const s={};for(let r=t;r<e+1;r++)s[r]={style:{color:"#fff"},label:r};return s})(),step:1});export{c as grid,n as useSlider};

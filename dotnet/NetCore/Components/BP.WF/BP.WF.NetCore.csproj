@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="AppFast\**" />
+    <Compile Remove="Service References\**" />
+    <EmbeddedResource Remove="AppFast\**" />
+    <EmbeddedResource Remove="Service References\**" />
+    <None Remove="AppFast\**" />
+    <None Remove="Service References\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+    <Compile Remove="Dev2InterfaceAnonymous.cs" />
+    <Compile Remove="HttpHandler\Base\HttpHandlerBase.cs" />
+    <Compile Remove="WFEnum.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" />
+    <PackageReference Include="MySql.Data" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="NPOI" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" />
+    <PackageReference Include="Spire.Doc" />
+    <PackageReference Include="System.CodeDom" />
+    <PackageReference Include="System.Data.Odbc" />
+    <PackageReference Include="System.Data.SqlClient" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.ServiceModel.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BP.En30\BP.En30.NetCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FluentFTP">
+      <HintPath>..\..\RefDLL\FluentFTP.dll</HintPath>
+    </Reference>
+    <Reference Include="FtpSupport">
+      <HintPath>..\..\RefDLL\FtpSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\RefDLL\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\RefDLL\System.Web.Http.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

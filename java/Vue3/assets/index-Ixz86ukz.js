@@ -1,0 +1,1 @@
+import{W as t}from"./entry/index-C6uBgOW5-1730430676707.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";function c(r){if(r.startsWith("/src/")){const e="&Token="+t.Token;return r.replace("/src/","/#/").replace(".vue","")+e}return r}export{c as isComPage};

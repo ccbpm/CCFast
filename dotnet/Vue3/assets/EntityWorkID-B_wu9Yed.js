@@ -1,0 +1,1 @@
+import{aZ as s,a_ as o}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class I extends s{constructor(t,e){super(t,e)}get PK(){return"WorkID"}get PKVal(){return this.WorkID}get WorkID(){return this.GetValIntByKey("WorkID")}set WorkID(t){this.SetValByKey("WorkID",t)}}class k extends o{}export{k as EntitiesWorkID,I as EntityWorkID};

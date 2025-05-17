@@ -1,0 +1,1 @@
+const s=["insert","update","delete","insert"],e="uibind_code_",i=t=>{const r=t.trim().toLowerCase();return s.find(o=>r.startsWith(o))?e+window.btoa(t):t},c=t=>{const r=t.trim();if(r.startsWith(e)){const n=r.replace(e,"");return window.atob(n)}return t};export{c as decryptSQLStr,i as encryptSQLStr};

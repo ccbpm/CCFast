@@ -1,0 +1,11 @@
+var d=Object.defineProperty;var f=(a,t,e)=>t in a?d(a,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):a[t]=e;var l=(a,t,e)=>f(a,typeof t!="symbol"?t+"":t,e);var N=(a,t,e)=>new Promise((w,o)=>{var F=r=>{try{s(e.next(r))}catch(n){o(n)}},T=r=>{try{s(e.throw(r))}catch(n){o(n)}},s=r=>r.done?w(r.value):Promise.resolve(r.value).then(F,T);s((e=e.apply(a,t)).next())});import{b5 as k,G as u,l as p,H as R}from"./entry/index-C6uBgOW5-1730430676707.js";import P from"./Dev2Interface-BiOSL5Ij.js";import{ND101Dtl1s as y}from"./ND101Dtl1-rq9JrXJJ.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";import"./EntityOID-DvdPWQGp.js";class M extends k{constructor(){super("GPN_StartFlow001");l(this,"fNam");l(this,"Imp",`
+  #### 帮助
+   - 从其他部门的人员里导入人员，放入本部门中.
+   - 一个人拥有多个部门.
+  `);l(this,"ImpExcel",`
+  #### 帮助
+   - 从excel导入数据.
+   - 按照ccbpm的excel格式要求.
+   - 格式文件位于 . 完善测试该方法.
+
+  `);this.PageTitle="新建项目",this.ForEntityClassID="TS.PM.Prj"}Init(){return N(this,null,function*(){const e=[{No:"0",Name:"房建"},{No:"1",Name:"市政"},{No:"2",Name:"燃气"},{No:"4",Name:"敞口"}];this.AddGroup("A","选择方式"),this.TextBox1_Name("Track0","立项流程-当轨道",this.HelpUn,"项目名称","我的项目-当轨道","请输入您的项目名称"),this.TextBox1_Name("Track1","立项流程-当非轨道",this.HelpUn,"项目名称","我的项目-当非轨道","请输入您的项目名称"),this.SelectItemsByList("Track1.Track2","项目类型",this.Imp,!1,JSON.stringify(e))})}GenerSorts(){return N(this,null,function*(){return Promise.resolve([])})}Save_TextBox_X(e,w,o,F,T){return N(this,null,function*(){const s=new R("BP.App.NetCore.GZSZ.GZ_CommTS");s.AddPara("pageID",e),s.AddPara("tb1",o);const r=yield s.DoMethodReturnJson("GetFuWuRY"),n=r.split(",")[0],c=r.split(",")[1];if(e=="Track0"){const i=yield P.Node_CreateBlank("001"),h="/#/WF/MyFlow?FlowNo=001&PrjName="+o+"&WorkID="+i+"&XMLX=3&ShouRuZiXiangMuLeiXi=1&FuZeRen="+n+"&FuZeRenT="+c;return new u(p.OpenUrlByDrawer90,h,"流程")}else if(e=="Track1")this.fNam=o;else if(e=="Track1.Track2"){const i=yield P.Node_CreateBlank("001");if(yield new y().Retrieve("RefPK",i),o=="4"){const m="/#/WF/MyFlow?FlowNo=001&PrjName="+this.fNam+"&WorkID="+i+"&XMLX="+o+"&ShouRuZiXiangMuLeiXi=2&FuZeRen="+n+"&FuZeRenT="+c;return new u(p.OpenUrlByDrawer90,m,"流程")}else{const m="/#/WF/MyFlow?FlowNo=001&PrjName="+this.fNam+"&WorkID="+i+"&XMLX="+o+"&ShouRuZiXiangMuLeiXi=0&FuZeRen="+n+"&FuZeRenT="+c;return new u(p.OpenUrlByDrawer90,m,"流程")}}})}}export{M as GPN_StartFlow001};

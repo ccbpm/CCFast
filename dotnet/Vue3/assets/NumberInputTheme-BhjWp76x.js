@@ -1,0 +1,1 @@
+import{useDesignerTheme as o}from"./form-Bg9E1Us6.js";import"./vue-BXIlYw1E.js";const r=o(),m={peers:{Input:{borderFocus:r.primaryColor,caretColor:r.primaryColor,borderHover:r.primaryColor,boxShadowFocus:`inset 0 0 0 1px ${r.primaryColor}, 0 0 0 2px ${r.primaryColorRgba}`}}};export{m as default};

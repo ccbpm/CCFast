@@ -1,0 +1,275 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>jflow-web</groupId>
+	<artifactId>jflow-web</artifactId>
+	<packaging>jar</packaging>
+
+	<name>jflow-web</name>
+
+	<parent>
+		<groupId>jflow</groupId>
+		<artifactId>jflow</artifactId>
+		<version>1.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<finalName>jflow-web</finalName><!-- war or jar 包的名称 -->
+		<start-class>cn.jflow.boot.JFlowApplication</start-class>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jflow-core</groupId>
+			<artifactId>jflow-core</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<!-- JSON -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>${json-lib.version}</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.swagger</groupId>
+					<artifactId>swagger-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.swagger</groupId>
+					<artifactId>swagger-models</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.21</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-models</artifactId>
+			<version>1.5.21</version>
+		</dependency>
+		<!--http://localhost:8085/swagger-ui.html 打开swagger接口-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger-ui.version}</version>
+		</dependency>
+
+		<!--http://localhost:8085//doc.html 打开swagger接口文档-->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>swagger-bootstrap-ui</artifactId>
+			<version>1.9.6</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>2.0.7</version>
+		</dependency>-->
+		<!--<dependency>
+			<groupId>com.kingbase8</groupId>
+			<artifactId>kingbase8</artifactId>
+			<version>8.6.0</version>
+
+		</dependency>-->
+		<!--	<dependency>
+               <groupId>com.kingbase8</groupId>
+               <artifactId>kingbase8</artifactId>
+               <version>8.6.0</version>
+            </dependency>-->
+		<dependency>
+			<groupId>com.kingbase8</groupId>
+			<artifactId>kingbase8</artifactId>
+			<version>8.6.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/kingbase8-8.6.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 打war包的时候请使用这段代码，如果在开发工具中运行的时候请注释exclusions这段代码 -->
+			<!--<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>-->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!-- 钉钉服务API -->
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>alibaba-dingtalk-service-sdk</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dameng</groupId>
+			<artifactId>Dm8JdbcDriver18</artifactId>
+			<version>8.1.1.193</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/DmJdbcDriver18.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.1-atlassian-hosted</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6-12.1.0.1-atlassian-hosted.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>GBASE8CByOracle</groupId>
+			<artifactId>GBASE8CByOracle</artifactId>
+			<version>jdbc-6.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/opengauss-jdbc-6.0.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>gbase8a</groupId>
+			<artifactId>gbase8a</artifactId>
+			<version>java-9.5.0.1-build1-bin</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/gbase-connector-java-9.5.0.1-build1-bin.jar</systemPath>
+		</dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- 打war包需要增加的依赖，使用开发工具运行的时候请注释这块代码 -->
+		<!--<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<scope>provided</scope>
+		</dependency>-->
+
+	</dependencies>
+
+	<!-- 设定中央仓库 -->
+	<repositories>
+		<repository>
+			<id>aliyun-repos</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
+
+	</repositories>
+
+	<pluginRepositories>
+
+		<pluginRepository>
+			<id>aliyun-repos</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</pluginRepository>
+
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--打包时允许添加本地jar包-->
+					<includeSystemScope>true</includeSystemScope>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+		<!--这个是打jar包增加的配置-->
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/webapp/lib</directory>
+				<targetPath>BOOT-INF/lib/</targetPath>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.jar</include>
+				</includes>
+			</resource>
+
+			<resource>
+				<directory>src/main/webapp</directory>
+				<!--注意此次必须要放在此目录下才能被访问到-->
+				<targetPath>BOOT-INF/classes/resources</targetPath>
+				<!--<targetPath>META-INF/resources</targetPath>-->
+				<includes>
+					<include>**/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+		<!--单元测试时引用src/main/resources下的资源文件-->
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>src/main/resources</directory>
+			</testResource>
+		</testResources>
+		<finalName>jflow-web</finalName>
+	</build>
+
+
+	<description>驰骋工作流程引擎</description>
+	<url>http://jflow.cn</url>
+	<organization>
+		<name>济南驰骋信息技术有限公司</name>
+		<url>http://jflow.cn</url>
+	</organization>
+	<scm>
+		<developerConnection>济南驰骋&amp;山东易科德</developerConnection>
+	</scm>
+</project>

@@ -1,0 +1,1 @@
+var s=Object.defineProperty;var c=(e,a,t)=>a in e?s(e,a,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[a]=t;var o=(e,a,t)=>c(e,typeof a!="symbol"?a+"":a,t);class l{}o(l,"enumMyDataType","@1=字符@2=整数@3=浮点@4=Boolean@5=双精度@6=日期@7=日期时间@8=金额");export{l as GloSYS};

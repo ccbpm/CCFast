@@ -1,0 +1,12 @@
+.mymetadata
+.checkstyle
+.classpath
+.project
+.class
+/src/main/webapp/WEB-INF/classes/*
+/src/main/java/cn/jflow/ccmobile/*
+/target/*
+/target
+/bin
+/jflow-core.iml
+/.settings/

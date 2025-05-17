@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <!--是否启用调试-->
+    <add key="IsDegug" value="0"/>
+    <!--是否显示参数信息-->
+    <add key="IsShowMsg" value="1"/>
+    <add key="CCFormServiceUrl" value="http://localhost:2296/WF/CCForm/CCFormAPI.asmx"/>
+    <!--正式-->
+    <add key="CCFormServiceUrl--" value="http://182.92.173.41:8061/WF/CCForm/CCFormAPI.asmx"/>
+    <add key="ClientSettingsProvider.ServiceUri" value=""/>
+    <add key="ClientSettingsProvider.ConnectionStringName" value="DefaultConnection"/>
+   <add key="OnLineEditExcelFilePath" value="C:\OnLineEditExcelFilePath"/>
+  </appSettings>
+  <system.serviceModel>
+    <bindings/>
+    <client/>
+  </system.serviceModel>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2"/>
+  </startup>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" connectionStringName="DefaultConnection" credentialsProvider=""/>
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" connectionStringName="DefaultConnection"/>
+      </providers>
+    </roleManager>
+  </system.web>
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source = |SQL/CE|"/>
+  </connectionStrings>
+</configuration>

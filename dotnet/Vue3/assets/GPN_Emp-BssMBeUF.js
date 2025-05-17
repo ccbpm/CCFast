@@ -1,0 +1,11 @@
+var h=Object.defineProperty;var B=(i,p,o)=>p in i?h(i,p,{enumerable:!0,configurable:!0,writable:!0,value:o}):i[p]=o;var l=(i,p,o)=>B(i,typeof p!="symbol"?p+"":p,o);var n=(i,p,o)=>new Promise((d,m)=>{var N=e=>{try{a(o.next(e))}catch(r){m(r)}},w=e=>{try{a(o.throw(e))}catch(r){m(r)}},a=e=>e.done?d(e.value):Promise.resolve(e.value).then(N,w);a((o=o.apply(i,p)).next())});import{b9 as G,W as c,aM as f,cp as P,aB as u,aC as E,Q as D,J as x,X as _}from"./entry/index-M8VErHPE-1727507756861.js";import{GloComm as y}from"./GloComm-DZ1gELjv.js";import{e as F}from"./antd-DkiF_jXA.js";import"./vue-DGeTOT5N.js";import"./FrmTrack-0uAZQ3B_.js";import"./DBAccess-CzjFzLoq.js";import"./SFPara-DL_8hzxu.js";import"./SFColumn-Q_PoS_2g.js";class v extends G{constructor(){super("GPN_Emp");l(this,"Imp",`
+  #### 帮助
+   - 从其他部门的人员里导入人员，放入本部门中.
+   - 一个人拥有多个部门.
+  `);l(this,"ImpExcel",`
+  #### 帮助
+   - 从excel导入数据.
+   - 按照ccbpm的excel格式要求.
+   - 格式文件位于 . @hongyan 完善测试该方法.
+
+  `);this.PageTitle="新建人员"}Init(){return n(this,null,function*(){if(c.IsAdmin==!1){F.error("err@您好:"+c.Name+",非管理员用户不能查看.");return}this.AddGroup("A","选择方式"),this.TextBox2_NameNo("Emp","新建人员",this.HelpUn,"","登录账号","人员名称",""),this.SelectItemsByTreeEns("Imp","导入其他部门人员",this.Imp,!0,f.srcDeptLazily,"0",f.srcEmpLazily,"@No=账号@Name=名称@Tel=电话"),this.AddGroup("B","批量导入"),this.FileUpload("ImpExcel","导入Excel","请上传符合格式的Excel文件.",this.ImpExcel)})}GenerSorts(){return n(this,null,function*(){return Promise.resolve([])})}Save_TextBox_X(o,d,m,N,w){return n(this,null,function*(){const a=this.RequestVal("DeptNo"),e=new P(a);if((yield e.RetrieveFromDBSources())==0)return new u(E.Error,"部门编号["+a+"]错误或不存在.");if(o==="Emp"){const r=N,I=m,t=new D(r);if(c.CCBPMRunModel==x.SAAS&&(t.UserID=r,t.OrgNo=e.OrgNo,t.No=e.OrgNo+"_"+r),c.CCBPMRunModel==x.GroupInc&&(t.OrgNo=e.OrgNo),(yield t.IsExits())==!0)return new u(E.Error,"人员编号["+r+"],已经存在.");t.FK_Dept=a,t.Name=I,yield t.Insert();const s=new _;return s.MyPK=e.No+"_"+t.No,(yield s.RetrieveFromDBSources())==0&&(s.FK_Dept=a,s.FK_Emp=r,s.OrgNo=e.OrgNo,yield s.Insert()),new u(E.GoToUrl,y.UrlEn("TS.Port.Emp",t.No))}if(o==="Imp"){const r=this.RequestVal("DeptNo");m.split(",").forEach(t=>n(this,null,function*(){const s=new _(r+"_"+t);(yield s.RetrieveFromDBSources())==0&&(s.FK_Dept=r,s.FK_Emp=t,yield s.Insert())}))}})}}export{v as GPN_Emp};

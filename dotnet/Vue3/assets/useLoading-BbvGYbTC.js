@@ -1,0 +1,1 @@
+import{f as u,u as o,w as c,c as d}from"./vue-DGeTOT5N.js";function g(e){const n=u(o(e).loading);c(()=>o(e).loading,a=>{n.value=a});const t=d(()=>o(n));function i(a){n.value=a}return{getLoading:t,setLoading:i}}export{g as useLoading};

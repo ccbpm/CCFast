@@ -1,0 +1,1 @@
+import{s as e}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";function s(r){return e.get("/WF/InnerForVue/Search_Emps",{params:{keyword:r}})}export{s as searchEmps};

@@ -1,0 +1,711 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Sys_MapData>
+    <No>ND501</No>
+    <Name>Start Node</Name>
+    <FormEventEntity />
+    <EnPK />
+    <PTable>ND5Rpt</PTable>
+    <PTableModel>0</PTableModel>
+    <UrlExt />
+    <Dtls />
+    <FrmW>900</FrmW>
+    <TableCol>0</TableCol>
+    <Tag />
+    <FK_FormTree />
+    <FrmType>0</FrmType>
+    <FrmTypeText>傻瓜表单</FrmTypeText>
+    <FrmShowType>0</FrmShowType>
+    <EntityType>0</EntityType>
+    <EntityTypeText>独立表单</EntityTypeText>
+    <IsEnableJs>0</IsEnableJs>
+    <AppType>0</AppType>
+    <DBSrc>local</DBSrc>
+    <BodyAttr />
+    <Note />
+    <Designer />
+    <DesignerUnit />
+    <DesignerContact />
+    <Idx>100</Idx>
+    <GUID />
+    <Ver>1</Ver>
+    <Icon />
+    <FlowCtrls />
+    <AtPara>@MapDtls_AutoNum=0@Ver=1@FrmRBs_AutoNum=0@MapFrames_AutoNum=0@FrmAttachments_AutoNum=0@FrmImgAths_AutoNum=0</AtPara>
+    <OrgNo />
+    <FrmRBs_AutoNum>0</FrmRBs_AutoNum>
+    <MapDtls_AutoNum>0</MapDtls_AutoNum>
+    <FrmAttachments_AutoNum>0</FrmAttachments_AutoNum>
+    <MapFrames_AutoNum>0</MapFrames_AutoNum>
+    <FrmImgAths_AutoNum>0</FrmImgAths_AutoNum>
+  </Sys_MapData>
+  <Sys_GroupField>
+    <OID>176</OID>
+    <Lab>基础信息</Lab>
+    <FrmID>ND501</FrmID>
+    <CtrlType />
+    <CtrlID />
+    <IsZDMobile>0</IsZDMobile>
+    <ShowType>0</ShowType>
+    <ShowTypeText>显示</ShowTypeText>
+    <Idx>1</Idx>
+    <GUID />
+    <AtPara />
+  </Sys_GroupField>
+  <Sys_MapAttr>
+    <MyPK>ND501_AtPara</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>AtPara</KeyOfEn>
+    <Name>参数</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>4000</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>-100</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_DaKuaiShuoMing</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>DaKuaiShuoMing</KeyOfEn>
+    <Name>大块说明</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>60</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>150</UIWidth>
+    <UIHeight>170</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>0</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>13</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_Emps</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>Emps</KeyOfEn>
+    <Name>Emps</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>8000</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>5</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_FID</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>FID</KeyOfEn>
+    <Name>FID</Name>
+    <DefVal>0</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>2</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_FK_Dept</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>FK_Dept</KeyOfEn>
+    <Name>操作员部门</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>6</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_FK_DeptName</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>FK_DeptName</KeyOfEn>
+    <Name>操作员部门名称</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>7</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_FK_NY</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>FK_NY</KeyOfEn>
+    <Name>年月</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>7</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>9</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_OID</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>OID</KeyOfEn>
+    <Name>WorkID</Name>
+    <DefVal>0</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>2</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>1</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_RDT</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>RDT</KeyOfEn>
+    <Name>接受时间</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>40</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag>1</Tag>
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>3</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_Rec</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>Rec</KeyOfEn>
+    <Name>完成时间</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>40</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag>1</Tag>
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>4</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_SQDept</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>SQDept</KeyOfEn>
+    <Name>申请人部门</Name>
+    <DefVal>@WebUser.FK_DeptName</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>3</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>12</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_SQR</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>SQR</KeyOfEn>
+    <Name>申请人</Name>
+    <DefVal>@WebUser.Name</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>10</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_SQRQ</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>SQRQ</KeyOfEn>
+    <Name>申请日期</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>11</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND501_Title</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <KeyOfEn>Title</KeyOfEn>
+    <Name>标题</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>200</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>176</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>8</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+  </Sys_MapAttr>
+  <Sys_MapExt>
+    <MyPK>HtmlText_ND501_DaKuaiShuoMing</MyPK>
+    <FK_MapData>ND501</FK_MapData>
+    <ExtModel />
+    <ExtType>HtmlText</ExtType>
+    <DoWay />
+    <AttrOfOper>DaKuaiShuoMing</AttrOfOper>
+    <AttrsOfActive />
+    <Doc />
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tag4 />
+    <Tag5 />
+    <H>500</H>
+    <W>400</W>
+    <DBType>0</DBType>
+    <FK_DBSrc>local</FK_DBSrc>
+    <PRI>0</PRI>
+    <AtPara />
+    <HtmlText>&lt;p&gt;设计&lt;/p&gt;
+&lt;p&gt;备注&lt;/p&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;p&gt;&lt;img src="../../../../DataUser/UploadFile/ND501/0/b589.jpg" /&gt;&lt;/p&gt;</HtmlText>
+  </Sys_MapExt>
+</NewDataSet>

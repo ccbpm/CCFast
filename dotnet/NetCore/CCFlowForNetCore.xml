@@ -1,0 +1,1377 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CCFlow.NetCore</name>
+    </assembly>
+    <members>
+        <member name="T:BP.WF.APIDemo.Dev2InterfaceRestfulAPI">
+            <summary>
+            该类是对 APIController 的封装.
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Login(System.String,System.String)">
+            <summary>
+            系统登录
+            </summary>
+            <param name="privateKey">密钥,默认:DiGuaDiGua,IamCCBPM,存储在:web.config的 PrivateKey 节点里.</param>
+            <param name="userNo">登录账号: 如果是SAAS模式，则使用短号即可，比如001.</param>
+            <param name="orgNo">组织编号:对集团，SAAS版有效.</param>
+            <returns>人员信息</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_LoginOut(System.String)">
+            <summary>
+            登出
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Emp_Save(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存用户数据, 如果有此数据则修改，无此数据则增加.
+            注意: 
+            1. 该方法允许多次调用.
+            2  比如一个人一个部门的时候，就调用一次即可,传入部门编号, 与该部门下的岗位编号集合001,003,004.
+            3  比如一个人n个部门的时候，就调用n次,传入部门编号, 与该部门下的岗位编号集合001,002,003.
+            </summary>
+            <param name="orgNo">组织编号</param>
+            <param name="userNo">用户编号,如果是saas版本就是orgNo_userID</param>
+            <param name="userName">用户名称</param>
+            <param name="deptNo">部门编号</param>
+            <param name="kvs">属性值，比如: @Name=张三@Tel=18778882345@Pass=123, 如果是saas模式：就必须有@UserID=xxxx </param>
+            <param name="stats">角色编号：比如:001,002,003,</param>
+            <returns>执行信息.</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Emp_Delete(System.String,System.String)">
+            <summary>
+            人员删除
+            </summary>
+            <param name="token">Token</param>
+            <param name="userNo">人员编号</param>
+            <returns>reutrn 1=成功,  其他的标识异常.</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Emp_DeleteOneDept(System.String,System.String,System.String,System.String)">
+            <summary>
+            删除兼职部门
+            </summary>
+            <param name="token"></param>
+            <param name="orgNo">组织编号:对于saas模式有效</param>
+            <param name="userNo">用户编号</param>
+            <param name="deptNo">删除的兼职部门编号，在该部门下的角色也被删除</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_StationType_Save(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            角色类型保存
+            </summary>
+            <param name="token">token</param>
+            <param name="orgNo">组织编号：对集团版、SAAS版有效.</param>
+            <param name="no">编号</param>
+            <param name="name">名称</param>
+            <param name="keyVals">属性值，可以为空.</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_StationType_Delete(System.String,System.String,System.String)">
+            <summary>
+            角色类型删除
+            </summary>
+            <param name="token">token</param>
+            <param name="orgNo">组织编号：对集团版、SAAS版有效.</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Station_Save(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存岗位, 如果有此数据则修改，无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">岗位编号</param>
+            <param name="name">岗位名称</param>
+            <param name="stationTypeNo">岗位类型编号</param>
+            <param name="keyVals">其他值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Station_Delete(System.String,System.String)">
+            <summary>
+            岗位删除
+            </summary>
+            <param name="token">Token</param>
+            <param name="no">删除指定的岗位编号</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Dept_Save(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存部门,如果有此数据则修改,无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">部门编号</param>
+            <param name="name">名称</param>
+            <param name="parentNo">父节点编号</param>
+            <param name="keyVals">其他的值:@Leaer=zhangsan@Tel=18660153393@Idx=1</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Port_Dept_Delete(System.String,System.String)">
+            <summary>
+            删除部门
+            </summary>
+            <param name="token">Token</param>
+            <param name="no">要删除的部门编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_CreateBlankWorkID(System.String,System.String)">
+            <summary>
+            创建WorkID
+            </summary>
+            <param name="token">密钥</param>
+            <param name="flowNo">流程编号</param>
+            <returns>流程实例int64类型的workid</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_SetDraft(System.String,System.Int64)">
+            <summary>
+            设置草稿
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">流程实例ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_SaveParas(System.String,System.Int64,System.String)">
+            <summary>
+            保存参数到WF_GenerWorkFlow,用于方向条件的判断
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作ID</param>
+            <param name="paras">要保存的参数，用于控制流程转向等的参数变量，注意:数据并没有保存到表单, 格式： @Key1=Val2@Key2=Val2 </param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_SaveWork(System.String,System.Int64,System.String,System.String,System.String)">
+            <summary>
+            保存节点表单数据
+            </summary>
+            <param name="token"></param>
+            <param name="workID">工作id</param>
+            <param name="keyVals">要保存的主表数据，格式： @Key1=Val2@Key2=Val2  @Em=zhangsan@ccflow.org@Tel=18660153393 </param>
+            <param name="dtlJSON">从表数据,格式： 多个从表的表名按照与从表控件的ID对应，字段与控件的字段对应。 </param>
+            <param name="athJSON">附件数据,格式： 多个附件: 格式 FileName, FileUrl。一定是 FileName 在前，FileUrl 在后。
+            格式： {'Ath1':[{'FileName':'我的附件1.doc','FileUrl':'http://localst:9003:/xxx.docx'},{'FileName':'我的附件2.doc','FileUrl':'http://localst:9003:/xxx.docx'}]} </param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_SendWork(System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <summary>
+            发送接口
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="toNodeIDStr">到达的下一个节点:默认为0,可以是节点Mark,该标记在节点属性里维护. 0则是按设计器设置的方向条件计算.</param>
+            <param name="toEmps">下一个节点的接收人:多人用逗号分开比如:zhangsan,lisi. 如果为空按设置的接受人规则计算.</param>
+            <param name="paras">流程参数:用于控制节点方向或者接收人.数据保存到WF_GenerWorkFlow,用与参数条件,格式: @key1=val1@Key2=Val2</param>
+            <param name="checkNote">审核意见:需要启用了审核组件，就需要填写审核意见,否则不让发送。</param>
+            <returns>执行结果,可以直接提示给用户.</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_ReturnWork(System.String,System.Int64,System.Int32,System.String,System.String,System.Boolean)">
+            <summary>
+            当前节点执行退回操作
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="returnToNodeIDStr">退回到的节点,可以是节点的Mark, 如果为空，就是退回上一个节点.</param>
+            <param name="returnToEmp">退回到的接收人</param>
+            <param name="msg">退回原因</param>
+            <param name="isBackToThisNode">是否原路返回到当前节点</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_DoUnSend(System.String,System.String)" -->
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_DoPress(System.String,System.String,System.String)">
+            <summary>
+            催办
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs">工作实例的WorkID集合</param>
+            <param name="msg">催办信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_SetTitle(System.String,System.Int64,System.String)">
+            <summary>
+            设置标题
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_SetParentInfo(System.String,System.String,System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            设置父流程信息 
+            </summary>
+            <param name="subFlowNo">子流程编号</param>
+            <param name="subFlowWorkID">子流程workid</param>
+            <param name="parentWorkID">父流程WorkID</param>
+            <param name="isCopyData">是否要copy父流程的数据</param>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_Shift(System.String,System.Int64,System.String,System.String)">
+            <summary>
+            把当前工作移交给指定的人员
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">流程workid</param>
+            <param name="toEmpNo">移交给的人员账号</param>
+            <param name="msg">移交信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_AddTodolist(System.String,System.Int64,System.String)">
+            <summary>
+            给当前的工作增加处理人
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">流程workid</param>
+            <param name="empNo">增加人员的账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Flow_DoFlowOver(System.String,System.String,System.Int32)">
+            <summary>
+            批量结束流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs">流程实例ID集合，以逗号分开</param>
+            <param name="stopFlowType">结束类型,写入到WF_GenerWorkFlow， AtPara字段 1=正常结束,0=非正常结束</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Batch_Delete(System.String,System.String)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workids">流程workid集合，以逗号分隔</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.Node_CC_WriteTo_CClist(System.String,System.Int32,System.Int64,System.String,System.String,System.String,System.String)">
+            <summary>
+            执行抄送
+            </summary>
+            <param name="token">token</param>
+            <param name="fk_node">抄送的节点ID</param>
+            <param name="workID">工作ID</param>
+            <param name="toEmpNo">抄送人员编号</param>
+            <param name="toEmpName">抄送人员人员名称</param>
+            <param name="msgTitle">标题</param>
+            <param name="msgDoc">内容</param>
+            <returns>执行信息</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_Start(System.String,System.String)" -->
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_Todolist(System.String,System.String)">
+            <summary>
+            待办
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_TodolistByIsRead(System.String,System.String,System.String)">
+            <summary>
+            待办(待阅/已阅)
+            </summary>
+            <param name="token"></param>
+            <param name="isRead">0=待阅，1=已阅</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_Runing(System.String,System.String)">
+            <summary>
+            在途
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_Draft(System.String,System.String)">
+            <summary>
+            草稿
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_CCListByIsRead(System.String,System.String)">
+            <summary>
+            根据已读未读参数获取抄送列表数据
+            </summary>
+            <param name="token">Token</param>
+            <param name="isRead">是否已读，0=未读，1=已读</param>
+            <returns></returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.Dev2InterfaceRestfulAPI.DB_CCList(System.String,System.String,System.String)">
+            <summary>
+            抄送列表
+            </summary>
+            <param name="token">token</param>
+            <param name="domain">流程所属的域, 可以为空</param>
+            <param name="flowNo">指定的流程，可以为空.</param>
+            <returns>抄送列表</returns>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Organization_Single_API">
+            <summary>
+            单组织:组织结构数据数据同步API.
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Organization_Group_API">
+            <summary>
+            集团组织:组织结构数据数据同步API.
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Demo0_MenuDBApi">
+            <summary>
+            菜单api: 获得发起、待办、在途、抄送等菜单
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Demo1_StartSimpleWorkFlow">
+            <summary>
+            创建一个简单的流程实例: 发起、发送、撤销、催办、抄送、移交、退回等基础操作.
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Demo2_StartSimpleAddFormData">
+            <summary>
+            创建一个简单的流程实例: 为开始节点表单保存数据.
+            主表数据、从表数据、附件数据
+            </summary>
+        </member>
+        <member name="M:BP.WF.APIDemo.HelloWorld.Demo3_StartSimpleSetParentFlow">
+            <summary>
+            启动一个流程，设置父子流程关系.
+            </summary>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Return_Info(System.Int32,System.String,System.String)">
+            <summary>
+            返回信息格式
+            </summary>
+            <param name="code">200=成功，500=异常</param>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Change(System.String,System.String,System.String)">
+            <summary>
+            切换部门-角色
+            </summary>
+            <param name="token">密钥</param>
+            <param name="deptNo">部门编号</param>
+            <param name="staNo">角色编号,可以为空.</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Login(System.String,System.String,System.String)">
+            <summary>
+            系统登陆
+            </summary>
+            <param name="privateKey">密钥,默认:DiGuaDiGua,IamCCBPM</param>
+            <param name="userNo">登陆账号</param>
+            <param name="orgNo">组织编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_LoginOut(System.String,System.String)">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Emp_Save(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            人员信息保存
+            </summary>
+            <param name="token">密钥</param>
+            <param name="orgNo"></param>
+            <param name="userNo"></param>
+            <param name="userName"></param>
+            <param name="deptNo"></param>
+            <param name="kvs"></param>
+            <param name="stats"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Emp_Delete(System.String,System.String,System.String)">
+            <summary>
+            人员删除
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="userNo">人员编号</param>
+            <returns>reutrn 1=成功,  其他的标识异常.</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Org_Save(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <returns>return 1 增加成功，其他的增加失败.</returns>
+            <summary>
+            集团模式下同步组织以及管理员信息
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="name">组织名称</param>
+            <param name="adminer">管理员账号</param>
+            <param name="adminerName">管理员名字</param>
+            <param name="keyVals">其他的值:@Leaer=zhangsan@Tel=12233333@Idx=1</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Dept_Save(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存部门,如果有此数据则修改,无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="no">部门编号</param>
+            <param name="name">名称</param>
+            <param name="parentNo">父节点编号</param>
+            <param name="orgNo">组织编号</param>
+            <param name="keyVals">其他的值:@Leaer=zhangsan@Tel=18660153393@Idx=1</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Dept_Delete(System.String,System.String)">
+            <summary>
+            删除部门
+            </summary>
+            <param name="token">Token</param>
+            <param name="no">要删除的部门编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Station_Save(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存岗位, 如果有此数据则修改，无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">岗位编号</param>
+            <param name="name">岗位名称</param>
+            <param name="stationTypeNo">岗位类型编号</param>
+            <param name="keyVals">其他值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Station_Delete(System.String,System.String)">
+            <summary>
+            删除岗位.
+            </summary>
+            <param name="no">删除指定的岗位编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Team_Save(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存用户组, 如果有此数据则修改，无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">用户组编号</param>
+            <param name="name">用户组名称</param>
+            <param name="keyVals">其他值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_Team_Delete(System.String,System.String)">
+            <summary>
+            删除用户组.
+            </summary>
+            <param name="no">删除指定的用户组编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_TeamType_Save(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存用户组, 如果有此数据则修改，无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">用户组编号</param>
+            <param name="name">用户组名称</param>
+            <param name="keyVals">其他值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_TeamType_Delete(System.String,System.String)">
+            <summary>
+            删除用户组.
+            </summary>
+            <param name="no">删除指定的用户组编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_StationType_Save(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存岗位类型, 如果有此数据则修改，无此数据则增加.
+            </summary>
+            <param name="token">Token</param>
+            <param name="orgNo">组织编号</param>
+            <param name="no">岗位类型编号</param>
+            <param name="name">岗位类型名称</param>
+            <param name="keyVals">其他值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_StationType_Delete(System.String,System.String)">
+            <summary>
+            删除岗位类型.
+            </summary>
+            <param name="no">删除指定的岗位类型编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_Start(System.String,System.String)">
+            <summary>
+            可以发起的流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain">流程所属的域</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_AllFlows(System.String)">
+            <summary>
+            所有流程
+            </summary>
+            <param name="token">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_Todolist(System.String,System.String)">
+            <summary>
+            待办
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_TodolistByIsRead(System.String,System.String,System.String)">
+            <summary>
+            待办(待阅/已阅)
+            </summary>
+            <param name="token"></param>
+            <param name="isRead">0=待阅，1=已阅</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_Runing(System.String,System.String)">
+            <summary>
+            在途
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_Draft(System.String,System.String)">
+            <summary>
+            草稿
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_CCList(System.String,System.String,System.String)">
+            <summary>
+            可以发起的流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="domain">流程所属的域, 可以为空</param>
+            <param name="flowNo">指定的流程，可以为空.</param>
+            <returns>抄送列表</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.GenerFrmUrl(System.String,System.Int64,System.String,System.Int32)">
+            <summary>
+            打开的表单
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="flowNo">流程编号</param>
+            <param name="nodeID">节点ID</param>
+            <param name="fid">父WorkID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_CreateBlankWorkID(System.String,System.String)">
+            <summary>
+            创建WorkID
+            </summary>
+            <param name="token">密钥</param>
+            <param name="flowNo">流程编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_WorkInfo(System.String,System.Int64)">
+            <summary>
+            获得流程的信息
+            </summary>
+            <param name="token">验证码</param>
+            <param name="workID">实例ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.WorkTrack(System.String,System.Int64)">
+            <summary>
+            根据WorkID获得流程轨迹.
+            </summary>
+            <param name="token"></param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_NodesMark(System.String,System.String)">
+            <summary>
+            获得流程下节点的标记.
+            </summary>
+            <param name="token"></param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_NodeMark(System.String,System.Int32)">
+            <summary>
+            获得1个节点的标记.
+            </summary>
+            <param name="token"></param>
+            <param name="nodeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_IsCanDealWork(System.String,System.Int64)">
+            <summary>
+            是否可以处理当前的工作
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_SetDraft(System.String,System.Int64)">
+            <summary>
+            设置草稿
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">流程实例ID</param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_HuiQian_Delete(System.String,System.Int64,System.String)">
+            <summary>
+            删除指定的会签人
+            </summary>
+            <param name="token"></param>
+            <param name="workid">流程实例WorkID</param>
+            <param name="empNo">人员编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_HuiQian_AddEmps(System.String,System.Int64,System.String)">
+            <summary>
+            会签：增加会签人
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workid"></param>
+            <param name="empNos">人员编号:001,002</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_HuiQianDone(System.String,System.Int64,System.String)">
+            <summary>
+            会签：执行发送.
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workid"></param>
+            <param name="toNodeID">到达的节点ID, 也可以是节点Mark.</param>
+            <returns>执行的结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_Shift(System.String,System.Int64,System.String,System.String)">
+            <summary>
+            把当前工作移交给指定的人员
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <param name="toEmpNo"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_AddTodolist(System.String,System.Int64,System.String)">
+            <summary>
+            给当前的工作增加处理人
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <param name="empNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_GenerWorkFlow(System.String,System.Int64)">
+            <summary>
+            根据ID获取当前的流程实例信息
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_SaveParas(System.String,System.Int64,System.String)">
+            <summary>
+            保存参数到WF_GenerWorkFlow,用于方向条件的判断
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作ID</param>
+            <param name="paras">要保存的参数，用于控制流程转向等的参数变量，注意:数据并没有保存到表单, 格式： @Key1=Val2@Key2=Val2 </param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_SaveWork(System.String,System.Int64,System.String,System.String,System.String)">
+            <summary>
+            保存节点表单数据
+            </summary>
+            <param name="token"></param>
+            <param name="workID">工作id</param>
+            <param name="keyVals">要保存的主表数据，格式： @Key1=Val2@Key2=Val2  @Em=zhangsan@ccflow.org@Tel=18660153393 </param>
+            <param name="dtlJSON">从表数据,格式： 多个从表的表名按照与从表控件的ID对应，字段与控件的字段对应。 </param>
+            <param name="athJSON">附件数据,格式： 多个附件: 格式 FileName, FileUrl。一定是 FileName 在前，FileUrl 在后。
+            格式： {'Ath1':[{'FileName':'我的附件1.doc','FileUrl':'http://localst:9003:/xxx.docx'},{'FileName':'我的附件2.doc','FileUrl':'http://localst:9003:/xxx.docx'}]} </param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_SetTitle(System.String,System.Int64,System.String)">
+            <summary>
+            设置标题
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID"></param>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_SendWork_ReJSON(System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <summary>
+            发送接口
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="toNodeIDStr">到达的下一个节点,默认为0,可以是节点Mark. </param>
+            <param name="toEmps">下一个节点的接收人，多个人用逗号分开比如:zhangsan,lisi</param>
+            <param name="paras">参数，保存到WF_GenerWorkFlow,用与参数条件,格式: @key1=val1@Key2=Val2</param>
+            <param name="checkNote">审核意见:启用了审核组件，就需要填写审核意见,负责不让发送。</param>
+            <returns>执行结果,可以直接提示给用户.</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_SendWork(System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <param name="workID"></param>
+            <param name="toNodeIDStr"></param>
+            <param name="toEmps"></param>
+            <param name="paras"></param>
+            <param name="checkNote"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_GenerWorkFlow(System.String,System.String)">
+            <summary>
+            根据流程编号获取流程实例
+            </summary>
+            <param name="token">密钥</param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DB_GenerWillReturnNodes(System.String,System.Int32,System.Int64)">
+            <summary>
+            获取当前节点可以退回到的节点集合
+            </summary>
+            <param name="token">密钥</param>
+            <param name="nodeID">节点ID</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="fid">父WorkID</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.DealNodeIDStr(System.String,System.String)">
+            <summary>
+            根据节点标记获取节点ID
+            </summary>
+            <param name="nodeIDStr">节点标记</param>
+            <param name="flowNo">流程编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Node_ReturnWork(System.String,System.Int64,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            当前节点执行退回操作
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">工作实例WorkID</param>
+            <param name="returnToNodeIDStr">退回到的节点,可以是节点的Mark</param>
+            <param name="returnToEmp">退回到的接收人</param>
+            <param name="msg">退回原因</param>
+            <param name="isBackToThisNode">是否原路返回到当前节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_DoPress(System.String,System.String,System.String)">
+            <summary>
+            催办
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs">工作实例的WorkID集合</param>
+            <param name="msg">催办信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.CC_BatchCheckOver(System.String,System.String)">
+            <summary>
+            批量审核
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_ReSetFlowTitle(System.String,System.Int64)">
+            <summary>
+            重新设置流程标题
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workID">重新设置流程标题</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_RecentWorkInit(System.String)">
+            <summary>
+            近期工作
+            </summary>
+            <param name="token">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_BatchDeleteByFlag(System.String,System.String)">
+            <summary>
+            批量删除流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_BatchDeleteByReal(System.String,System.String,System.Boolean)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs">工作实例WorkIDs</param>
+            <param name="isDeleteSubFlows">是否删除子流程</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_BatchDeleteByFlagAndUnDone(System.String,System.String)">
+            <summary>
+            批量恢复逻辑删除的流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_DoUnSend(System.String,System.String)">
+            <summary>
+            批量撤回
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_DeleteDraft(System.String,System.String)">
+            <summary>
+            批量删除草稿
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Flow_DoFlowOver(System.String,System.String)">
+            <summary>
+            批量结束流程
+            </summary>
+            <param name="token">密钥</param>
+            <param name="workids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Batch_Init(System.String)">
+            <summary>
+            批量处理
+            </summary>
+            <param name="token">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.En_Node(System.String,System.Int32)">
+            <summary>
+            根据NodeID获取节点信息
+            </summary>
+            <param name="token">密钥</param>
+            <param name="nodeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.En_Flow(System.String,System.String)">
+            <summary>
+            根据流程编号获取流程信息
+            </summary>
+            <param name="token">密钥</param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.WorkCheckModel_Init(System.String,System.Int32)">
+            <summary>
+            根据流程编号获取流程信息
+            </summary>
+            <param name="token">密钥</param>
+            <param name="nodeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Batch_InitDDL(System.String,System.Int32)">
+            <summary>
+            批量处理获取当前到达下一个节点的集合信息
+            </summary>
+            <param name="token"></param>
+            <param name="nodeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.WorkCheckModel_Send(System.String,System.String)">
+            <summary>
+            批量发送
+            </summary>
+            <param name="token"></param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Batch_Delete(System.String,System.String)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="token"></param>
+            <param name="workIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Search_Init(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            查询
+            </summary>
+            <param name="key">关键字</param>
+            <param name="dtFrom">日期从</param>
+            <param name="dtTo">日期到</param>
+            <param name="scop">范围</param>
+            <param name="pageIdx">分页</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Port_GenerToken(System.String)">
+            <summary>
+            根据Token值登录
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Search_Emps(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.VSTOWord_GongWen_Init(System.String,System.Int64)">
+            <summary>
+            获取信息
+            </summary>
+            <param name="token">登陆人员的信息</param>
+            <param name="workID">工作ID</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.VSTOWord_GongWen_GetFile(System.String,System.Int64)">
+            <summary>
+            获得文件
+            </summary>
+            <param name="token"></param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_CreateBlankBillID(System.String,System.String)">
+            <summary>
+            创建单据ID
+            </summary>
+            <param name="token">token</param>
+            <param name="frmID">单据ID</param>
+            <returns>int类型的 64位的不重复的数值，并且与流程WorkID不重复，用它可以做主键，手工的或者使用接口的模式向单据初始化数据.</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_SaveAsDraft(System.String,System.Int64)">
+            <summary>
+            设置草稿: 把单据设置为草稿,在创建单据实例的时候,就是一个新的workid了
+            </summary>
+            <param name="token">token</param>
+            <param name="workID">实例ID</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_Save(System.String,System.Int64,System.String,System.String,System.String)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="token">token</param>
+            <param name="workID">单据实例ID</param>
+            <param name="bodyData">主表数据(可为空)格式:@Key1=Val1@Key2=Val2 比如: @Tel=18660153393@Addr=山东济南高新区碧桂园</param>
+            <param name="dtlsJSON">从表数据(可为空)格式Demo: "{'ND601CheLiangXinXi':[{'ChePaiHao':'黑A888C','CheLiangLeiXing':'轿车'}],'ND601RenYuanXinXi':[{'XingMing':'张三','JiGuan':'山东','XueLi':'本科'},{'XingMing':'李四','JiGuan':'北京','XueLi':'硕士'}]}"
+             ND601CheLiangXinXi: 从表的ID. 其他的按照顺序与字段对应.
+            </param>
+            <param name="athsJSON">附件数据: 格式Demo:"{'FuJian1':[{'FileName':'wx01.png','FileUrl':'http://ccflow.org/image/wx01.png'},{'FileName':'wx02.png','FileUrl':'http://ccflow.org/image/wx02.png'}],'FuJian2':[{'FileName':'ccbpm.css','FileUrl':'http://localhost:2296/DataUser/InstancePacketOfData/Template/ccbpm.css'}]}" .
+            FuJian1: 标识附件的ID.
+            </param>
+            <returns>返回执行的结果.</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_PreplaceChecker(System.String,System.Int64,System.String)">
+            <summary>
+            预置审批人：
+            1. 等开始节点的填写人提交审核的时候，系统就会按照这些预置的审批人进行启动审核。
+            2. 设置的审核人是按照顺序审批。
+            3. 当前单据的审批模式必须是按照外部的程序调用模式。
+            </summary>
+            <param name="token">token</param>
+            <param name="workID">单据实例的ID</param>
+            <param name="checkEmpNos">要预置的审核人员，比如:zhangsan,lisi,wangwu 多个人员用逗号分开.</param>
+            <returns>返回执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_SubmitWork(System.String,System.Int64)">
+            <summary>
+            提交单据：由编辑状态转为归档状态,归档后表单只读.
+            </summary>
+            <param name="token"></param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_UnSubmitWork(System.String,System.Int64)">
+            <summary>
+            撤销提交: 由单据的归档状态转变为可编辑.
+            </summary>
+            <param name="token">token</param>
+            <param name="workID">单据实例</param>
+            <returns>执行结果，撤销成功或者撤销失败.</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.APIController.Bill_CheckerInit(System.String,System.Int64,System.String)">
+            <summary>
+            初始化单据的审核人
+            1. 如果单据需要审批，审批之前需要初始化审批人.
+            2. 执行后，该单据的状态转化为审批中.
+            </summary>
+            <param name="token">token</param>
+            <param name="workID">工作ID</param>
+            <param name="empNosOfChecker">可以审批的人员,格式:zhangsan,lisi,wangwu</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.CCFromAPI.Return_Info(System.Int32,System.String,System.String)">
+            <summary>
+            返回信息格式
+            </summary>
+            <param name="code">200=成功，500=异常</param>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.CCFromAPI.Port_Change(System.String,System.String,System.String)">
+            <summary>
+            切换部门-角色
+            </summary>
+            <param name="token">密钥</param>
+            <param name="deptNo">部门编号</param>
+            <param name="staNo">角色编号,可以为空.</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.CCFromAPI.Port_Login(System.String,System.String,System.String)">
+            <summary>
+            系统登陆
+            </summary>
+            <param name="privateKey">密钥,默认:DiGuaDiGua,IamCCBPM</param>
+            <param name="userNo">登陆账号</param>
+            <param name="orgNo">组织编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.CCFromAPI.Port_LoginOut(System.String,System.String)">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.CCFromAPI.Port_GenerToken(System.String)">
+            <summary>
+            根据Token值登录
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="F:CCFlow.NetCore.DataUser.API.Controllers.DemoController.DBFile">
+            <summary>
+            office插件和wps插件编辑文件相关接口
+            </summary>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.DemoController.Return_Info(System.Int32,System.String,System.Object)">
+            <summary>
+            返回信息格式:此数据格式可以根据自己的需要来定义.
+            </summary>
+            <param name="code">代码:200=成功，500=失败.</param>
+            <param name="msg">消息:错误的信息.</param>
+            <param name="data">数据:相关的json格式的数据.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.DemoController.GetVstoExtensionVersion">
+            <summary>
+            获取VSTO插件版本号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.DemoController.Port_Emps(System.String)">
+            <summary>
+            获得人员
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.DemoController.Port_Depts">
+            <summary>
+            获得部门
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.DemoController.Demo_Produces">
+            <summary>
+            执行过程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.InnerForVueController.Return_Info(System.Int32,System.String,System.Object)">
+            <summary>
+            返回信息格式:此数据格式可以根据自己的需要来定义.
+            </summary>
+            <param name="code">代码:200=成功，500=失败.</param>
+            <param name="msg">消息:错误的信息.</param>
+            <param name="data">数据:相关的json格式的数据.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.KeLunController.Return_Info(System.Int32,System.String,System.Object)">
+            <summary>
+            返回信息格式:此数据格式可以根据自己的需要来定义.
+            </summary>
+            <param name="code">代码:200=成功，500=失败.</param>
+            <param name="msg">消息:错误的信息.</param>
+            <param name="data">数据:相关的json格式的数据.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.KeLunController.InitGPMForKeLunVue">
+            <summary>
+            低代码初始化菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.DBFile">
+            <summary>
+            office插件和wps插件编辑文件相关接口
+            </summary>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.Return_Info(System.Int32,System.String,System.Object)">
+            <summary>
+            返回信息格式:此数据格式可以根据自己的需要来定义.
+            </summary>
+            <param name="code">代码:200=成功，500=失败.</param>
+            <param name="msg">消息:错误的信息.</param>
+            <param name="data">数据:相关的json格式的数据.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GetVstoExtensionVersion">
+            <summary>
+            获取VSTO插件版本号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerTemplateFile(System.String,System.String)">
+            <summary>
+            获得Excel文件
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerExcelFile(System.String,System.String,System.String)">
+            <summary>
+            获得Excel文件
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <param name="pkValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.SaveExcelFileMainTable(System.String,System.String,System.String,System.String)">
+            <summary>
+            VSTO,执行保存Excel主表数据
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <param name="pkValue"></param>
+            <param name="mainTableAtParas"></param>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.SaveExcelFileDtls(CCFlow.NetCore.DataUser.API.Controllers.RequestData)">
+            <summary>
+            VSTO,执行保存Excel从表数据
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <param name="pkValue"></param>
+            <param name="dsJson"></param>
+            <param name="dsJsonOld"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerDBForVSTOExcelFrmModel(System.String,System.String,System.String,System.String)">
+            <summary>
+            生成vsto模式的数据
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <param name="pkValue"></param>
+            <param name="atParas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GetReportImagesData(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="workID"></param>
+            <param name="createReportType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.SaveFrmAth(System.String,System.String,System.Int32,System.Int64,System.String,System.String)">
+            <summary>
+            保存一个文件
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <param name="nodeID"></param>
+            <param name="workID"></param>
+            <param name="byt"></param>
+            <param name="guid"></param>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerFrmAttachmentByte(System.String,System.String)">
+            <summary>
+            获得附件byte
+            </summary>
+            <param name="token"></param>
+            <param name="frmAttachmentMyPk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerFrmVSTOTemplate(System.String,System.String)">
+            <summary>
+            获得VSTO表单模版
+            </summary>
+            <param name="token"></param>
+            <param name="frmID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerGongWenTrackByteWPS(System.String,System.String,System.Int32)">
+            <summary>
+            wps获得公文
+            </summary>
+            <param name="token"></param>
+            <param name="mypk"></param>
+            <param name="flowNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GetVstoCCFormWordExtensionVersion">
+            <summary>
+            获取VSTO插件版本号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.VSTOWord_GongWen_Init(System.String,System.Int64)">
+            <summary>
+            初始化公文组件
+            </summary>
+            <param name="token">登录人员的信息</param>
+            <param name="workID">工作ID</param>
+            <returns>执行结果</returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.VSTOWord_GongWen_Create(System.String,System.String,System.String)">
+            <summary>
+            创建公文
+            </summary>
+            <param name="token">Token</param>
+            <param name="workID">WorkID</param>
+            <param name="templateFileNo">模板主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerGongWenByte(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            获得公文
+            </summary>
+            <param name="token"></param>
+            <param name="workId">workid</param>
+            <param name="fkNodeId">节点id</param>
+            <param name="templateFileName">指定公文模板文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.VSTOWord_GongWen_GetDocFile(System.String,System.Int64)">
+            <summary>
+            获得doc文件
+            </summary>
+            <param name="token"></param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.VSTOWord_GongWen_GetPDFFile(System.String,System.Int64)">
+            <summary>
+            获得pdf文件
+            </summary>
+            <param name="token"></param>
+            <param name="workID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.VSTOWord_GongWen_SaveFile(System.String,System.Int64,System.Byte[])">
+            <summary>
+            保存公文
+            </summary>
+            <param name="token">Token</param>
+            <param name="workID">WorkID</param>
+            <param name="bytes">文件流</param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerGongWenByteWPS(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            wps获得公文文件流
+            </summary>
+            <param name="token"></param>
+            <param name="workId"></param>
+            <param name="fkNodeId"></param>
+            <param name="response"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.SaveGongWenWordWPS(System.String,System.Int32,System.Int32)">
+            <summary>
+            WPS上传公文
+            </summary>
+            <param name="token"></param>
+            <param name="workId"></param>
+            <param name="fkNodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.GenerFrmAttachmentByteWPS(System.String,System.String)">
+            <summary>
+            WPS获得附件字节
+            </summary>
+            <param name="token"></param>
+            <param name="frmAttachmentMyPk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.SaveFrmAttachmentWPS(System.String,System.String)">
+            <summary>
+            wps保存附件
+            </summary>
+            <param name="token"></param>
+            <param name="frmAttachmentMyPk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CCFlow.NetCore.DataUser.API.Controllers.VSTOController.Port_GenerToken(System.String)">
+            <summary>
+            根据Token值登录
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="T:CCFlow.NetCore.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CCFlow.NetCore.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CCFlow.NetCore.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
+            </summary>
+        </member>
+        <member name="M:CCFlow.CcHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{CCFlow.CcHandlerMiddleware})">
+            <summary>
+            构造方法。
+            注：参数都是注入的。
+            </summary>
+            <param name="next"></param>
+            <param name="optionsAccessor"></param>
+            <param name="dataProtectionProvider"></param>
+            <remarks>2019-7-29 zl</remarks>
+        </member>
+        <member name="M:CCFlow.CcHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the logic of the middleware.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> that completes when the middleware has completed processing.</returns>
+        </member>
+        <member name="M:CCFlow.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置服务将服务注册到依赖注入容器中。
+            在Configure()之前执行。
+            </summary>
+        </member>
+        <member name="M:CCFlow.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            定义应用程序如何响应HTTP请求，以及配置HTTP流水线中的中间件
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="OnWPSWorkTabLoad" >
+  <ribbon startFromScratch="false">
+    <tabs>
+      <tab id="WPSWorkExtTab" label="OA辅助" getVisible="OnGetVisible">	<!-- OA菜单开启显隐处理-->
+        <group id="OAEntryGroup" label="OA常用功能">
+          <button id="btnSaveToServer" label="保存到OA" onAction="OnAction" 
+              getEnabled="OnGetEnabled" getImage="GetImage" size="large"/>
+          <button id="btnSaveAsFile" label="保存本地" getLabel="OnGetLabel"  onAction="OnAction"  
+              getEnabled="OnGetEnabled" getVisible="OnGetVisible" getImage="GetImage" size="large" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

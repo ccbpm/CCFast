@@ -1,0 +1,1 @@
+import{useDesignerStore as r}from"./form-Bg9E1Us6.js";import{c as e}from"./vue-BXIlYw1E.js";const o=r(),m=e(()=>({"--cus-form-label-text-color":o.globalFormConfig.labelTextColor,"--cus-form-label-background-color":o.globalFormConfig.labelBgColor}));export{m as default};

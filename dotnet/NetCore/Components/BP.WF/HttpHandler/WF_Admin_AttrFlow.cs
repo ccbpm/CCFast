@@ -1,0 +1,1468 @@
+﻿using System;
+using System.Collections;
+using System.Data;
+using BP.Sys;
+using BP.DA;
+using BP.WF.Template;
+using BP.Difference;
+using System.Web;
+using System.IO;
+using BP.Web;
+using System.Linq.Expressions;
+using iTextSharp.text.pdf;
+
+namespace BP.WF.HttpHandler
+{
+    public class WF_Admin_AttrFlow : DirectoryPageBase
+    {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public WF_Admin_AttrFlow()
+        {
+        }
+        #region 修改轨迹.
+        #endregion 修改轨迹.
+
+
+        #region 修改轨迹.
+        public string EditTrackDtl_Init()
+        {
+            Track tk = new Track(this.FlowNo, this.MyPK);
+            return tk.Msg;
+        }
+        public string EditTrackDtl_Save()
+        {
+            string msg = this.GetRequestVal("Msg");
+            string tackTable = "ND" + int.Parse(this.FlowNo) + "Track";
+            string sql = "UPDATE " + tackTable + " SET Msg='" + msg + "' WHERE MyPK='" + this.MyPK + "'";
+            DBAccess.RunSQL(sql);
+            return "修改成功";
+        }
+        public string EditTrackDtl_Delete()
+        {
+            string tackTable = "ND" + int.Parse(this.FlowNo) + "Track";
+            string sql = "DELETE FROM  " + tackTable + " WHERE MyPK='" + this.MyPK + "'";
+            DBAccess.RunSQL(sql);
+            return "删除成功.";
+        }
+        #endregion
+
+
+        #region APICodeFEE_Init.
+        /// <summary>
+        /// 代码生成器.
+        /// </summary>
+        /// <returns></returns>
+        public string APICodeFEE_Init()
+        {
+            if (DataType.IsNullOrEmpty(this.FlowNo))
+                return "err@FK_Flow参数不能为空！";
+
+            Flow flow = new Flow(this.FlowNo);
+
+            string tmpPath = "";
+
+            if (BP.WF.Glo.Platform == Platform.CCFlow)
+                tmpPath = BP.Difference.SystemConfig.PathOfWebApp + @"WF/Admin/AttrFlow/APICodeFEE.txt.CCFlow";
+            else
+                tmpPath = BP.Difference.SystemConfig.PathOfWebApp + @"WF/Admin/AttrFlow/APICodeFEE.txt.JFlow";
+
+            if (System.IO.File.Exists(tmpPath) == false)
+                return string.Format(@"未找到事件编写模板文件“{0}”，请联系管理员！", tmpPath);
+
+            string Title = flow.Name + "[" + flow.No + "]";
+            string code = DataType.ReadTextFile(tmpPath); //, System.Text.Encoding.UTF8).Replace("F001Templepte", string.Format("FEE{0}", flow.No)).Replace("@FlowName", flow.Name).Replace("@FlowNo", flow.No);
+            code = code.Replace("F001Templepte", string.Format("FEE{0}", flow.No)).Replace("@FlowName", flow.Name).Replace("@FlowNo", flow.No);
+
+
+            //此处将重要行标示出来，根据下面的数组中的项来检索重要行号
+            string[] lineStrings = new[]
+                                       {
+                                           "namespace BP.FlowEvent",
+                                           ": BP.WF.FlowEventBase",
+                                           "public override string FlowMark",
+                                           "public override string SendWhen()",
+                                           "public override string SendSuccess()",
+                                           "public override string SendError()",
+                                           "public override string FlowOnCreateWorkID()",
+                                           "public override string FlowOverBefore()",
+                                           "public override string FlowOverAfter()",
+                                           "public override string BeforeFlowDel()",
+                                           "public override string AfterFlowDel()",
+                                           "public override string SaveAfter()",
+                                           "public override string SaveBefore()",
+                                           "public override string UndoneBefore()",
+                                           "public override string UndoneAfter()",
+                                           "public override string ReturnBefore()",
+                                           "public override string ReturnAfter()",
+                                           "public override string AskerAfter()",
+                                           "public override string AskerReAfter()"
+                                       };
+
+
+
+            string msg = "<script type=\"text/javascript\">SyntaxHighlighter.highlight();</script>";
+            msg += string.Format("<pre type=\"syntaxhighlighter\" class=\"brush: csharp; html-script: false; highlight: [{2}]\" title=\"{0}[编号：{1}] 流程自定义事件代码生成\">", flow.Name, flow.No, APICodeFEE_Init_GetImportantLinesNumbers(lineStrings, code));
+            msg += code.Replace("<", "&lt;");    //SyntaxHighlighter中，使用<Pre>包含的代码要将左尖括号改成其转义形式
+            msg += "</pre>";
+
+            return msg;
+        }
+        /// <summary>
+        /// 获取重要行的标号连接字符串，如3,6,8
+        /// </summary>
+        /// <param name="lineInStrings">重要行中包含的字符串数组，只要行中包含其中的一项字符串，则这行就是重要行</param>
+        /// <param name="str">要检索的字符串，使用Environment.NewLine分行</param>
+        /// <returns></returns>
+        private string APICodeFEE_Init_GetImportantLinesNumbers(string[] lineInStrings, string str)
+        {
+            string[] lines = str.Replace(Environment.NewLine, "`").Split('`');
+            string nums = string.Empty;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                foreach (string instr in lineInStrings)
+                {
+                    if (lines[i].IndexOf(instr) != -1)
+                    {
+                        nums += (i + 1) + ",";
+                        break;
+                    }
+                }
+            }
+
+            return nums.TrimEnd(',');
+        }
+        #endregion APICodeFEE_Init.
+
+        #region 节点属性（列表）的操作
+        /// <summary>
+        /// 初始化节点属性列表.
+        /// </summary>
+        /// <returns></returns>
+        public string NodeAttrs_Init()
+        {
+            string strFlowId = GetRequestVal("FK_Flow");
+            if (DataType.IsNullOrEmpty(strFlowId))
+            {
+                return "err@参数错误！";
+            }
+
+            Nodes nodes = new Nodes();
+            nodes.Retrieve("FK_Flow", strFlowId);
+            //因直接使用nodes.ToJson()无法获取某些字段（e.g.HisFormTypeText,原因：Node没有自己的Attr类）
+            //故此处手动创建前台所需的DataTable
+            DataTable dt = new DataTable();
+            dt.Columns.Add("NodeID");	//节点ID
+            dt.Columns.Add("Name");		//节点名称
+            dt.Columns.Add("HisFormType");		//表单方案
+            dt.Columns.Add("HisFormTypeText");
+            dt.Columns.Add("HisRunModel");		//节点类型
+            dt.Columns.Add("HisRunModelT");
+
+            dt.Columns.Add("HisDeliveryWay");	//接收方类型
+            dt.Columns.Add("HisDeliveryWayText");
+            dt.Columns.Add("HisDeliveryWayJsFnPara");
+            dt.Columns.Add("HisDeliveryWayCountLabel");
+            dt.Columns.Add("HisDeliveryWayCount");	//接收方Count
+
+            dt.Columns.Add("HisCCRole");	//抄送人
+            dt.Columns.Add("HisCCRoleText");
+            dt.Columns.Add("HisFrmEventsCount");	//消息&事件Count
+            dt.Columns.Add("HisFinishCondsCount");	//流程完成条件Count
+            DataRow dr;
+            foreach (Node node in nodes)
+            {
+                dr = dt.NewRow();
+                dr["NodeID"] = node.NodeID;
+                dr["Name"] = node.Name;
+                dr["HisFormType"] = node.HisFormType;
+                dr["HisFormTypeText"] = node.HisFormTypeText;
+                dr["HisRunModel"] = node.HisRunModel;
+                dr["HisRunModelT"] = node.HisRunModelT;
+                dr["HisDeliveryWay"] = node.HisDeliveryWay;
+                dr["HisDeliveryWayText"] = node.HisDeliveryWayText;
+
+                //接收方数量
+                int intHisDeliveryWayCount = 0;
+                if (node.HisDeliveryWay == BP.WF.DeliveryWay.ByStation)
+                {
+                    dr["HisDeliveryWayJsFnPara"] = "ByStation";
+                    dr["HisDeliveryWayCountLabel"] = "角色";
+                    BP.WF.Template.NodeStations nss = new BP.WF.Template.NodeStations();
+                    intHisDeliveryWayCount = nss.Retrieve(BP.WF.Template.NodeStationAttr.FK_Node, node.NodeID);
+                }
+                else if (node.HisDeliveryWay == BP.WF.DeliveryWay.ByDept)
+                {
+                    dr["HisDeliveryWayJsFnPara"] = "ByDept";
+                    dr["HisDeliveryWayCountLabel"] = "部门";
+                    BP.WF.Template.NodeDepts nss = new BP.WF.Template.NodeDepts();
+                    intHisDeliveryWayCount = nss.Retrieve(BP.WF.Template.NodeDeptAttr.FK_Node, node.NodeID);
+                }
+                else if (node.HisDeliveryWay == BP.WF.DeliveryWay.ByBindEmp)
+                {
+                    dr["HisDeliveryWayJsFnPara"] = "ByDept";
+                    dr["HisDeliveryWayCountLabel"] = "人员";
+                    BP.WF.Template.NodeEmps nes = new BP.WF.Template.NodeEmps();
+                    intHisDeliveryWayCount = nes.Retrieve(BP.WF.Template.NodeStationAttr.FK_Node, node.NodeID);
+                }
+                dr["HisDeliveryWayCount"] = intHisDeliveryWayCount;
+
+                //抄送
+                dr["HisCCRole"] = node.HisCCRole;
+                dr["HisCCRoleText"] = node.HisCCRoleText;
+
+                //消息&事件Count
+                BP.Sys.FrmEvents fes = new BP.Sys.FrmEvents();
+                dr["HisFrmEventsCount"] = fes.Retrieve(BP.Sys.FrmEventAttr.FrmID, "ND" + node.NodeID);
+
+                //流程完成条件Count
+                BP.WF.Template.Conds conds = new BP.WF.Template.Conds(BP.WF.Template.CondType.Flow, node.NodeID);
+                dr["HisFinishCondsCount"] = conds.Count;
+
+                dt.Rows.Add(dr);
+            }
+            return BP.Tools.Json.ToJson(dt);
+        }
+        #endregion
+
+        #region 与业务表数据同步
+        public string DTSBTable_Init()
+        {
+            DataSet ds = new DataSet();
+
+            // 把流程信息放入.
+            BP.WF.Flow fl = new BP.WF.Flow(this.FlowNo);
+            DataTable dtFlow = fl.ToDataTableField("Flow");
+            ds.Tables.Add(dtFlow);
+
+            ////获得数据源的表.
+            //BP.Sys.SFDBSrc src = new SFDBSrc(fl.DTSDBSrc);
+            //DataTable dt = src.GetTables();
+
+            //if (src.FieldCaseModel == FieldCaseModel.UpperCase)
+            //{
+            //    dt.Columns["NO"].ColumnName = "No";
+            //    dt.Columns["NAME"].ColumnName = "Name";
+            //}
+            //if (src.FieldCaseModel == FieldCaseModel.Lowercase)
+            //{
+            //    dt.Columns["no"].ColumnName = "No";
+            //    dt.Columns["name"].ColumnName = "Name";
+            //}
+
+            //dt.TableName = "Tables";
+            //ds.Tables.Add(dt);
+
+            //把节点信息放入.
+            BP.WF.Nodes nds = new Nodes(this.FlowNo);
+            DataTable dtNode = nds.ToDataTableField("Nodes");
+            ds.Tables.Add(dtNode);
+
+            return BP.Tools.Json.DataSetToJson(ds, false);
+        }
+
+        /// <summary>
+        /// 与业务表数据同步
+        /// </summary>
+        /// <returns></returns>
+        public string DTSBTable_Save()
+        {
+            //获取流程属性
+            Flow flow = new Flow(this.FlowNo);
+            //获取主键方式
+            DTSWay dtsWay = (DTSWay)this.GetRequestValInt("RB_DTSWay");
+
+            FlowDTSTime dtsTime = (FlowDTSTime)this.GetRequestValInt("RB_DTSTime");
+
+            //flow.DTSWay = dtsWay;
+            //flow.DTSTime = dtsTime;
+
+            if (flow.DTSWay == DTSWay.None)
+            {
+                flow.Update();
+                return "保存成功.";
+            }
+
+            //保存配置信息
+            //flow.DTSDBSrc = this.GetRequestVal("DDL_DBSrc");
+            //flow.DTSBTable = this.GetRequestVal("DDL_Table");
+            //flow.DTSSpecNodes = this.GetRequestVal("CheckBoxIDs").TrimEnd(',');
+
+            flow.DirectUpdate();
+            return "保存成功";
+        }
+        #endregion
+
+        #region 数据同步数据源变化时，关联表的列表发生变化
+        public string DTSBTable_DBSrcChange()
+        {
+            string dbsrc = this.GetRequestVal("DDL_DBSrc");
+            //绑定表. 
+            BP.Sys.SFDBSrc src = new SFDBSrc(dbsrc);
+            DataTable dt = src.GetTables();
+            if (src.FieldCaseModel == FieldCaseModel.UpperCase)
+            {
+                dt.Columns["NO"].ColumnName = "No";
+                dt.Columns["NAME"].ColumnName = "Name";
+            }
+            if (src.FieldCaseModel == FieldCaseModel.Lowercase)
+            {
+                dt.Columns["no"].ColumnName = "No";
+                dt.Columns["name"].ColumnName = "Name";
+            }
+            return BP.Tools.Json.ToJson(dt);
+        }
+        #endregion
+
+        #region 数据调度 - 字段映射.
+        public string DTSBTableExt_Init()
+        {
+            //定义数据容器.
+            DataSet ds = new DataSet();
+
+            //获得数据表列.
+            SFDBSrc src = new SFDBSrc(this.GetRequestVal("FK_DBSrc"));
+
+            DataTable dtColms = src.GetColumns(this.GetRequestVal("TableName"));
+            dtColms.TableName = "Cols";
+            if (src.FieldCaseModel == FieldCaseModel.UpperCase)
+            {
+                dtColms.Columns["NO"].ColumnName = "No";
+                dtColms.Columns["NAME"].ColumnName = "Name";
+            }
+            if (src.FieldCaseModel == FieldCaseModel.Lowercase)
+            {
+                dtColms.Columns["no"].ColumnName = "No";
+                dtColms.Columns["name"].ColumnName = "Name";
+            }
+
+            ds.Tables.Add(dtColms); //列名.
+
+            //属性列表.
+            MapAttrs attrs = new MapAttrs("ND" + int.Parse(this.FlowNo) + "Rpt");
+            DataTable dtAttrs = attrs.ToDataTableStringField("Sys_MapAttr");
+            ds.Tables.Add(dtAttrs);
+
+            //加入流程配置信息
+            Flow flow = new Flow(this.FlowNo);
+            DataTable dtFlow = flow.ToDataTableField("Flow");
+            ds.Tables.Add(dtFlow);
+
+            //转化成json,返回.
+            return BP.Tools.Json.DataSetToJson(ds);
+        }
+        public string DTSBTableExt_Save()
+        {
+            string rpt = "ND" + int.Parse(this.FlowNo) + "Rpt";
+            Flow fl = new Flow(this.FlowNo);
+            MapAttrs mattrs = new MapAttrs(rpt);
+
+            string pk = this.GetRequestVal("DDL_OID");
+            if (DataType.IsNullOrEmpty(pk) == true)
+                return "err@必须设置业务表的主键，否则无法同步。";
+
+
+            string lcStr = "";//要同步的流程字段
+            string ywStr = "";//第三方字段
+            string err = "";
+            foreach (MapAttr attr in mattrs)
+            {
+                int val = this.GetRequestValChecked("CB_" + attr.KeyOfEn);
+                if (val == 0)
+                    continue;
+
+                string refField = this.GetRequestVal("DDL_" + attr.KeyOfEn);
+
+                //如果选中的业务字段重复，抛出异常
+                if (ywStr.Contains("@" + refField + "@"))
+                {
+                    err += "@配置【" + attr.KeyOfEn + " - " + attr.Name +
+                        "】错误, 请确保选中业务字段的唯一性，该业务字段已经被其他字段所使用。";
+                }
+                lcStr += "" + attr.KeyOfEn + "=" + refField + "@";
+                ywStr += "@" + refField + "@,";
+            }
+
+            //    BP.Web.Controls.RadioBtn rb = this.Pub1.GetRadioBtnByID("rb_workId");
+
+            int pkModel = this.GetRequestValInt("PKModel");
+
+            string ddl_key = this.GetRequestVal("DDL_OID");
+            if (pkModel == 0)
+            {
+                if (ywStr.Contains("@" + ddl_key + "@"))
+                {
+                    err += "@请确保选中业务字段的唯一性，该业务字段【" + ddl_key +
+                        "】已经被其他字段所使用。";
+                }
+                lcStr = "OID=" + ddl_key + "@" + lcStr;
+                ywStr = "@" + ddl_key + "@," + ywStr;
+            }
+            else
+            {
+                if (ywStr.Contains("@" + ddl_key + "@"))
+                {
+                    err += "@请确保选中业务字段的唯一性，该业务字段【" + ddl_key +
+                        "】已经被其他字段所使用。";
+                }
+                lcStr = "GUID=" + ddl_key + "@" + lcStr;
+                ywStr = "@" + ddl_key + "@," + ywStr;
+            }
+
+            if (err != "")
+                return "err@" + err;
+
+            //lcStr = lcStr.Replace("@", "");
+            ywStr = ywStr.Replace("@", "");
+
+
+            //去除最后一个字符的操作
+            if (DataType.IsNullOrEmpty(lcStr) || DataType.IsNullOrEmpty(ywStr))
+            {
+                return "err@要配置的内容为空...";
+            }
+            lcStr = lcStr.Substring(0, lcStr.Length - 1);
+            ywStr = ywStr.Substring(0, ywStr.Length - 1);
+
+
+            ////数据存储格式   a,b,c@a_1,b_1,c_1
+            //fl.DTSFields = lcStr;
+            //fl.DTSBTablePK = pk;
+            fl.DirectUpdate();
+
+            return "设置成功.";
+        }
+        #endregion
+
+        #region 前置导航save
+        /// <summary>
+        /// 前置导航save
+        /// </summary>
+        /// <returns></returns>
+        public string StartGuide_Save()
+        {
+            try
+            {
+                //Flow en = new Flow();
+                //en.No = this.FlowNo;
+                //en.Retrieve();
+
+                //int val = this.GetRequestValInt("RB_StartGuideWay");
+
+                //en.SetValByKey(BP.WF.Template.FlowAttr.StartGuideWay, val);
+
+                //if (en.StartGuideWay == StartGuideWay.None)
+                //{
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.None;
+                //}
+
+                //if (en.StartGuideWay == StartGuideWay.ByHistoryUrl)
+                //{
+                //    en.StartGuidePara1 = this.GetRequestVal("TB_ByHistoryUrl");
+                //    en.StartGuidePara2 = "";
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.ByHistoryUrl;
+                //}
+
+                //if (en.StartGuideWay == StartGuideWay.BySelfUrl)
+                //{
+                //    en.StartGuidePara1 = this.GetRequestVal("TB_SelfURL");
+                //    en.StartGuidePara2 = "";
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.BySelfUrl;
+                //}
+
+                ////单条模式.
+                //if (en.StartGuideWay == StartGuideWay.BySQLOne)
+                //{
+                //    en.StartGuidePara1 = this.GetRequestVal("TB_BySQLOne1");  //查询语句.
+                //    en.StartGuidePara2 = this.GetRequestVal("TB_BySQLOne2");  //列表语句.
+
+                //    //@李国文.
+                //    en.StartGuidePara3 = this.GetRequestVal("TB_BySQLOne3");  //单行赋值语句.
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.BySQLOne;
+                //}
+                ////多条模式
+                //if (en.StartGuideWay == StartGuideWay.BySQLMulti)
+                //{
+                //    en.StartGuidePara1 = this.GetRequestVal("TB_BySQLMulti1");  //查询语句.
+                //    en.StartGuidePara2 = this.GetRequestVal("TB_BySQLMulti2");  //列表语句.
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.BySQLMulti;
+                //}
+                ////多条-子父流程-合卷审批.
+                //if (en.StartGuideWay == StartGuideWay.SubFlowGuide)
+                //{
+                //    en.StartGuidePara1 = this.GetRequestVal("TB_SubFlow1");  //查询语句.
+                //    en.StartGuidePara2 = this.GetRequestVal("TB_SubFlow2");  //列表语句.
+                //    en.StartGuideWay = BP.WF.Template.StartGuideWay.SubFlowGuide;
+                //}
+
+                //BP.WF.Template.FrmNodes fns = new BP.WF.Template.FrmNodes(int.Parse(this.FlowNo + "01"));
+                //if (fns.Count >= 2)
+                //{
+                //    if (en.StartGuideWay == StartGuideWay.ByFrms)
+                //        en.StartGuideWay = BP.WF.Template.StartGuideWay.ByFrms;
+                //}
+
+                ////右侧的超链接.
+                //en.StartGuideLink = this.GetRequestVal("TB_GuideLink");
+                //en.StartGuideLab = this.GetRequestVal("TB_GuideLab");
+
+                // en.Update();
+                return "保存成功";
+            }
+            catch (Exception ex)
+            {
+                return "err@" + ex.Message;
+            }
+        }
+        #endregion
+
+        #region 流程轨迹查看权限
+        /// <summary>
+        /// 流程轨迹查看权限
+        /// </summary>
+        /// <returns></returns>
+        public string TruckViewPower_Save()
+        {
+            try
+            {
+                BP.WF.Template.TruckViewPower en = new BP.WF.Template.TruckViewPower(this.FlowNo);
+                en.Retrieve();
+
+                en = BP.Pub.PubClass.CopyFromRequestByPost(en) as BP.WF.Template.TruckViewPower;
+                en.Save();  //执行保存.
+                return "保存成功";
+            }
+            catch
+            {
+                return "err@保存失败";
+            }
+
+        }
+        #endregion 流程轨迹查看权限save
+
+        #region 数据导入.
+        /// <summary>
+        /// 导入bpmn2.0
+        /// </summary>
+        /// <returns></returns>
+        public string Imp_DoneBPMN()
+        {
+            if (HttpContextHelper.RequestFilesCount == 0)
+                return "err@请选择要上传的流程模版。";
+
+            //设置文件名
+            string fileNewName = DateTime.Now.ToString("yyyyMMddHHmmssff") + "_" + System.IO.Path.GetFileName(HttpContextHelper.RequestFiles(1).FileName);
+
+            //文件存放路径
+            string filePath = BP.Difference.SystemConfig.PathOfTemp + "" + fileNewName;
+            //2023.8.21,解决文件文件目录不存在报错的异常，不存在时先创建 by oppein
+            FileInfo saveFileInfo = new FileInfo(filePath);
+            string saveDirectory = saveFileInfo.DirectoryName;
+            if (!Directory.Exists(saveDirectory))
+            {
+                Directory.CreateDirectory(saveDirectory);
+            }
+
+            var file = HttpContextHelper.RequestFiles(1);
+            var stream = new FileStream(filePath, FileMode.Create);
+            file.CopyTo(stream);
+            HttpContextHelper.UploadFile(HttpContextHelper.RequestFiles(1), filePath);
+
+            string flowNo = this.FlowNo;
+            string FK_FlowSort = this.GetRequestVal("FK_Sort");
+
+            //检查流程编号
+            if (DataType.IsNullOrEmpty(flowNo) == false)
+            {
+                Flow fl = new Flow(flowNo);
+                FK_FlowSort = fl.FlowSortNo;
+            }
+
+            //检查流程类别编号
+            if (DataType.IsNullOrEmpty(FK_FlowSort) == true)
+            {
+                if (BP.Difference.SystemConfig.CCBPMRunModel != CCBPMRunModel.Single)
+                    FK_FlowSort = BP.Web.WebUser.OrgNo;
+                else
+                    return "err@所选流程类别编号不存在。";
+            }
+
+            //执行导入
+            Flow flow = BP.WF.Template.TemplateGlo.NewFlowByBPMN(FK_FlowSort, filePath);
+            flow.PTable = "ND" + Int32.Parse(flow.No) + "Rpt";
+            flow.Update();
+            flow.DoCheck(); //要执行一次检查.
+
+            Hashtable ht = new Hashtable();
+            ht.Add("FK_Flow", flow.No);
+            ht.Add("FlowName", flow.Name);
+            ht.Add("FK_FlowSort", flow.FlowSortNo);
+            ht.Add("Msg", "导入成功,流程编号为:" + flow.No + "名称为:" + flow.Name);
+            return BP.Tools.Json.ToJson(ht);
+        }
+
+        /// <summary>
+        /// 导入钉钉的数据.
+        /// </summary>
+        /// <returns></returns>
+        public string DingDing_ImpDataFile()
+        {
+            if (HttpContextHelper.RequestFilesCount == 0)
+                return "err@请选择要上传的流程模版。";
+
+            string adminer = BP.Web.WebUser.No;
+            //设置文件名
+            string fileNewName = DateTime.Now.ToString("yyyyMMddHHmmssff") + "_" + System.IO.Path.GetFileName(HttpContextHelper.GetNameByIdx(0));
+
+            //文件存放路径
+            string filePath = BP.Difference.SystemConfig.PathOfTemp + "" + fileNewName;
+            //files[0].SaveAs(filePath);
+            HttpContextHelper.UploadFile(HttpContextHelper.RequestFiles(0), filePath);
+
+            string flowNo = this.FlowNo; // "002";
+            int node01 = int.Parse(flowNo + "01");
+            Node startNode = new Node(node01);
+
+            string file = filePath;//  "D:\\资产借用.xlsx";
+            DataTable dt = DBLoad.ReadExcelFileToDataTable(file, 0);
+
+            string msg = "导人数据信息如下:";
+            try
+            {
+                GEEntityOID ndrpt = new GEEntityOID("ND" + int.Parse(flowNo) + "Rpt");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //处理部门名称.
+                    string deptName = dr["发起人部门"].ToString();
+                    string title = dr["标题"].ToString();
+                    string billNo = dr["审批编号"].ToString();
+
+                    DealDeptName(deptName);
+
+                    //处理用户信息.
+                    string starterID = dr["发起人UserID"].ToString();
+                    string userName = dr["发起人姓名"].ToString();
+                    //  string checkLog = dr["审批记录(含处理人UserID)"].ToString();
+                    string checkLog = dr["审批记录(含处理人UserID)"].ToString();
+
+                    if (DataType.IsNullOrEmpty(checkLog) == true)
+                        return "err@excel模板错误:您需要将[审批记录(含处理人UserID)] 列设置为文本类型,导入不进来.";
+
+                    //处理用户的ID的合法性。
+                    DealEmpID(starterID, userName, deptName);
+
+                    //用发起人登录.
+                    BP.WF.Dev2Interface.Port_Login(starterID);
+
+                    //创建workid.
+                    Int64 workid = BP.WF.Dev2Interface.Node_CreateBlankWork(flowNo, WebUser.No);
+                    ndrpt.OID = workid;
+                    ndrpt.RetrieveFromDBSources();
+
+                    #region 设置字段数据.
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        string colName = dc.ColumnName;
+                        if (DataType.IsNullOrEmpty(colName) == true)
+                            continue;
+
+                        if (colName.Contains("附件") == true)
+                        {
+                            //获得附件内容.
+                            string docs = dr[dc.ColumnName] as string;
+                            if (DataType.IsNullOrEmpty(docs) == true)
+                                continue;
+
+                            if (docs.Contains("http") == false)
+                                continue;
+
+                            //获得附件ID.
+                            string fjID = BP.DA.DataType.ParseStringToPinyin(colName);
+                            //获得附件的后缀.
+                            string fileExt = docs.Substring(docs.LastIndexOf('.'));
+                            string myfilePath = SystemConfig.PathOfTemp + DBAccess.GenerGUID() + fileExt;
+                            try
+                            {
+                                BP.DA.DataType.HttpDownloadFile(docs, myfilePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                msg += "@获取远程数据错误:[" + docs + "],技术信息:" + ex.Message;
+                                continue;
+                            }
+
+                            string frmID = "ND" + int.Parse(flowNo + "01");
+                            BP.WF.Dev2Interface.CCForm_AddAth(int.Parse(flowNo + "01"), flowNo, workid, frmID + "_" + fjID, frmID, myfilePath, colName + fileExt);
+                        }
+
+                        try
+                        {
+                            ndrpt.SetValByDesc(dc.ColumnName, dr[dc.ColumnName].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+                    }
+                    ndrpt.Update(); //执行更新
+                    #endregion 设置字段数据.
+
+                    #region 日志记录..
+                    // 处理审批记录.
+                    string[] strs = checkLog.Split(';');
+                    int idx = -1; //执行步骤.
+                    foreach (string str in strs)
+                    {
+                        if (DataType.IsNullOrEmpty(str) == true)
+                            continue;
+
+                        string[] mystrs = str.Split('|');
+
+                        #region 开始节点.
+                        if (str.Contains("提交申请") == true)
+                        {
+                            // 求出来下一步的接受人.
+                            string step2UserID = "";
+                            string step2UserName = "";
+                            string rdt = str.Split('|')[3].ToString(); //流程的发起日期.
+
+                            //获取第2步骤的信息.
+                            string step2 = strs[1];
+                            if (step2.Contains("添加评论") == true)
+                            {
+                                string step2BBS = strs[1];
+                                string[] pls = step2BBS.Split('|');
+                                string step2Name = pls[0].ToString();
+                                step2UserID = pls[1].ToString();
+                                //处理人员ID.
+                                DealEmpID(step2UserID, step2Name, deptName);
+                            }
+                            else
+                            {
+                                step2 = strs[1].ToString();
+                                string[] pls = step2.Split('|');
+                                string step2Name = pls[0].ToString();
+                                step2UserID = pls[1].ToString();
+                                //处理人员ID.
+                                DealEmpID(step2UserID, step2Name, deptName);
+                            }
+
+                            //用发起人登录.
+                            BP.WF.Dev2Interface.Port_Login(starterID);
+
+                            BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, startNode.Name, workid, 0, "提交申请", "发起流程");
+
+                            //更新处理日期.
+                            string sqls = "@UPDATE WF_GenerWorkFlow SET RDT='" + rdt + "' WHERE WorkID=" + workid;
+                            sqls += "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + rdt + "' WHERE WorkID=" + workid;
+                            DBAccess.RunSQLs(sqls);
+                            continue;
+                        }
+                        #endregion 开始节点.
+
+                        #region 添加评论.
+                        if (str.Contains("评论") == true)
+                        {
+                            //处理普通发送节点.
+                            string pl_UserName = mystrs[0];
+                            string pl_UserID = mystrs[1];
+                            string pl_Label = mystrs[2];
+                            string pl_Date = mystrs[3];
+                            string pl_Oper = mystrs[4];
+                            string pl_note = pl_Oper + ":" + mystrs[5];
+
+                            DealEmpID(pl_UserID, pl_UserName, deptName);
+
+                            BP.WF.Dev2Interface.Port_Login(pl_UserID);
+
+                            string pk_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, pl_Label, workid, 0, pl_note, pl_Oper);
+
+                            string pl_sql = "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + pl_Date + "' WHERE MyPK='" + pk_mypk + "'";
+                            DBAccess.RunSQLs(pl_sql);
+                        }
+                        #endregion 添加评论.
+
+                        //处理普通发送节点.
+                        string userNameNode = mystrs[0];
+                        string userId = mystrs[1];
+                        string nodeName = mystrs[2];
+                        string dtTime = mystrs[3];
+                        string note = mystrs[4];
+                        //处理合法性.
+                        DealEmpID(userId, userNameNode, deptName);
+                        //用人员等.
+                        BP.WF.Dev2Interface.Port_Login(userId);
+
+                        //记录信息.
+                        //string send_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, nodeName, workid, 0, note, note, ActionType.Forward, "");
+                        string send_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, nodeName, workid, 0, note, "信息");
+                        string sql = "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + dtTime + "' WHERE MyPK='" + send_mypk + "'";
+                        DBAccess.RunSQLs(sql);
+                    }
+                    #endregion 日志记录..
+
+                    #region 更新节点名称.
+                    BP.WF.Nodes nds = new Nodes();
+                    nds.Retrieve("FK_Flow", flowNo);
+                    foreach (Node nd in nds)
+                    {
+                        DBAccess.RunSQL("UPDATE ND" + int.Parse(flowNo) + "Track SET NDFrom='" + nd.NodeID + "',ActionType=1 WHERE WorkID=" + workid + " AND NDFromT='" + nd.Name + "'");
+                        DBAccess.RunSQL("UPDATE ND" + int.Parse(flowNo) + "Track SET NDTo='" + nd.NodeID + "',ActionType=1 WHERE WorkID=" + workid + " AND NDToT='" + nd.Name + "'");
+                    }
+                    #endregion 更新节点名称.
+
+                    //更新发送.
+                    DBAccess.RunSQL("UPDATE ND" + int.Parse(flowNo) + "Track SET ActionType=1 WHERE WorkID=" + workid + " AND ActionType=100");
+
+                    //设置单据编号..
+                    BP.WF.Dev2Interface.SetBillNo(flowNo, workid, billNo);
+
+                    //设置标题.
+                    BP.WF.Dev2Interface.Flow_SetFlowTitle(flowNo, workid, title);
+
+                    //设置流程结束.
+                    BP.WF.Dev2Interface.Flow_DoFlowOver(workid, "流程结束.", WFState.CompleteEnd);
+
+                    msg += " @标题：[" + title + "] - 成功导入, WorkID=" + workid;
+                }
+
+                BP.WF.Dev2Interface.Port_Login(adminer);
+                return "info@" + msg;
+            }
+            catch (Exception ex)
+            {
+                BP.WF.Dev2Interface.Port_Login(adminer);
+                return "err@导入数据错误:" + ex.Message;
+            }
+        }
+        /// <summary>
+        /// 导入流程数据，仅供查询分析.
+        /// 1. 仅仅支持主表数据.
+        /// 2. 必须有：实例主键	发起人账号	流程标题	单据编号 字段,
+        /// 3. 其他的字段需要与表单的字段的中文名字相同，就会自动赋值。
+        /// </summary>
+        /// <returns></returns>
+        public string Imp_ImpExcelFlowDB()
+        {
+            if (HttpContextHelper.RequestFilesCount == 0)
+                return "err@请选择要上传的流程模版。";
+
+            string adminer = BP.Web.WebUser.No;
+            //设置文件名
+            string fileNewName = DateTime.Now.ToString("yyyyMMddHHmmssff") + "_" + System.IO.Path.GetFileName(HttpContextHelper.GetNameByIdx(0));
+
+            //文件存放路径
+            string filePath = BP.Difference.SystemConfig.PathOfTemp + "" + fileNewName;
+            //files[0].SaveAs(filePath);
+            HttpContextHelper.UploadFile(HttpContextHelper.RequestFiles(0), filePath);
+
+            string flowNo = this.FlowNo; // "002";
+            int node01 = int.Parse(flowNo + "01");
+            Node startNode = new Node(node01);
+
+            string file = filePath;//  "D:\\资产借用.xlsx";
+            DataTable dt = DBLoad.ReadExcelFileToDataTable(file, 0);
+
+            #region 1.检查表单模板的数据是否完整.
+            string err = "";
+            if (dt.Columns.Contains("实例主键") == false)
+                err += "1.缺少'实例主键'字段, 该字段是流程实例，全局唯一，类型不限制.";
+
+            if (dt.Columns.Contains("发起人账号") == false)
+                err += "2.缺少'发起人账号'字段, 该字段存储发起人账号，对应的人员Port_Emp的No.";
+
+
+            if (dt.Columns.Contains("流程标题") == false)
+                err += "3.缺少'流程标题'字段, 该字段存储的流程标题,类似于邮件标题.";
+
+            if (dt.Columns.Contains("单据编号") == false)
+                dt.Columns.Add("单据编号");
+
+            if (DataType.IsNullOrEmpty(err) == false)
+                return err;
+            #endregion 1.检查表单模板的数据是否完整.
+
+            string msg = "导入流程数据:";
+            try
+            {
+                GEEntityOID ndrpt = new GEEntityOID("ND" + int.Parse(flowNo) + "Rpt");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //处理部门名称.
+                    string flowMyPK = dr["实例主键"].ToString();
+                    string title = dr["流程标题"].ToString();
+                    string starterNo = dr["发起人账号"].ToString();
+                    string billNo = dr["单据编号"] as string;
+                    //用发起人登录.
+                    BP.WF.Dev2Interface.Port_Login(starterNo);
+
+                    string sql = "SELECT count(*) as Num FROM WF_GenerWorkFlow WHERE AtPara LIKE '%=" + flowMyPK + "%'";
+                    if (DBAccess.RunSQLReturnValInt(sql) != 0)
+                    {
+                        msg += "\t\n: 标题:[" + title + "],发起人:[" + starterNo + "],实例ID:[" + flowMyPK + "]已经导入了.";
+                        continue;
+                    }
+                    //创建workid.
+                    Int64 workid = BP.WF.Dev2Interface.Node_CreateBlankWork(flowNo, WebUser.No);
+                    ndrpt.OID = workid;
+                    ndrpt.RetrieveFromDBSources();
+
+                    #region 0.设置字段数据.
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        string colName = dc.ColumnName;
+                        if (DataType.IsNullOrEmpty(colName) == true)
+                            continue;
+
+                        if (colName.Contains("附件") == true)
+                        {
+                            //获得附件内容.
+                            string docs = dr[dc.ColumnName] as string;
+                            if (DataType.IsNullOrEmpty(docs) == true)
+                                continue;
+
+                            if (docs.Contains("http") == false)
+                                continue;
+
+                            //获得附件ID.
+                            string fjID = BP.DA.DataType.ParseStringToPinyin(colName);
+                            //获得附件的后缀.
+                            string fileExt = docs.Substring(docs.LastIndexOf('.'));
+                            string myfilePath = SystemConfig.PathOfTemp + DBAccess.GenerGUID() + fileExt;
+                            try
+                            {
+                                BP.DA.DataType.HttpDownloadFile(docs, myfilePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                msg += "@获取远程数据错误:[" + docs + "],技术信息:" + ex.Message;
+                                continue;
+                            }
+                            string frmID = "ND" + int.Parse(flowNo + "01");
+                            BP.WF.Dev2Interface.CCForm_AddAth(int.Parse(flowNo + "01"), flowNo, workid, frmID + "_" + fjID, frmID, myfilePath, colName + fileExt);
+                        }
+                        try
+                        {
+                            ndrpt.SetValByDesc(dc.ColumnName, dr[dc.ColumnName].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+                    }
+                    ndrpt.Update(); //执行更新
+                    #endregion 设置字段数据.
+
+                    #region 1.日志记录..
+                    string checkLog = "";
+                    string[] strs = checkLog.Split(';');
+                    int idx = -1; //执行步骤.
+                    foreach (string str in strs)
+                    {
+                        if (DataType.IsNullOrEmpty(str) == true)
+                            continue;
+
+                        string[] mystrs = str.Split('|');
+
+                        #region 开始节点.
+                        if (str.Contains("提交申请") == true)
+                        {
+                            // 求出来下一步的接受人.
+                            string step2UserID = "";
+                            string step2UserName = "";
+                            string rdt = str.Split('|')[3].ToString(); //流程的发起日期.
+
+                            //获取第2步骤的信息.
+                            string step2 = strs[1];
+                            if (step2.Contains("添加评论") == true)
+                            {
+                                string step2BBS = strs[1];
+                                string[] pls = step2BBS.Split('|');
+                                string step2Name = pls[0].ToString();
+                                step2UserID = pls[1].ToString();
+                                //处理人员ID.
+                                //  DealEmpID(step2UserID, step2Name, deptName);
+                            }
+                            else
+                            {
+                                step2 = strs[1].ToString();
+                                string[] pls = step2.Split('|');
+                                string step2Name = pls[0].ToString();
+                                step2UserID = pls[1].ToString();
+                                //处理人员ID.
+                                //   DealEmpID(step2UserID, step2Name, deptName);
+                            }
+
+                            //用发起人登录.
+                            BP.WF.Dev2Interface.Port_Login(starterNo);
+
+                            BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, startNode.Name, workid, 0, "提交申请", "发起流程");
+
+                            //更新处理日期.
+                            string sqls = "@UPDATE WF_GenerWorkFlow SET RDT='" + rdt + "' WHERE WorkID=" + workid;
+                            sqls += "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + rdt + "' WHERE WorkID=" + workid;
+                            DBAccess.RunSQLs(sqls);
+                            continue;
+                        }
+                        #endregion 开始节点.
+
+                        #region 添加评论.
+                        if (str.Contains("评论") == true)
+                        {
+                            //处理普通发送节点.
+                            string pl_UserName = mystrs[0];
+                            string pl_UserID = mystrs[1];
+                            string pl_Label = mystrs[2];
+                            string pl_Date = mystrs[3];
+                            string pl_Oper = mystrs[4];
+                            string pl_note = pl_Oper + ":" + mystrs[5];
+
+                            //   DealEmpID(pl_UserID, pl_UserName, deptName);
+
+                            BP.WF.Dev2Interface.Port_Login(pl_UserID);
+
+                            string pk_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, pl_Label, workid, 0, pl_note, pl_Oper);
+
+                            string pl_sql = "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + pl_Date + "' WHERE MyPK='" + pk_mypk + "'";
+                            DBAccess.RunSQLs(pl_sql);
+                        }
+                        #endregion 添加评论.
+
+                        //处理普通发送节点.
+                        string userNameNode = mystrs[0];
+                        string userId = mystrs[1];
+                        string nodeName = mystrs[2];
+                        string dtTime = mystrs[3];
+                        string note = mystrs[4];
+                        //处理合法性.
+                        //   DealEmpID(userId, userNameNode, deptName);
+                        //用人员等.
+                        BP.WF.Dev2Interface.Port_Login(userId);
+
+                        //记录信息.
+                        //string send_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, nodeName, workid, 0, note, note, ActionType.Forward, "");
+                        string send_mypk = BP.WF.Dev2Interface.WriteTrackInfo(flowNo, node01, nodeName, workid, 0, note, "信息");
+                        sql = "@UPDATE ND" + int.Parse(flowNo) + "Track SET RDT='" + dtTime + "' WHERE MyPK='" + send_mypk + "'";
+                        DBAccess.RunSQLs(sql);
+                    }
+                    #endregion 日志记录..
+
+                    //更新发送.
+                    DBAccess.RunSQL("UPDATE ND" + int.Parse(flowNo) + "Track SET ActionType=1 WHERE WorkID=" + workid + " AND ActionType=100");
+
+                    //设置单据编号..
+                    if (DataType.IsNullOrEmpty(billNo) == false)
+                        BP.WF.Dev2Interface.SetBillNo(flowNo, workid, billNo);
+
+                    //设置标题.
+                    BP.WF.Dev2Interface.Flow_SetFlowTitle(flowNo, workid, title);
+
+                    //设置流程结束.
+                    BP.WF.Dev2Interface.Flow_DoFlowOver(workid, "流程结束.", WFState.CompleteEnd);
+                    msg += "\t\n @标题：[" + title + "] - 成功导入, WorkID=" + workid;
+                }
+
+                BP.WF.Dev2Interface.Port_Login(adminer);
+                return "info@" + msg;
+            }
+            catch (Exception ex)
+            {
+                BP.WF.Dev2Interface.Port_Login(adminer);
+                return "err@导入数据错误:" + ex.Message;
+            }
+        }
+
+        public void DealEmpID(string empID, string empName, string deptName)
+        {
+            BP.Port.Emp emp = new BP.Port.Emp();
+            emp.No = empID;
+            if (emp.RetrieveFromDBSources() == 0)
+            {
+                BP.Port.Dept dept = new BP.Port.Dept();
+                dept.Name = deptName;
+                int id = dept.Retrieve("Name", deptName);
+
+                emp.Name = empName;
+                emp.DeptNo = dept.No;
+
+                string userNo = WebUser.No;
+                BP.WF.Dev2Interface.Port_Login("admin");
+                emp.Insert();
+                BP.WF.Dev2Interface.Port_Login(userNo);
+            }
+
+        }
+
+        public void DealDeptName(string deptName)
+        {
+            BP.Port.Dept dept = new BP.Port.Dept();
+            dept.Name = deptName;
+            int id = dept.Retrieve("Name", deptName);
+            if (id == 1)
+                return;
+
+            dept.ParentNo = SystemConfig.DeptDefaultNo;
+            dept.No = DBAccess.GenerGUID();
+
+            string userNo = WebUser.No;
+            BP.WF.Dev2Interface.Port_Login("admin");
+            dept.Insert();
+            BP.WF.Dev2Interface.Port_Login(userNo);
+        }
+        /// <summary>
+        /// 流程模版导入.
+        /// </summary>
+        /// <returns></returns>
+        public string Imp_Done()
+        {
+            if (HttpContextHelper.RequestFilesCount == 0)
+                return "err@请选择要上传的流程模版。";
+
+            //设置文件名
+            string fileNewName = DateTime.Now.ToString("yyyyMMddHHmmssff") + "_" + System.IO.Path.GetFileName(HttpContextHelper.GetNameByIdx(0));
+
+            //文件存放路径
+            string filePath = BP.Difference.SystemConfig.PathOfTemp + "" + fileNewName;
+            //files[0].SaveAs(filePath);
+            HttpContextHelper.UploadFile(HttpContextHelper.RequestFiles(0), filePath);
+
+            string flowNo = this.FlowNo;
+            string FK_FlowSort = this.GetRequestVal("FK_Sort");
+
+            //检查流程编号
+            if (DataType.IsNullOrEmpty(flowNo) == false)
+            {
+                Flow fl = new Flow(flowNo);
+                FK_FlowSort = fl.FlowSortNo;
+            }
+
+            //检查流程类别编号
+            if (DataType.IsNullOrEmpty(FK_FlowSort) == true)
+            {
+                if (BP.Difference.SystemConfig.CCBPMRunModel != CCBPMRunModel.Single)
+                    FK_FlowSort = BP.Web.WebUser.OrgNo;
+                else
+                    return "err@所选流程类别编号不存在。";
+            }
+
+            //导入模式
+            BP.WF.ImpFlowTempleteModel model = (BP.WF.ImpFlowTempleteModel)this.GetRequestValInt("ImpWay");
+            if (model == ImpFlowTempleteModel.AsSpecFlowNo)
+                flowNo = this.GetRequestVal("SpecFlowNo");
+
+            //执行导入
+            BP.WF.Flow flow = BP.WF.Template.TemplateGlo.LoadFlowTemplate(FK_FlowSort, filePath, model, flowNo);
+            flow.PTable = "ND" + Int32.Parse(flow.No) + "Rpt";
+            flow.Update();
+            flow.DoCheck(); //要执行一次检查.
+
+            Hashtable ht = new Hashtable();
+            ht.Add("FK_Flow", flow.No);
+            ht.Add("FlowName", flow.Name);
+            ht.Add("FK_FlowSort", flow.FlowSortNo);
+            ht.Add("Msg", "导入成功,流程编号为:" + flow.No + "名称为:" + flow.Name);
+            return BP.Tools.Json.ToJson(ht);
+        }
+        #endregion 数据导入.
+
+        #region 修改node Icon.
+        /// <summary>
+        /// 修改节点ICON
+        /// </summary>
+        /// <returns></returns>
+        public string NodesIcon_Init()
+        {
+            DataSet ds = new DataSet();
+            Nodes nds = new Nodes(this.FlowNo);
+            DataTable dt = nds.ToDataTableField("Nodes");
+            ds.Tables.Add(dt);
+
+            //把文件放入ds.
+            string path = BP.Difference.SystemConfig.PathOfWebApp + "WF/Admin/ClientBin/NodeIcon/";
+            string[] strs = System.IO.Directory.GetFiles(path);
+            DataTable dtIcon = new DataTable();
+            dtIcon.Columns.Add("No");
+            dtIcon.Columns.Add("Name");
+            foreach (string str in strs)
+            {
+                string fileName = str.Substring(str.LastIndexOf("\\") + 1);
+                fileName = fileName.Substring(0, fileName.LastIndexOf("."));
+
+                DataRow dr = dtIcon.NewRow();
+                dr[0] = fileName;
+                dr[1] = fileName;
+                dtIcon.Rows.Add(dr);
+            }
+
+            dtIcon.TableName = "ICONs";
+            ds.Tables.Add(dtIcon);
+
+            return BP.Tools.Json.ToJson(ds);
+        }
+        #endregion 修改node Icon.
+
+        /// <summary>
+        /// 流程时限消息设置
+        /// </summary>
+        /// <returns></returns>
+        public string PushMsgEntity_Init()
+        {
+            DataSet ds = new DataSet();
+
+            //流程上的字段
+            BP.Sys.MapAttrs attrs = new BP.Sys.MapAttrs();
+            attrs.Retrieve(BP.Sys.MapAttrAttr.FK_MapData, "ND" + int.Parse(this.FlowNo) + "rpt", "LGType", 0, "MyDataType", 1);
+            ds.Tables.Add(attrs.ToDataTableField("FrmFields"));
+
+            //节点 
+            BP.WF.Nodes nds = new BP.WF.Nodes(this.FlowNo);
+            ds.Tables.Add(nds.ToDataTableField("Nodes"));
+
+            //mypk
+            BP.WF.Template.PushMsg msg = new BP.WF.Template.PushMsg();
+            msg.setMyPK(this.MyPK);
+            msg.RetrieveFromDBSources();
+            ds.Tables.Add(msg.ToDataTableField("PushMsgEntity"));
+
+            return BP.Tools.Json.DataSetToJson(ds, false);
+        }
+
+        /// <summary>
+        /// 流程时限消息设置
+        /// </summary>
+        /// <returns></returns>
+        public string PushMsg_Save()
+        {
+            BP.WF.Template.PushMsg msg = new BP.WF.Template.PushMsg();
+            msg.setMyPK(this.MyPK);
+            msg.RetrieveFromDBSources();
+
+            msg.EventNo = this.EventNo;  //流程时限规则
+            msg.FlowNo = this.FlowNo;
+
+            BP.WF.Nodes nds = new BP.WF.Nodes(this.FlowNo);
+
+            #region 其他节点的处理人方式（求选择的节点）
+            string nodesOfSMS = "";
+            foreach (BP.WF.Node mynd in nds)
+            {
+                foreach (string key in HttpContextHelper.RequestParamKeys)
+                {
+                    if (key.Contains("CB_SMS_" + mynd.NodeID)
+                        && nodesOfSMS.Contains(mynd.NodeID + "") == false)
+                        nodesOfSMS += mynd.NodeID + ",";
+
+
+                }
+            }
+            msg.SMSNodes = nodesOfSMS;
+            #endregion 其他节点的处理人方式（求选择的节点）
+
+            //发给指定的人员
+            msg.ByEmps = HttpContextHelper.RequestParams("TB_Emps");
+
+            //短消息发送设备
+            msg.SMSPushModel = this.GetRequestVal("PushModel");
+
+            //邮件标题
+            msg.MailTitle_Real = HttpContextHelper.RequestParams("TB_title");
+
+            //短信内容模版.
+            msg.SMSDoc_Real = HttpContextHelper.RequestParams("TB_SMS");
+
+            //保存.
+            if (DataType.IsNullOrEmpty(msg.MyPK) == true)
+            {
+                msg.setMyPK(DBAccess.GenerGUID());
+                msg.Insert();
+            }
+            else
+            {
+                msg.Update();
+            }
+
+            return "保存成功..";
+        }
+
+        #region 欢迎页面初始化.
+        /// <summary>
+        /// 欢迎页面初始化-获得数量.
+        /// </summary>
+        /// <returns></returns>
+        public string GraphicalAnalysis_Init()
+        {
+            Hashtable ht = new Hashtable();
+            string fk_flow = GetRequestVal("FK_Flow");
+            //所有的实例数量.
+            ht.Add("FlowInstaceNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(WorkID) FROM WF_GenerWorkFlow WHERE WFState >1 AND Fk_flow = '" + fk_flow + "'")); //实例数.
+
+            //所有的待办数量.
+            ht.Add("TodolistNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(WorkID) FROM WF_GenerWorkFlow WHERE WFState=2 AND Fk_flow = '" + fk_flow + "'"));
+
+            //所有的运行中的数量.
+            ht.Add("RunNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(WorkID) FROM WF_GenerWorkFlow WHERE WFSta!=1 AND WFState!=3 AND Fk_flow = '" + fk_flow + "'"));
+
+            //退回数.
+            ht.Add("ReturnNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(WorkID) FROM WF_GenerWorkFlow WHERE WFState=5 AND Fk_flow = '" + fk_flow + "'"));
+
+            //说有逾期的数量.
+            if (BP.Difference.SystemConfig.AppCenterDBType == DBType.MySQL)
+            {
+                ht.Add("OverTimeNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(*) FROM WF_EMPWORKS where STR_TO_DATE(SDT,'%Y-%m-%d %H:%i') < now() AND Fk_flow = '" + fk_flow + "'"));
+
+            }
+            else if (BP.Difference.SystemConfig.AppCenterDBType == DBType.Oracle || BP.Difference.SystemConfig.AppCenterDBType == DBType.GBASE8CByOracle || SystemConfig.AppCenterDBType == DBType.KingBaseR3 || SystemConfig.AppCenterDBType == DBType.KingBaseR6 || DBAccess.AppCenterDBType == DBType.DM)
+            {
+                string sql = "SELECT COUNT(*) from (SELECT *  FROM WF_EMPWORKS WHERE  REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}') AND(sysdate - TO_DATE(SDT, 'yyyy-mm-dd hh24:mi:ss')) > 0 AND Fk_flow = '" + fk_flow + "'";
+
+                sql += "UNION SELECT* FROM WF_EMPWORKS WHERE  REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') AND (sysdate - TO_DATE(SDT, 'yyyy-mm-dd')) > 0 AND Fk_flow = '" + fk_flow + "')";
+
+                ht.Add("OverTimeNum", DBAccess.RunSQLReturnValInt(sql));
+            }
+            else if (SystemConfig.AppCenterDBType == DBType.PostgreSQL || BP.Difference.SystemConfig.AppCenterDBType == DBType.HGDB)
+            {
+                ht.Add("OverTimeNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(*) FROM WF_EMPWORKS where to_timestamp(CASE WHEN SDT='无' THEN '' ELSE SDT END, 'yyyy-mm-dd hh24:MI:SS') < NOW() AND Fk_flow = '" + fk_flow + "'"));
+            }
+            else
+            {
+                ht.Add("OverTimeNum", DBAccess.RunSQLReturnValInt("SELECT COUNT(*) FROM WF_EMPWORKS where convert(varchar(100),SDT,120) < CONVERT(varchar(100), GETDATE(), 120) AND Fk_flow = '" + fk_flow + "'"));
+            }
+
+            return BP.Tools.Json.ToJson(ht);
+        }
+        /// <summary>
+        /// 获得数量  流程饼图，部门柱状图，月份折线图.
+        /// </summary>
+        /// <returns></returns>
+        public string GraphicalAnalysis_DataSet()
+        {
+            DataSet ds = new DataSet();
+            string fk_flow = GetRequestVal("FK_Flow");
+            #region  实例分析
+            //月份分组.
+            string sql = "SELECT FK_NY, count(WorkID) as Num FROM WF_GenerWorkFlow WHERE WFState >1 AND Fk_flow = '" + fk_flow + "' GROUP BY FK_NY";
+            DataTable FlowsByNY = DBAccess.RunSQLReturnTable(sql);
+            FlowsByNY.TableName = "FlowsByNY";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                FlowsByNY.Columns[0].ColumnName = "FK_NY";
+                FlowsByNY.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(FlowsByNY);
+
+            //部门分组.
+            sql = "SELECT DeptName, count(WorkID) as Num FROM WF_GenerWorkFlow WHERE WFState >1 AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName ";
+            DataTable FlowsByDept = DBAccess.RunSQLReturnTable(sql);
+            FlowsByDept.TableName = "FlowsByDept";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                FlowsByDept.Columns[0].ColumnName = "DeptName";
+                FlowsByDept.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(FlowsByDept);
+            #endregion 实例分析。
+
+
+            #region 待办 分析
+            //待办 - 部门分组.
+            sql = "SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName";
+            DataTable TodolistByDept = DBAccess.RunSQLReturnTable(sql);
+            TodolistByDept.TableName = "TodolistByDept";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                TodolistByDept.Columns[0].ColumnName = "DeptName";
+                TodolistByDept.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(TodolistByDept);
+
+            //逾期的 - 人员分组.
+            if (BP.Difference.SystemConfig.AppCenterDBType == DBType.MySQL)
+            {
+                sql = "SELECT  p.name,COUNT (w.WorkID) AS Num from Port_Emp p,WF_EmpWorks w  WHERE p. NO = w.FK_Emp AND WFState >1 and STR_TO_DATE(SDT,'%Y-%m-%d %H:%i') < now() AND Fk_flow = '" + fk_flow + "' GROUP BY p.name,w.FK_Emp";
+
+            }
+            else if (BP.Difference.SystemConfig.AppCenterDBType == DBType.Oracle || DBAccess.AppCenterDBType == DBType.GBASE8CByOracle || SystemConfig.AppCenterDBType == DBType.KingBaseR3 || SystemConfig.AppCenterDBType == DBType.KingBaseR6 || DBAccess.AppCenterDBType == DBType.DM)
+            {
+                sql = "SELECT  p.name,COUNT (w.WorkID) AS Num from Port_Emp p,WF_EmpWorks w  WHERE p. NO = w.FK_Emp AND WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}') AND(sysdate - TO_DATE(SDT, 'yyyy-mm-dd hh24:mi:ss')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY p.name,w.FK_Emp ";
+                sql += "UNION SELECT  p.name,COUNT (w.WorkID) AS Num from Port_Emp p,WF_EmpWorks w  WHERE p. NO = w.FK_Emp AND WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') AND (sysdate - TO_DATE(SDT, 'yyyy-mm-dd')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY p.name,w.FK_Emp";
+            }
+            else if (SystemConfig.AppCenterDBType == DBType.PostgreSQL || BP.Difference.SystemConfig.AppCenterDBType == DBType.HGDB)
+            {
+                sql = "SELECT  p.name,COUNT (w.WorkID) AS Num from Port_Emp p,WF_EmpWorks w  WHERE p. NO = w.FK_Emp AND WFState >1 to_timestamp(CASE WHEN SDT='无' THEN '' ELSE SDT END, 'yyyy-mm-dd hh24:MI:SS') < NOW() AND Fk_flow = '" + fk_flow + "' GROUP BY p.name,w.FK_Emp";
+            }
+            else
+            {
+                sql = "SELECT  p.name,COUNT (w.WorkID) AS Num from Port_Emp p,WF_EmpWorks w  WHERE p. NO = w.FK_Emp AND WFState >1 and convert(varchar(100),SDT,120) < CONVERT(varchar(100), GETDATE(), 120) AND Fk_flow = '" + fk_flow + "' GROUP BY p.name,w.FK_Emp";
+            }
+            DataTable OverTimeByEmp = DBAccess.RunSQLReturnTable(sql);
+            OverTimeByEmp.TableName = "OverTimeByEmp";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                OverTimeByEmp.Columns[0].ColumnName = "Name";
+                OverTimeByEmp.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(OverTimeByEmp);
+            //逾期的 - 部门分组.
+            if (BP.Difference.SystemConfig.AppCenterDBType == DBType.MySQL)
+            {
+                sql = "SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 and STR_TO_DATE(SDT,'%Y-%m-%d %H:%i') < now() AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName";
+
+            }
+            else if (BP.Difference.SystemConfig.AppCenterDBType == DBType.Oracle || DBAccess.AppCenterDBType == DBType.GBASE8CByOracle || SystemConfig.AppCenterDBType == DBType.KingBaseR3 || SystemConfig.AppCenterDBType == DBType.KingBaseR6 || DBAccess.AppCenterDBType == DBType.DM)
+            {
+                sql = "SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}') AND(sysdate - TO_DATE(SDT, 'yyyy-mm-dd hh24:mi:ss')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName ";
+                sql += "UNION SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') AND (sysdate - TO_DATE(SDT, 'yyyy-mm-dd')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName";
+            }
+            else if (SystemConfig.AppCenterDBType == DBType.PostgreSQL || BP.Difference.SystemConfig.AppCenterDBType == DBType.HGDB)
+            {
+                sql = "SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 and to_timestamp(CASE WHEN SDT='无' THEN '' ELSE SDT END, 'yyyy-mm-dd hh24:MI:SS') < NOW(), GETDATE(), 120) AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName";
+            }
+            else
+            {
+                sql = "SELECT DeptName, count(WorkID) as Num FROM WF_EmpWorks WHERE WFState >1 and convert(varchar(100),SDT,120) < CONVERT(varchar(100), GETDATE(), 120) AND Fk_flow = '" + fk_flow + "' GROUP BY DeptName";
+            }
+            DataTable OverTimeByDept = DBAccess.RunSQLReturnTable(sql);
+            OverTimeByDept.TableName = "OverTimeByDept";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                OverTimeByDept.Columns[0].ColumnName = "DeptName";
+                OverTimeByDept.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(OverTimeByDept);
+            //逾期的 - 节点分组.
+            if (BP.Difference.SystemConfig.AppCenterDBType == DBType.MySQL)
+            {
+                sql = "Select NodeName,count(*) as Num from WF_EmpWorks WHERE WFState >1 and STR_TO_DATE(SDT,'%Y-%m-%d %H:%i') < now() AND Fk_flow = '" + fk_flow + "' GROUP BY NodeName";
+
+            }
+            else if (BP.Difference.SystemConfig.AppCenterDBType == DBType.Oracle || DBAccess.AppCenterDBType == DBType.GBASE8CByOracle || SystemConfig.AppCenterDBType == DBType.KingBaseR3 || SystemConfig.AppCenterDBType == DBType.KingBaseR6 || DBAccess.AppCenterDBType == DBType.DM)
+            {
+                sql = "Select NodeName,count(*) as Num from WF_EmpWorks WHERE WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}') AND(sysdate - TO_DATE(SDT, 'yyyy-mm-dd hh24:mi:ss')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY NodeName ";
+                sql += "UNION Select NodeName,count(*) as Num from WF_EmpWorks WHERE WFState >1 and REGEXP_LIKE(SDT, '^[0-9]{4}-[0-9]{2}-[0-9]{2}$') AND (sysdate - TO_DATE(SDT, 'yyyy-mm-dd')) > 0 AND Fk_flow = '" + fk_flow + "' GROUP BY NodeName";
+            }
+            else if (SystemConfig.AppCenterDBType == DBType.PostgreSQL || BP.Difference.SystemConfig.AppCenterDBType == DBType.HGDB)
+            {
+                sql = "Select NodeName,count(*) as Num from WF_EmpWorks WHERE WFState >1 and to_timestamp(CASE WHEN SDT='无' THEN '' ELSE SDT END, 'yyyy-mm-dd hh24:MI:SS') < NOW() AND Fk_flow = '" + fk_flow + "' GROUP BY NodeName";
+            }
+            else
+            {
+                sql = "Select NodeName,count(*) as Num from WF_EmpWorks WHERE WFState >1 and convert(varchar(100),SDT,120) < CONVERT(varchar(100), GETDATE(), 120) AND Fk_flow = '" + fk_flow + "' GROUP BY NodeName";
+            }
+            DataTable OverTimeByNode = DBAccess.RunSQLReturnTable(sql);
+            OverTimeByNode.TableName = "OverTimeByNode";
+            if (SystemConfig.AppCenterDBFieldCaseModel != FieldCaseModel.None)
+            {
+                OverTimeByNode.Columns[0].ColumnName = "NodeName";
+                OverTimeByNode.Columns[1].ColumnName = "Num";
+            }
+            ds.Tables.Add(OverTimeByNode);
+            #endregion 逾期。
+
+
+            return BP.Tools.Json.ToJson(ds);
+        }
+        #endregion 欢迎页面初始化.
+
+
+    }
+}

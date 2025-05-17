@@ -1,0 +1,1 @@
+var r=Object.defineProperty;var w=(c,a,t)=>a in c?r(c,a,{enumerable:!0,configurable:!0,writable:!0,value:t}):c[a]=t;var o=(c,a,t)=>w(c,typeof a!="symbol"?a+"":a,t);class B{}o(B,"Location","Location"),o(B,"DocWord","DocWord"),o(B,"FlowBBS","FlowBBS"),o(B,"Map","Map");export{B as ComponentsFieldList};

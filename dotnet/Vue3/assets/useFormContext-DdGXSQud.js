@@ -1,0 +1,1 @@
+import{am as e,an as r}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";const t=Symbol();function u(o){return e(o,t)}function c(){return r(t)}export{u as createFormContext,c as useFormContext};

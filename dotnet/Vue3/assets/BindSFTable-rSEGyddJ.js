@@ -1,0 +1,1 @@
+import{a2 as t}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";const e={name:"BindSFTable"};function n(r,o,a,s,c,p){return null}const f=t(e,[["render",n]]);export{f as default};

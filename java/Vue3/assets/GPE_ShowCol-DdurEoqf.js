@@ -1,0 +1,9 @@
+var c=Object.defineProperty;var w=(i,r,t)=>r in i?c(i,r,{enumerable:!0,configurable:!0,writable:!0,value:t}):i[r]=t;var p=(i,r,t)=>w(i,typeof r!="symbol"?r+"":r,t);var a=(i,r,t)=>new Promise((e,o)=>{var h=s=>{try{m(t.next(s))}catch(n){o(n)}},l=s=>{try{m(t.throw(s))}catch(n){o(n)}},m=s=>s.done?e(s.value):Promise.resolve(s.value).then(h,l);m((t=t.apply(i,r)).next())});import{aG as f}from"./entry/index-C6uBgOW5-1730430676707.js";import{E as d}from"./EnCfg-CG3Atr8S.js";import{PageBaseGroupEdit as E}from"./PageBaseGroupEdit-IicyYiex.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";import"./GL_UIContralSetting-Dj8IucHe.js";import"./PageBaseGenerList-CFbIdYv0.js";import"./FrmAttachment-D6absTvH.js";import"./GloComm-CmAl8MpM.js";import"./FrmTrack-BAfWiAdt.js";import"./DBAccess-sLO0RM-h.js";import"./SFTable-BlM1UBse.js";import"./SFDBSrc-DKIMsnoa.js";import"./SFPara-T412M7pO.js";import"./SFColumn-CXmWKoZg.js";import"./MapAttr-B1mxD3vP.js";import"./Events-D9tOL1Ad.js";import"./AttrString-Czy8XfQb.js";import"./AttrNum-FObTY0J9.js";import"./Help-D0bDMZWg.js";class F extends E{constructor(){super("GPE_ShowCol");p(this,"Desc0",`
+  #### 帮助
+   - 显示所有的列.
+   - 这些列是按照实体的Attr是否可见与顺序决定的.
+`);p(this,"Desc1",`
+  #### 帮助
+  - 选择要显示的列.
+  - 系统列出的是所有可以显示的列.
+  `);this.PageTitle="显示列"}Init(){return a(this,null,function*(){this.entity=new d,this.KeyOfEn="ShowColModel",this.AddGroup("A","显示列"),this.Blank("0","所有的列",this.Desc0),this.SelectItemsByList("1","指定的选择列",this.Desc1,!0,yield this.GenerAttrs(),"ShowCols")})}GenerAttrs(){return a(this,null,function*(){const e=(yield f.GetEn(this.PKVal))._enMap.attrs.filter(o=>!!o.UIVisible).map(o=>({Name:o.Desc,No:o.Key}));return JSON.stringify(e)})}AfterSave(t,e){if(t==e)throw new Error("Method not implemented.")}BtnClick(t,e,o){if(t==e||t===o)throw new Error("Method not implemented.")}}export{F as GPE_ShowCol};

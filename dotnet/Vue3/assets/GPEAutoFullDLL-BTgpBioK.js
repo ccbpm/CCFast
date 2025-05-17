@@ -1,0 +1,7 @@
+var d=Object.defineProperty;var E=(r,t,e)=>t in r?d(r,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[t]=e;var p=(r,t,e)=>E(r,typeof t!="symbol"?t+"":t,e);var o=(r,t,e)=>new Promise((D,l)=>{var c=s=>{try{n(e.next(s))}catch(u){l(u)}},i=s=>{try{n(e.throw(s))}catch(u){l(u)}},n=s=>s.done?D(s.value):Promise.resolve(s.value).then(c,i);n((e=e.apply(r,t)).next())});import{N as A,ba as a,a0 as M,U as S,L as m}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class N extends A{constructor(e){super("TS.MapExt.GPEAutoFullDLL");p(this,"DescTag1",` 
+   #### 说明
+   - 该SQL必须返回No,Name 两个列.
+   - 至此ccbpm表达式.
+   - 比如:该下拉框是一个人员，您需要仅仅显示本部门人员.
+   - SELECT No,Name FROM Port_Emp WHERE FK_Dept='@WebUser.DeptNo'
+    `);e&&(this.MyPK=e)}get HisUAC(){const e=new S;return e.IsDelete=!0,e.IsUpdate=!0,e.IsInsert=!0,e}get EnMap(){const e=new m("Sys_MapExt","设置显示过滤");return e.AddGroupAttr("基本设置"),e.AddMyPK(),e.AddTBString(a.FK_MapData,null,"表单ID",!1,!1,0,50,200,!0),e.AddDDLSysEnum(a.DBType,0,"数据源类型",!0,!0,"DBType","@0=执行SQL@1=执行url返回JSON@2=执行CCFromRef.js返回JSON",null,!1),e.AddDDLEntities(a.FK_DBSrc,"local","数据源",new M,!0,null,!1),e.AddTBStringDoc(a.Doc,null,"表达式",!0,!1,!0,this.DescTag1),this._enMap=e,this._enMap}beforeInsert(){return o(this,null,function*(){return this.FK_MapData="ND1Rpt",Promise.resolve(!0)})}beforeUpdateInsertAction(){return o(this,null,function*(){return Promise.resolve(!0)})}}export{N as GPEAutoFullDLL};

@@ -1,0 +1,1 @@
+var r=(n=>(n.Anyone="Anyone",n.Adminer="Adminer",n.AdminerAndAdmin2="AdminerAndAdmin2",n.Emps="Emps",n.Stations="Stations",n.Depts="Depts",n.SQL="SQL",n.AnyOrgs="AnyOrgs",n.SpecOrgs="SpecOrgs",n.SpecOrgStations="SpecOrgStations",n.SpecOrgDepts="SpecOrgDepts",n))(r||{});export{r as AuthType};

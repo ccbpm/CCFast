@@ -1,0 +1,1 @@
+var l=(a,n,c)=>new Promise((y,o)=>{var B=t=>{try{r(c.next(t))}catch(s){o(s)}},_=t=>{try{r(c.throw(t))}catch(s){o(s)}},r=t=>t.done?y(t.value):Promise.resolve(t.value).then(B,_);r((c=c.apply(a,n)).next())});class i{constructor(){}static FrmBodyBtnclick(n,c,y,o){return l(this,null,function*(){})}}export{i as FrmBodyBtnClick};

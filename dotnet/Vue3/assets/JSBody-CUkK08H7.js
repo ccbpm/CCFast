@@ -1,0 +1,5 @@
+var l=(a,t,s)=>new Promise((o,d)=>{var i=e=>{try{n(s.next(e))}catch(u){d(u)}},p=e=>{try{n(s.throw(e))}catch(u){d(u)}},n=e=>e.done?o(e.value):Promise.resolve(e.value).then(i,p);n((s=s.apply(a,t)).next())});import{N as g,ba as r,U as A,L as M}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class B extends g{constructor(t){super("TS.MapExt.JSBody"),t&&(this.MyPK=t)}get HisUAC(){const t=new A;return t.IsDelete=!0,t.IsUpdate=!0,t.IsInsert=!0,t}get EnMap(){const t=new M("Sys_MapExt","函数体");return t.AddMyPK(),t.AddTBString(r.FK_MapData,null,"表单ID",!0,!0,0,10,100),t.AddTBString(r.AttrOfOper,null,"字段ID",!0,!0,0,10,100),t.AddTBString(r.Tag6,null,"模式名称",!0,!0,0,10,100,!0),t.AddTBString(r.Tag,null,"事件类型",!0,!0,0,10,100,!1),t.AddTBString(r.Tag1,null,"事件名称",!0,!0,0,10,100,!1),t.AddTBStringDoc(r.Doc,null,"JS函数体",!0,!1,!0,`
+    #### 帮助
+    - 输入正则表达式内容.
+    - 格式: xxewssssss
+    `),this._enMap=t,this._enMap}beforeInsert(){return l(this,null,function*(){return Promise.resolve(!0)})}}export{B as JSBody};

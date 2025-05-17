@@ -1,0 +1,1 @@
+import e from"./CCFormAPI-nSVvefKR.js";import"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";import"./BSEntities-CLC1u_hO.js";class p{CCFormDemo(){}CodeDemo(){const o="Frm_ABC",m=e.CreateBlankOID(o);e.SaveAsDraftByOID(o,m);const r={Tel:"18660153393",Addr:"山东济南"};e.SaveData(o,m,r),e.Delete(o,m)}UIDemo(){}}export{p as default};

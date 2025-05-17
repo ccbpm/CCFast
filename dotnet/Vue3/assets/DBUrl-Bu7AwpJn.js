@@ -1,0 +1,1 @@
+var n=Object.defineProperty;var s=(r,e,t)=>e in r?n(r,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):r[e]=t;var p=(r,e,t)=>s(r,typeof e!="symbol"?e+"":e,t);var D=(r=>(r[r.AppCenterDSN=0]="AppCenterDSN",r))(D||{});class l{constructor(e){p(this,"DBUrlType",0);this.DBUrlType=e}}export{l as DBUrl,D as DBUrlType};

@@ -1,0 +1,1895 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Sys_MapData>
+    <No>ND1401</No>
+    <Name>Start Node</Name>
+    <FormEventEntity />
+    <EnPK />
+    <PTable>ND14Rpt</PTable>
+    <PTableModel>0</PTableModel>
+    <UrlExt />
+    <Dtls />
+    <FrmW>900</FrmW>
+    <TableCol>0</TableCol>
+    <Tag />
+    <FK_FormTree />
+    <FrmType>8</FrmType>
+    <FrmTypeText>开发者表单</FrmTypeText>
+    <FrmShowType>0</FrmShowType>
+    <EntityType>0</EntityType>
+    <EntityTypeText>独立表单</EntityTypeText>
+    <IsEnableJs>0</IsEnableJs>
+    <AppType>0</AppType>
+    <DBSrc>local</DBSrc>
+    <BodyAttr />
+    <Note />
+    <Designer />
+    <DesignerUnit />
+    <DesignerContact />
+    <Idx>100</Idx>
+    <GUID />
+    <Ver>1</Ver>
+    <Icon>icon-doc</Icon>
+    <FlowCtrls />
+    <AtPara>@Ver=1@MapDtls_AutoNum=-1@FrmAttachments_AutoNum=1</AtPara>
+    <OrgNo />
+    <MapDtls_AutoNum>-1</MapDtls_AutoNum>
+    <FrmAttachments_AutoNum>1</FrmAttachments_AutoNum>
+    <HtmlTemplateFile>&lt;center&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;table style="border:none;border-collapse: collapse; width: 700px;table-layout: fixed; " width="608" data-sort="sortDisabled"&gt;&lt;tbody&gt;&lt;tr class="firstRow"&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="30px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="50px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="2" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="250px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="95px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="95px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="120px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td rowspan="1" colspan="1" style="border-style: none;border-left-color: rgb(255, 0, 0); border-left-width: medium; border-top-color: rgb(255, 0, 0);" width="120px" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none rgb(255, 0, 0); border-right: none rgb(255, 0, 0); border-top: none rgb(255, 0, 0); text-align: center; border-bottom-color: rgb(255, 0, 0); word-break: break-all;" rowspan="1" colspan="7" valign="top"&gt;&lt;span style="font-size: 36px;"&gt;&lt;strong&gt;&lt;span style="font-size: 36px; font-family: 宋体, SimSun; color: rgb(255, 0, 0); text-align: center;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 发文稿纸&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;div style="width: 100%; display: flex; justify-content: end;"&gt;&lt;div style="color: rgb(255, 0, 0); display: flex; align-items: center;"&gt;[&lt;input type="text" value="" id="TB_BianHao" name="TB_BianHao" data-key="BianHao" data-name="编号" data-type="Text" class="form-control" leipiplugins="text" style="width:120px"/&gt;]&amp;nbsp;&amp;nbsp;号&amp;nbsp; &amp;nbsp; &amp;nbsp;缓急:&amp;nbsp; &amp;nbsp;&lt;span leipiplugins="enum" id="SS_HuanJi" title="下拉框" name="leipiNewField" data-type="EnumSelect" data-bindkey="HuanJi"&gt;&lt;select id="DDL_HuanJi" name="DDL_HuanJi" data-type="EnumSelect" data-key="HuanJi" class="form-control" style="width: 100px;"&gt;&lt;option value="0"&gt;一般&lt;/option&gt;&lt;option value="1"&gt;紧急&lt;/option&gt;&lt;option value="2"&gt;非常紧急&lt;/option&gt;&lt;/select&gt;&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;密级:&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;span leipiplugins="enum" id="SS_MiJi" title="下拉框" name="leipiNewField" data-type="EnumSelect" data-bindkey="MiJi"&gt;&lt;select id="DDL_MiJi" name="DDL_MiJi" data-type="EnumSelect" data-key="MiJi" class="form-control" style="width: 100px;"&gt;&lt;option value="0"&gt;非密&lt;/option&gt;&lt;option value="1"&gt;一般&lt;/option&gt;&lt;option value="2"&gt;机密&lt;/option&gt;&lt;/select&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;td style="border-left: none rgb(255, 0, 0); border-right: none rgb(255, 0, 0); border-top: none rgb(255, 0, 0); text-align: center; border-bottom-color: rgb(255, 0, 0); word-break: break-all;" rowspan="1" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="4" valign="top"&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;签发：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;img src="../../../DataUser/Siganture/admin.jpg" onerror="this.src=&amp;#39;../../../DataUser/Siganture/UnName.jpg&amp;#39;" style="border:0px;height:50px;" id="ImgQF" data-type="HandWriting" data-key="ND1401_QF" leipiplugins="component"/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;br/&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="4" valign="top" height="120"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;会签：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;img src="../../../DataUser/Siganture/admin.jpg" onerror="this.src=&amp;#39;../../../DataUser/Siganture/UnName.jpg&amp;#39;" style="border:0px;height:50px;" id="ImgHQB" data-type="HandWriting" data-key="ND1401_HQB" leipiplugins="component"/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="4" valign="top"&gt;&lt;p style="display: flex; align-items: center;"&gt;&lt;span style="color: rgb(255, 0, 0); width: 180px;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;拟稿单位:&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;input type="text" value="" id="TB_NiGaoShanWeiMing" name="TB_NiGaoShanWeiMing" data-key="NiGaoShanWeiMing" data-name="拟稿单位名" data-type="Text" class="form-control" leipiplugins="text" style="width:120px"/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p style=" margin-top: 24px; display: flex; align-items: center;"&gt;&lt;span style="color: rgb(255, 0, 0); width: 180px;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;负&amp;nbsp;&amp;nbsp;责&amp;nbsp;&amp;nbsp;人:&lt;/span&gt;&lt;input type="text" value="" id="TB_FuZeRen" name="TB_FuZeRen" data-key="FuZeRen" data-name="负责人" data-type="Text" class="form-control" leipiplugins="text" style="width:120px"/&gt;&lt;br/&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=" margin-top: 24px;"&gt;&lt;span style="background-color: transparent;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="4" valign="top" rowspan="2"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;综合处核稿:&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;img src="../../../DataUser/Siganture/admin.jpg" onerror="this.src=&amp;#39;../../../DataUser/Siganture/UnName.jpg&amp;#39;" style="border:0px;height:50px;" id="ImgHG" data-type="HandWriting" data-key="ND1401_HG" leipiplugins="component"/&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="4" valign="top"&gt;&lt;p style="display: flex; align-items: center;"&gt;&lt;span style="color: rgb(255, 0, 0); width: 180px;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;办公室审核:&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;img src="../../../DataUser/Siganture/admin.jpg" onerror="this.src=&amp;#39;../../../DataUser/Siganture/UnName.jpg&amp;#39;" style="border:0px;height:50px;" id="ImgBGSSH" data-type="HandWriting" data-key="ND1401_BGSSH" leipiplugins="component"/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;!--&lt;tr&gt;&lt;td style="border-left: none;word-break: break-all; border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; 姓&amp;nbsp; &amp;nbsp; &amp;nbsp; 名&lt;/span&gt;
+                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;td style="border-right: none;border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;/td&gt;&lt;/tr&gt;--&gt;&lt;!--&lt;tr&gt;&lt;td style="border-left: none;border-color: rgb(255, 0, 0);" colspan="2" valign="top"&gt;&lt;/td&gt;&lt;td style="border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;/td&gt;&lt;td style="border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;/td&gt;&lt;td style="border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;/td&gt;&lt;td style="word-break: break-all; border-color: rgb(255, 0, 0);" valign="top"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; 电&amp;nbsp; &amp;nbsp; &amp;nbsp; 话&lt;/span&gt;
+                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;td style="border-right: none rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-left-color: rgb(255, 0, 0); word-break: break-all;"
+                    valign="top"&gt;&lt;/td&gt;&lt;/tr&gt;--&gt;&lt;tr id="zhengwen" style="display:none;"&gt;&lt;td style="border-left: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="2" valign="top"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;正文&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;td style="border-right: none;border-color: rgb(255, 0, 0);" colspan="5" valign="top"&gt;&lt;a id="TB_BiaoTiA" style="font-size:26px;cursor:pointer;" onclick="gongwen(1)"&gt;&lt;/a&gt;&lt;br/&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;td style="border-right: none;border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0); height: 80px;" colspan="7" valign="top"&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;标题：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp;&lt;textarea id="TB_BiaoTi" name="TB_BiaoTi" data-key="BiaoTi" data-name="标题" data-type="Textarea" leipiplugins="textarea" value="" orgrich="0" orgfontsize="12" orgwidth="600" orgheight="80" style="font-size: 12px; width: 100%; height: 59px; margin: 0px;"&gt;&lt;/textarea&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;border-right:none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="7" valign="top"&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;主送：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;textarea id="TB_ZhuSong" name="TB_ZhuSong" data-key="ZhuSong" data-name="主送" data-type="Textarea" leipiplugins="textarea" value="" orgrich="0" orgfontsize="12" orgwidth="600" orgheight="80" style="font-size: 12px; width: 100%; height: 59px; margin: 0px;"&gt;&lt;/textarea&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;报送：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp;&lt;textarea id="TB_BaoSong" name="TB_BaoSong" data-key="BaoSong" data-name="报送" data-type="Textarea" leipiplugins="textarea" value="" orgrich="0" orgfontsize="12" orgwidth="600" orgheight="80" style="font-size: 12px; width: 100%; height: 59px; margin: 0px;"&gt;&lt;/textarea&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;抄送：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;input type="text" value="" id="TB_ChaoSong" name="TB_ChaoSong" data-key="ChaoSong" data-name="抄送" data-type="Text" class="form-control" leipiplugins="text" style="width: 80%;"/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right:none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0); text-align: right;" colspan="7" valign="top"&gt;&lt;div name="SubFlow" data-info="016" style=""&gt;&lt;/div&gt;&lt;p style="text-align: left;"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;主题词：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;input type="text" value="" id="TB_ZhuTiCi" name="TB_ZhuTiCi" data-key="ZhuTiCi" data-name="主题词" data-type="Text" class="form-control" leipiplugins="text" style="width:120px"/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0); text-align: right;" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr id="zhengwenanniu" style="display:none;"&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="7" valign="top"&gt;&lt;input name="TB_QCZW" class="Btn" id="TB_QCZW" style="display: block;background-color: #1d7dd4;color: #fff;margin: 5px 3px 5px 3px;padding: 6px 15px;" onclick="gongwen()" value="起草正文" data-type="Btn" leipiplugins="component" data-key="QCZW" data-name="起草正文" type="button"/&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="7" valign="top"&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;附件：&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;input type="text" id="TB_ZDFJ" name="TB_ZDFJ" data-key="ZDFJ" data-name="字段附件" data-type="AthShow" leipiplugins="component" style="width:98%" placeholder="请上传附件"/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right: none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-left: none;border-right:none;word-break: break-all; border-color: rgb(255, 0, 0);text-align: center;" colspan="7"&gt;&lt;div style="color: rgb(255, 0, 0); display: flex; justify-content: space-between; width: 100%; display: flex; align-items: center;"&gt;&lt;span style="width: 25%;"&gt;拟稿人:&lt;span leipiplugins="select" id="SS_Demo_DictNoName_Emps" title="下拉框" name="leipiNewField" data-sftable="Demo_DictNoName_Emps"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="width: 25%;"&gt;拟稿日期:&lt;input type="text" value="" id="TB_NiGaoRiQi" name="TB_NiGaoRiQi" data-key="NiGaoRiQi" data-name="拟稿日期" data-type="Date" class="form-control Wdate" leipiplugins="text" style="width: 100px; display: inline;"/&gt;&lt;/span&gt;&lt;span style="background-color: transparent;"&gt;校对:&lt;/span&gt;&lt;input type="text" value="" id="TB_XiaoDui" name="TB_XiaoDui" data-key="XiaoDui" data-name="校对" data-type="Text" class="form-control" leipiplugins="text" style="width:120px"/&gt;&lt;p&gt;&lt;span style="background-color: transparent;"&gt;份数:&lt;/span&gt;&lt;/p&gt;&lt;input type="text" value="" id="TB_FenShu" name="TB_FenShu" data-key="FenShu" data-name="份数" data-type="Int" class="form-control" leipiplugins="text" style="width:120px"/&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/div&gt;&lt;/td&gt;&lt;td style="border-left: none;border-right:none;word-break: break-all; border-color: rgb(255, 0, 0);" colspan="1" valign="top"&gt;&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="border-color: rgb(255, 0, 0); border: 0px;  word-break: break-all;" rowspan="1" colspan="7" valign="top"&gt;&lt;p&gt;&lt;br/&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;textarea name="TB_BanLiFanKui" id="TB_BanLiFanKui" style="font-size: 12px; width: 802px; height: 50px; margin: 0px;display:none;" data-type="Textarea" leipiplugins="textarea" data-key="BanLiFanKui" data-name="办理反馈" orgheight="80" orgwidth="600" orgfontsize="12" orgrich="0" value=""&gt;&lt;/textarea&gt;&lt;/p&gt;&lt;div id="banlifankui" style="display:none;"&gt;&lt;/div&gt;&lt;p&gt;&lt;br/&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/td&gt;&lt;td style="border-color: rgb(255, 0, 0); border: 0px;  word-break: break-all;" rowspan="1" colspan="1" valign="top"&gt;&lt;span style="color: rgb(255, 0, 0);"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 印发&lt;/span&gt;
+ &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;&lt;br/&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;/center&gt;</HtmlTemplateFile>
+  </Sys_MapData>
+  <Sys_GroupField>
+    <OID>198</OID>
+    <Lab>基本信息</Lab>
+    <FrmID>ND1401</FrmID>
+    <CtrlType />
+    <CtrlID />
+    <IsZDPC>0</IsZDPC>
+    <IsZDMobile>0</IsZDMobile>
+    <ShowType>0</ShowType>
+    <ShowTypeText>显示</ShowTypeText>
+    <ParentOID />
+    <Idx>1</Idx>
+    <GUID />
+    <Icon />
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_GroupField>
+  <Sys_GroupField>
+    <OID>206</OID>
+    <Lab>字段附件</Lab>
+    <FrmID>ND1401</FrmID>
+    <CtrlType>Ath</CtrlType>
+    <CtrlID>ND1401_ZDFJ</CtrlID>
+    <IsZDPC>0</IsZDPC>
+    <IsZDMobile>0</IsZDMobile>
+    <ShowType>0</ShowType>
+    <ShowTypeText>显示</ShowTypeText>
+    <ParentOID />
+    <Idx>3</Idx>
+    <GUID />
+    <Icon />
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_GroupField>
+  <Sys_Enum>
+    <MyPK>HuanJi_CH_0</MyPK>
+    <Lab>一般</Lab>
+    <EnumKey>HuanJi</EnumKey>
+    <IntKey>0</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_Enum>
+    <MyPK>HuanJi_CH_1</MyPK>
+    <Lab>紧急</Lab>
+    <EnumKey>HuanJi</EnumKey>
+    <IntKey>1</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_Enum>
+    <MyPK>HuanJi_CH_2</MyPK>
+    <Lab>非常紧急</Lab>
+    <EnumKey>HuanJi</EnumKey>
+    <IntKey>2</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_Enum>
+    <MyPK>MiJi_CH_0</MyPK>
+    <Lab>非密</Lab>
+    <EnumKey>MiJi</EnumKey>
+    <IntKey>0</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_Enum>
+    <MyPK>MiJi_CH_1</MyPK>
+    <Lab>一般</Lab>
+    <EnumKey>MiJi</EnumKey>
+    <IntKey>1</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_Enum>
+    <MyPK>MiJi_CH_2</MyPK>
+    <Lab>机密</Lab>
+    <EnumKey>MiJi</EnumKey>
+    <IntKey>2</IntKey>
+    <Lang>CH</Lang>
+    <OrgNo />
+    <StrKey />
+    <RefPK />
+  </Sys_Enum>
+  <Sys_MapAttr>
+    <MyPK>ND1401_AtPara</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>AtPara</KeyOfEn>
+    <Name>参数</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>4000</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_BaoSong</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>BaoSong</KeyOfEn>
+    <Name>报送</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829203548</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_BGSSH</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>BGSSH</KeyOfEn>
+    <Name>办公室审核</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>8</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>70</UIWidth>
+    <UIHeight>50</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829203509</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_BianHao</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>BianHao</KeyOfEn>
+    <Name>编号</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192746</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_BiaoTi</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>BiaoTi</KeyOfEn>
+    <Name>标题</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829202514</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_ChaoSong</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>ChaoSong</KeyOfEn>
+    <Name>抄送</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829203624</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_Emps</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>Emps</KeyOfEn>
+    <Name>Emps</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>8000</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FenShu</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FenShu</KeyOfEn>
+    <Name>份数</Name>
+    <DefVal>0</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829202049</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FID</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FID</KeyOfEn>
+    <Name>FID</Name>
+    <DefVal>0</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FK_Dept</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FK_Dept</KeyOfEn>
+    <Name>操作员部门</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FK_DeptName</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FK_DeptName</KeyOfEn>
+    <Name>操作员部门名称</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FK_NY</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FK_NY</KeyOfEn>
+    <Name>年月</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>7</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_FuZeRen</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>FuZeRen</KeyOfEn>
+    <Name>负责人</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829203430</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_HG</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>HG</KeyOfEn>
+    <Name>核稿</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>8</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>70</UIWidth>
+    <UIHeight>50</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829202857</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_HQ</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>HQ</KeyOfEn>
+    <Name>会签</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>8</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>70</UIWidth>
+    <UIHeight>50</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829200946</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_HQB</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>HQB</KeyOfEn>
+    <Name>会签板</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>8</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>70</UIWidth>
+    <UIHeight>50</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829201607</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_HuanJi</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>HuanJi</KeyOfEn>
+    <Name>缓急</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>1</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>1</LGType>
+    <LGTypeText>枚举</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey>HuanJi</UIBindKey>
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192802</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_MiJi</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>MiJi</KeyOfEn>
+    <Name>密级</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>1</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>1</LGType>
+    <LGTypeText>枚举</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey>MiJi</UIBindKey>
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192814</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_NiGaoRiQi</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>NiGaoRiQi</KeyOfEn>
+    <Name>拟稿日期</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>6</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>125</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>10</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829201742</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_NiGaoShanWei</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>NiGaoShanWei</KeyOfEn>
+    <Name>拟稿单位</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192945</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_NiGaoShanWeiMing</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>NiGaoShanWeiMing</KeyOfEn>
+    <Name>拟稿单位名</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829193036</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_OID</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>OID</KeyOfEn>
+    <Name>WorkID</Name>
+    <DefVal>0</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>2</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>2</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_QCZW</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>QCZW</KeyOfEn>
+    <Name>起草正文</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>18</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829193212</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_QF</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>QF</KeyOfEn>
+    <Name>签发</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>8</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>70</UIWidth>
+    <UIHeight>50</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829200733</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_RDT</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>RDT</KeyOfEn>
+    <Name>接受时间</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>40</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag>1</Tag>
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_Rec</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>Rec</KeyOfEn>
+    <Name>完成时间</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>40</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>1</EditType>
+    <Tag>1</Tag>
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_SQDept</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>SQDept</KeyOfEn>
+    <Name>申请人部门</Name>
+    <DefVal>@WebUser.FK_DeptName</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>3</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_SQR</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>SQR</KeyOfEn>
+    <Name>申请人</Name>
+    <DefVal>@WebUser.Name</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_SQRQ</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>SQRQ</KeyOfEn>
+    <Name>申请日期</Name>
+    <DefVal>@RDT</DefVal>
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>7</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>165</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_Title</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>Title</KeyOfEn>
+    <Name>标题</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>200</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>0</UIVisible>
+    <UIIsEnable>0</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>0</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829192717</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_XiaoDui</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>XiaoDui</KeyOfEn>
+    <Name>校对</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829202200</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_ZDFJ</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>ZDFJ</KeyOfEn>
+    <Name>字段附件</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>6</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>150</UIWidth>
+    <UIHeight>150</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>3</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>0</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829214101</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_ZhengWenHao</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>ZhengWenHao</KeyOfEn>
+    <Name>正文号</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>300</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829193213</Idx>
+    <ICON>0</ICON>
+    <AtPara />
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_ZhuSong</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>ZhuSong</KeyOfEn>
+    <Name>主送</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829203521</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_MapAttr>
+    <MyPK>ND1401_ZhuTiCi</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <KeyOfEn>ZhuTiCi</KeyOfEn>
+    <Name>主题词</Name>
+    <DefVal />
+    <DefValType>1</DefValType>
+    <UIContralType>0</UIContralType>
+    <MyDataType>1</MyDataType>
+    <LGType>0</LGType>
+    <LGTypeText>普通</LGTypeText>
+    <UIWidth>100</UIWidth>
+    <UIHeight>23</UIHeight>
+    <MinLen>0</MinLen>
+    <MaxLen>50</MaxLen>
+    <UIBindKey />
+    <UIRefKey />
+    <UIRefKeyText />
+    <ExtIsSum>0</ExtIsSum>
+    <UIVisible>1</UIVisible>
+    <UIIsEnable>1</UIIsEnable>
+    <UIIsLine>0</UIIsLine>
+    <UIIsInput>0</UIIsInput>
+    <TextModel>0</TextModel>
+    <IsSupperText>0</IsSupperText>
+    <FontSize>0</FontSize>
+    <IsSigan>0</IsSigan>
+    <GUID />
+    <EditType>0</EditType>
+    <Tag />
+    <Tag1 />
+    <Tag2 />
+    <Tag3 />
+    <Tip />
+    <ColSpan>1</ColSpan>
+    <LabelColSpan>1</LabelColSpan>
+    <RowSpan>1</RowSpan>
+    <GroupID>198</GroupID>
+    <IsEnableInAPP>1</IsEnableInAPP>
+    <CSSCtrl>0</CSSCtrl>
+    <CSSLabel>0</CSSLabel>
+    <Idx>829201631</Idx>
+    <ICON>0</ICON>
+    <AtPara>@FontSize=12</AtPara>
+    <NameFT />
+    <NameEn />
+    <NameJP />
+  </Sys_MapAttr>
+  <Sys_FrmAttachment>
+    <MyPK>ND1401_ZDFJ</MyPK>
+    <FK_MapData>ND1401</FK_MapData>
+    <NoOfObj>ZDFJ</NoOfObj>
+    <FK_Node>0</FK_Node>
+    <AthRunModel>0</AthRunModel>
+    <AthSaveWay>0</AthSaveWay>
+    <Name>字段附件</Name>
+    <Exts />
+    <NumOfUpload>0</NumOfUpload>
+    <TopNumOfUpload>99</TopNumOfUpload>
+    <FileMaxSize>10240</FileMaxSize>
+    <UploadFileNumCheck>0</UploadFileNumCheck>
+    <Sort />
+    <H>150</H>
+    <IsUpload>1</IsUpload>
+    <IsVisable>0</IsVisable>
+    <FileType>0</FileType>
+    <ReadRole>0</ReadRole>
+    <PicUploadType>0</PicUploadType>
+    <DeleteWay>1</DeleteWay>
+    <IsDownload>1</IsDownload>
+    <IsAutoSize>1</IsAutoSize>
+    <IsNote>1</IsNote>
+    <IsExpCol>0</IsExpCol>
+    <IsShowTitle>1</IsShowTitle>
+    <UploadType>1</UploadType>
+    <IsIdx>0</IsIdx>
+    <OpenDesc />
+    <CtrlWay>4</CtrlWay>
+    <AthUploadWay>0</AthUploadWay>
+    <DataRefNoOfObj />
+    <AtPara>@IsShowMobile=1@IsToHeLiuHZ=1@IsHeLiuHuiZong=1</AtPara>
+    <GroupID>198</GroupID>
+    <GUID />
+    <IsEnableTemplate>0</IsEnableTemplate>
+    <AthEditType>0</AthEditType>
+    <AthEditTypeText>Office插件</AthEditTypeText>
+  </Sys_FrmAttachment>
+</NewDataSet>

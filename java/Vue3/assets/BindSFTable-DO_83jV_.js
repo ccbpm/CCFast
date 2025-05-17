@@ -1,0 +1,1 @@
+import{a6 as e}from"./entry/index-C6uBgOW5-1730430676707.js";const t={name:"BindSFTable"};function o(n,r,a,c,l,s){return null}const _=e(t,[["render",o]]),p=Object.freeze(Object.defineProperty({__proto__:null,default:_},Symbol.toStringTag,{value:"Module"}));export{p as _};

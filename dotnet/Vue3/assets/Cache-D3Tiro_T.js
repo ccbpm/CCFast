@@ -1,0 +1,1 @@
+var s=Object.defineProperty;var p=(t,a,c)=>a in t?s(t,a,{enumerable:!0,configurable:!0,writable:!0,value:c}):t[a]=c;var e=(t,a,c)=>p(t,typeof a!="symbol"?a+"":a,c);class h{static GetMap(a){return this.mapCache[a]}static SetMap(a,c){this.mapCache[a]=c}}e(h,"mapCache",{});export{h as Cache};

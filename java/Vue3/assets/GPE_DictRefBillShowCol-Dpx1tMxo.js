@@ -1,0 +1,9 @@
+var h=Object.defineProperty;var f=(e,i,t)=>i in e?h(e,i,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[i]=t;var p=(e,i,t)=>f(e,typeof i!="symbol"?i+"":i,t);var a=(e,i,t)=>new Promise((o,r)=>{var l=s=>{try{m(t.next(s))}catch(n){r(n)}},c=s=>{try{m(t.throw(s))}catch(n){r(n)}},m=s=>s.done?o(s.value):Promise.resolve(s.value).then(l,c);m((t=t.apply(e,i)).next())});import{MethodDictRefBill as w}from"./MethodDictRefBill-rjSw0Opm.js";import{PageBaseGroupEdit as d}from"./PageBaseGroupEdit-IicyYiex.js";import{MapAttrs as y}from"./MapAttr-B1mxD3vP.js";import"./entry/index-C6uBgOW5-1730430676707.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";import"./Method-CoRs5kcO.js";import"./GroupMethod-CUWbZDLV.js";import"./DBAccess-sLO0RM-h.js";import"./SFTable-BlM1UBse.js";import"./SFDBSrc-DKIMsnoa.js";import"./SFPara-T412M7pO.js";import"./SFColumn-CXmWKoZg.js";import"./PCenter-g1qHGjKQ.js";import"./PowerCenter-xD33lI2C.js";import"./Events-D9tOL1Ad.js";import"./Help-D0bDMZWg.js";class x extends d{constructor(){super("GPE_DictRefBillShowCol");p(this,"Desc0",`
+  #### 帮助
+   - 显示所有的列.
+   - 这些列是按照实体的Attr是否可见与顺序决定的.
+`);p(this,"Desc1",`
+  #### 帮助
+  - 选择要显示的列.
+  - 系统列出的是所有可以显示的列.
+  `);this.PageTitle="显示列"}Init(){return a(this,null,function*(){this.entity=new w,this.KeyOfEn="Tag3",this.AddGroup("A","显示列"),this.Blank("0","所有的列",this.Desc0),this.SelectItemsByList("1","指定的选择列",this.Desc1,!0,yield this.GenerAttrs(),"Docs")})}GenerAttrs(){return a(this,null,function*(){const t=new y;yield t.Retrieve("FK_MapData",this.PKVal);const o=t.filter(r=>!!r.UIVisible).map(r=>({Name:r.Name,No:r.KeyOfEn}));return JSON.stringify(o)})}AfterSave(t,o){if(t==o)throw new Error("Method not implemented.")}BtnClick(t,o,r){if(t==o||t===r)throw new Error("Method not implemented.")}}export{x as GPE_DictRefBillShowCol};

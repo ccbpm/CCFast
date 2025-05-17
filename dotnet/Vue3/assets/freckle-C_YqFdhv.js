@@ -1,0 +1,1 @@
+import{s as r}from"./entry/index-C6uBgOW5-1730430676707.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";function F(e,t,o,n){return r.get(`/WF/FRECKLE/SplitFreckle?no=${e}&splitCount=${t}&geometry=${o}&token=${n}`)}function $(e,t){return r.get(`/WF/FRECKLE/DropTable?sql=${e}&token=${t}`)}export{$ as DropTable,F as SplitFreckle};

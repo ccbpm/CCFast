@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>数据字典表</title>
+    <link href="../Scripts/easyUI/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/easyUI/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.11.0.min.js"></script>
+    <script src="../Scripts/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Scripts/QueryString.js" type="text/javascript"></script>
+    <script src="../Scripts/config.js" type="text/javascript"></script>
+    <script src="../Comm/Gener.js" type="text/javascript"></script>
+    <base target="_self" />
+    <link href="../../DataUser/Style/ccbpm.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+
+        var vstoUrl = "";
+        var frmID = GetQueryString("FK_MapData");
+        var nodeid = GetQueryString("FK_Node");
+        //页面启动函数.
+        $(function () {
+
+
+
+            $("#Msg").html("<img src=../Img/loading.gif />&nbsp;正在加载,请稍后......");
+
+            var webUser = new WebUser();
+
+            frmID = GetQueryString("FK_MapData");
+            if (frmID == null || frmID == undefined)
+                frmID = GetQueryString("FrmID");
+
+            if (frmID == null || frmID == undefined || frmID == "null")
+                frmID = GetQueryString("EnName");
+
+            if (frmID == null || frmID == undefined || frmID == "null")
+                frmID = GetQueryString("EnsName");
+
+            var url = "excelform://-fromccflow,App=FrmExcel";
+            url += ",FrmID=" + frmID;
+
+            if (GetQueryString("MyPK") != null)
+                url += ",MyPK=" + GetQueryString("MyPK");
+
+            if (GetQueryString("CreateReportType") != null)
+                url += ",CreateReportType=" + GetQueryString("CreateReportType");
+
+            if (GetQueryString("No") != null)
+                url += ",No=" + GetQueryString("No");
+
+            if (GetQueryString("WorkID") != null)
+                url += ",WorkID=" + GetQueryString("WorkID");
+
+            if (GetQueryString("OID") != null)
+                url += ",OID=" + GetQueryString("OID");
+
+            //javascript: OpenUrlInRightFrame(this, "/WF/CCForm/FrmVSTO.htm?EnName=BP.LI.BZQXcg&UseSheet=%e5%a4%a7%e5%9e%8b%e4%bb%aa%e5%99%a8%e6%a0%a1%e5%87%86%e6%9b%b2%e7%ba%bf&OID=304874")
+            if (GetQueryString("UseSheet") != null)
+                url += ",UseSheet=" + GetQueryString("UseSheet");
+
+            url += ",IsEdit=" + GetQueryString("IsEdit");
+            url += ",IsPrint=" + GetQueryString("IsPrint");
+            url += ",FK_Flow=" + GetQueryString("FK_Flow");
+            url += ",FK_Node=" + GetQueryString("FK_Node");
+            url += ",UserNo=" + webUser.No;
+            url += ",SID=" + webUser.Token;
+            url += ",FID=" + GetQueryString("FID");
+            url += ",PFlowNo=" + GetQueryString("PFlowNo");
+            url += ",IsLoadData=" + GetQueryString("IsLoadData");
+            url += ",IsReadonly=" + GetQueryString("IsReadonly");
+            url += ",Frms=" + GetQueryString("Frms");
+            url += ",LastTruckID=" + GetQueryString("LastTruckID");
+            // url += ",PFlowNo=" + GetQueryString("PFlowNo");
+            url += ",PNodeID=" + GetQueryString("PNodeID");
+            url += ",PWorkID=" + GetQueryString("PWorkID");
+            url += ",PEmpNo=" + GetQueryString("PEmpNo");
+
+
+            var wsUrl = basePath + "/WF/CCForm/CCFormAPI.asmx";
+            url += ",WSUrl=" + wsUrl;
+
+            vstoUrl = url + ",TemDataSync=1,IsSendOnlineWork=1";
+            //alert(vstoUrl);
+            var html1 = "<a href='" + url + "'>打开VSTO版本excel模式的表单</a>";
+            $("#UrlOfVSTO").html(html1);
+
+            html1 = "<a href='" + vstoUrl + "'>导入离线文件</a>";
+            $("#ImportDataVSTO").html(html1);
+
+            $("#Msg").html("");
+
+            ShowCopyWin();
+
+        });
+
+        function ShowCopyWin() {
+            var url = "../../App/ImportData.aspx?FrmId=" + frmID + "&NodeID=" + nodeid + "&";
+            $('#ImportDataIfr').attr('src', url);
+
+            if (frmid == "CYSheBeiUse" || nodeid != "201")
+                $("#copyexcel").hide();
+            else
+                $("#copyexcel").show();
+        }
+
+    </script>
+</head>
+<body>
+    <br />
+    <br />
+    <fieldset>
+        <legend>处理表单</legend>
+        <ul>
+            <li>
+                <div id="UrlOfVSTO">
+                </div>
+            </li>
+            <!-- <li>
+                 <div id="UrlOfFrm">
+                 </div>
+             </li>-->
+        </ul>
+    </fieldset>
+    <fieldset id="copyexcel">
+        <legend>从本机拷贝Excel数据</legend>
+        <ul>
+            <li>
+                <div id="ImportDataVSTO">
+                </div>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>插件安装说明</legend>
+        <ul>
+            <li>该插件是一个ccflow开发的excel插件，用户打开处理excel表单的插件。</li>
+            <li>该需要下载后安装</li>
+            <li><a href="/DataUser/FrmVSTOTemplate/Excel表单插件安装程序.zip">点击此处下载VSTO表单插件</a></li>
+        </ul>
+    </fieldset>
+</body>
+</html>

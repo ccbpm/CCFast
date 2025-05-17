@@ -1,0 +1,1 @@
+import{d as t,c as n}from"./index-mLY1MaD-.js";import{g as o,b as r}from"./vue-DGeTOT5N.js";import"./ContextMenu.vue_vue_type_style_index_0_lang-9gALkLRi.js";import"./entry/index-M8VErHPE-1727507756861.js";import"./antd-DkiF_jXA.js";function p(e=!0){return o()&&e&&r(()=>{t()}),[n,t]}export{p as useContextMenu};

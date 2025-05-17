@@ -1,0 +1,31 @@
+# for activemq
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    queue-name: JFlowTest
+    listener:
+      enabled: false
+  rabbitmq:
+    port: 5672
+    host: localhost
+    username: root
+    password: 123456
+    #确保消息推送到交换机中，不管成不成功，都会回调
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    virtual-host: /
+    #确保消费者会消费消息，手动确认
+    listener:
+      simple:
+        acknowledge-mode: manual
+    template:
+      mandatory: true
+    # 是否启用RabbitMQ
+    enable: true
+swagger:
+  basic:
+    enable: true
+    username: admin
+    password: 123

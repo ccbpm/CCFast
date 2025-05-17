@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> iframe differentOrigin</title>
+</head>
+
+<body>
+  <div id='span1'></div>
+  <div id='span2'></div>
+  <h3>iframe differentOrigin</h3>
+</body>
+<script type="text/javascript">
+  // 监听 message 的变化
+  window.addEventListener('message', function (e) {
+    document.getElementById('span1').innerHTML = JSON.stringify(e.data) // 作为第一个参数传递给postMessage的数据
+    document.getElementById('span2').innerHTML = e.origin // 发送消息的来源，可以根据origin来确保期望的发送者
+    var parentWin = e.source // 发送消息的window代理对象
+    var data = e.data;
+    switch (data.cmd) {
+      case 'Save':
+        Save(data.params);
+        break;
+    }
+    parentWin.postMessage(
+      {
+        cmd: 'Save',
+        params: { 'data': true },
+      },
+      e.origin,
+    );
+
+  });
+  function Save(params) {
+    alert(33)
+    return true;
+  }
+</script>
+
+</html>

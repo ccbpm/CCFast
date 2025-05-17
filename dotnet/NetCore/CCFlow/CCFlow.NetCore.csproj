@@ -1,0 +1,248 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>..\CCFlowForNetCore.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1591;</NoWarn>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1591;</NoWarn>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AdminSys\**" />
+    <Compile Remove="Admin\**" />
+    <Compile Remove="AppTemplate\**" />
+    <Compile Remove="App\**" />
+    <Compile Remove="CCFast\**" />
+    <Compile Remove="CCMobilePortal\**" />
+    <Compile Remove="CCMobile\**" />
+    <Compile Remove="FastMobilePortal\**" />
+    <Compile Remove="Helper\**" />
+    <Compile Remove="Portal\Install\**" />
+    <Compile Remove="Portal\WeiXin\**" />
+    <Compile Remove="SDKFlowDemo\**" />
+    <Compile Remove="Service References\**" />
+    <Content Remove="AdminSys\**" />
+    <Content Remove="Admin\**" />
+    <Content Remove="AppTemplate\**" />
+    <Content Remove="App\**" />
+    <Content Remove="CCFast\**" />
+    <Content Remove="CCMobilePortal\**" />
+    <Content Remove="CCMobile\**" />
+    <Content Remove="FastMobilePortal\**" />
+    <Content Remove="Helper\**" />
+    <Content Remove="Portal\Install\**" />
+    <Content Remove="Portal\WeiXin\**" />
+    <Content Remove="SDKFlowDemo\**" />
+    <Content Remove="Service References\**" />
+    <EmbeddedResource Remove="AdminSys\**" />
+    <EmbeddedResource Remove="Admin\**" />
+    <EmbeddedResource Remove="AppTemplate\**" />
+    <EmbeddedResource Remove="App\**" />
+    <EmbeddedResource Remove="CCFast\**" />
+    <EmbeddedResource Remove="CCMobilePortal\**" />
+    <EmbeddedResource Remove="CCMobile\**" />
+    <EmbeddedResource Remove="FastMobilePortal\**" />
+    <EmbeddedResource Remove="Helper\**" />
+    <EmbeddedResource Remove="Portal\Install\**" />
+    <EmbeddedResource Remove="Portal\WeiXin\**" />
+    <EmbeddedResource Remove="SDKFlowDemo\**" />
+    <EmbeddedResource Remove="Service References\**" />
+    <None Remove="AdminSys\**" />
+    <None Remove="Admin\**" />
+    <None Remove="AppTemplate\**" />
+    <None Remove="App\**" />
+    <None Remove="CCFast\**" />
+    <None Remove="CCMobilePortal\**" />
+    <None Remove="CCMobile\**" />
+    <None Remove="FastMobilePortal\**" />
+    <None Remove="Helper\**" />
+    <None Remove="Portal\Install\**" />
+    <None Remove="Portal\WeiXin\**" />
+    <None Remove="SDKFlowDemo\**" />
+    <None Remove="Service References\**" />
+    <TypeScriptCompile Remove="AdminSys\**" />
+    <TypeScriptCompile Remove="Admin\**" />
+    <TypeScriptCompile Remove="AppTemplate\**" />
+    <TypeScriptCompile Remove="App\**" />
+    <TypeScriptCompile Remove="CCFast\**" />
+    <TypeScriptCompile Remove="CCMobilePortal\**" />
+    <TypeScriptCompile Remove="CCMobile\**" />
+    <TypeScriptCompile Remove="FastMobilePortal\**" />
+    <TypeScriptCompile Remove="Helper\**" />
+    <TypeScriptCompile Remove="Portal\Install\**" />
+    <TypeScriptCompile Remove="Portal\WeiXin\**" />
+    <TypeScriptCompile Remove="SDKFlowDemo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+    <Compile Remove="DataUser\AppCoder\FrmEventHandle.aspx.cs" />
+    <Compile Remove="DataUser\AppCoder\FrmEventHandle.aspx.designer.cs" />
+    <Compile Remove="DataUser\AppCoder\UpdateDemoSQL.aspx.cs" />
+    <Compile Remove="DataUser\AppCoder\UpdateDemoSQL.aspx.designer.cs" />
+    <Compile Remove="DataUser\CCBPMServices.cs" />
+    <Compile Remove="DataUser\DevelopAPI.ashx.cs" />
+    <Compile Remove="DataUser\Do.aspx.cs" />
+    <Compile Remove="DataUser\Do.aspx.designer.cs" />
+    <Compile Remove="DataUser\Event.cs" />
+    <Compile Remove="DataUser\Handler.ashx.cs" />
+    <Compile Remove="DataUser\HandlerAPI.ashx.cs" />
+    <Compile Remove="DataUser\HandlerOfMessage.aspx.cs" />
+    <Compile Remove="DataUser\HandlerOfMessage.aspx.designer.cs" />
+    <Compile Remove="DataUser\IndustrialAutomationWorkflowAPI.asmx.cs" />
+    <Compile Remove="DataUser\LocalWS.asmx.cs" />
+    <Compile Remove="DataUser\OverrideFiles\Handler.ashx.cs" />
+    <Compile Remove="DataUser\PortalInterface.ashx.cs" />
+    <Compile Remove="DataUser\PortalInterface.asmx.cs" />
+    <Compile Remove="DataUser\Services.cs" />
+    <Compile Remove="DataUser\SFTableHandler.ashx.cs" />
+    <Compile Remove="Default.aspx.cs" />
+    <Compile Remove="Default.aspx.designer.cs" />
+    <Compile Remove="Global.asax.cs" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <Compile Remove="WF\CCForm\CCFormAPI.asmx.cs" />
+    <Compile Remove="WF\CCForm\DownFile.aspx.cs" />
+    <Compile Remove="WF\CCForm\DownFile.aspx.designer.cs" />
+    <Compile Remove="WF\CCForm\Handler.ashx.cs" />
+    <Compile Remove="WF\Comm\Do.aspx.cs" />
+    <Compile Remove="WF\Comm\Do.aspx.designer.cs" />
+    <Compile Remove="WF\Comm\Handler.ashx.cs" />
+    <Compile Remove="WF\Comm\Utilities\NpoiFuncs.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="web.config" />
+    <Content Remove="Web.Debug.config" />
+    <Content Remove="Web.Release.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DataUser\AppCoder\FrmEventHandle.aspx" />
+    <None Remove="DataUser\AppCoder\UpdateDemoSQL.aspx" />
+    <None Remove="DataUser\DevelopAPI.ashx" />
+    <None Remove="DataUser\Do.aspx" />
+    <None Remove="DataUser\Handler.ashx" />
+    <None Remove="DataUser\HandlerAPI.ashx" />
+    <None Remove="DataUser\HandlerOfMessage.aspx" />
+    <None Remove="DataUser\IndustrialAutomationWorkflowAPI.asmx" />
+    <None Remove="DataUser\LocalWS.asmx" />
+    <None Remove="DataUser\OverrideFiles\Handler.ashx" />
+    <None Remove="DataUser\PortalInterface.ashx" />
+    <None Remove="DataUser\PortalInterface.asmx" />
+    <None Remove="DataUser\SFTableHandler.ashx" />
+    <None Remove="Default.aspx" />
+    <None Remove="Global.asax" />
+    <None Remove="WF\CCForm\CCFormAPI.asmx" />
+    <None Remove="WF\CCForm\DownFile.aspx" />
+    <None Remove="WF\CCForm\Handler.ashx" />
+    <None Remove="WF\Comm\Do.aspx" />
+    <None Remove="WF\Comm\Handler.ashx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DM.DmProvider" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MySql.Data" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="NPOI" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" />
+    <PackageReference Include="Quartz" />
+    <PackageReference Include="System.CodeDom" />
+    <PackageReference Include="System.Data.Odbc" />
+    <PackageReference Include="System.Data.SqlClient" />
+    <PackageReference Include="System.ServiceModel.Http" />
+    <PackageReference Include="System.Text.RegularExpressions" />
+    <PackageReference Include="ThoughtWorks.QRCode.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Components\BP.App\BP.App.NetCore.csproj" />
+    <ProjectReference Include="..\Components\BP.En30\BP.En30.NetCore.csproj" />
+    <ProjectReference Include="..\Components\BP.WF\BP.WF.NetCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="WF\Data\**\*.*" />
+    <Content Update="WF\Data\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DataUser\XML\*.*" />
+    <Content Update="DataUser\XML\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="DataUser\UserIcon\*.*" />
+    <Content Update="DataUser\UserIcon\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="WF\Comm\Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.OpenApi">
+      <HintPath>..\RefDLL\Microsoft.OpenApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.Swagger">
+      <HintPath>..\RefDLL\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
+      <HintPath>..\RefDLL\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerUI">
+      <HintPath>..\RefDLL\Swashbuckle.AspNetCore.SwaggerUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\RefDLL\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\RefDLL\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\RefDLL\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\RefDLL\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataUser\ICON\cclogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

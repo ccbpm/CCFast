@@ -1,0 +1,1 @@
+import{ab as u,aj as t}from"./entry/index-M8VErHPE-1727507756861.js";import{d as a}from"./vue-DGeTOT5N.js";const p=a({name:"Authority",props:{value:{type:[Number,Array,String],default:""}},setup(n,{slots:r}){const{hasPermission:o}=u();function s(){const{value:e}=n;return e?o(e)?t(r):null:t(r)}return()=>s()}});export{p as _};

@@ -1,0 +1,9 @@
+import{E as s,g as a,U as u,h as o}from"./entry/index-C6uBgOW5-1730430676707.js";import{MenuAttr as e}from"./Menu-mhkUhdKC.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";import"./DBAccess-sLO0RM-h.js";import"./SFTable-BlM1UBse.js";import"./SFDBSrc-DKIMsnoa.js";import"./SFPara-T412M7pO.js";import"./SFColumn-CXmWKoZg.js";import"./MapAttr-B1mxD3vP.js";import"./Events-D9tOL1Ad.js";import"./PCenter-g1qHGjKQ.js";import"./PowerCenter-xD33lI2C.js";class l extends s{constructor(t){super("TS.CCFast.Rpt3D"),t&&(this.No=t)}get HisUAC(){const t=new u;return t.IsDelete=!0,t.IsUpdate=!0,t.IsInsert=!1,t}get EnMap(){const t=new o("GPM_Menu","三维报表");t.AddTBStringPK(e.No,null,"编号",!1,!1,1,90,50),t.AddTBString(e.Icon,null,"Icon",!0,!1,0,50,50),t.AddTBString(e.Name,null,"菜单名称",!0,!1,0,200,200),t.AddTBString(e.Title,null,"报表标题",!0,!1,0,200,200,!0),t.AddTBString(e.Tag4,null,"分析项目名称",!0,!1,0,200,200),t.AddDDLSysEnum(e.ListModel,0,"维度显示格式",!0,!0,"RptModel","@0=左边@1=顶部"),t.AddDDLSysEnum(e.TagInt1,0,"合计位置?",!0,!0,"Rpt3SumModel","@0=不显示@1=底部@2=头部"),t.AddTBStringDoc(e.Tag0,null,"数据源SQL",!0,!1,!0);let n="编写说明";return n+=`	
+ 1. 该数据源一般是一个分组统计语句, 比如： SELECT D1,D2,D3,SUM(XX) AS Num FROM MyTable WHERE 1=2 GROUP BY D1,D2,D3  `,n+=`	
+ 2. 对应的数据列分别是 如下数据源的列数据，列的顺序不要改变。 `,n+=`	
+ 3. 每个维度都是返回的No,Name两个列的数据。 `,n+=`	
+ 3，DEMO `,n+=`	
+ 数据源：SELECT BanJiNo,XB,ZZMM, COUNT(*) as Num from Demo_Student GROUP BY BanJiNo,XB,ZZMM`,n+=`	
+ 维度1：SELECT No,Name FROM demo_banji `,n+=`	
+ 维度2：SELECT IntKey as No, Lab as Name FROM sys_enum WHERE EnumKey='XB' `,n+=`	
+ 维度3：SELECT IntKey as No, Lab as Name FROM sys_enum WHERE EnumKey='ZZMM'`,t.SetHelperAlert(e.Tag0,n),t.AddTBStringDoc(e.Tag1,null,"维度1SQL",!0,!1,!0),t.AddTBStringDoc(e.Tag2,null,"维度2SQL",!0,!1,!0),t.AddTBStringDoc(e.Tag3,null,"维度3SQL",!0,!1,!0),this._enMap=t,this._enMap}}class c extends a{get GetNewEntity(){return new l}constructor(){super()}}export{l as Rpt3D,c as Rpt3Ds};

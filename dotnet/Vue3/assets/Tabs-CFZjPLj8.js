@@ -1,0 +1,1 @@
+import{useDesignerTheme as e}from"./form-Bg9E1Us6.js";import"./vue-BXIlYw1E.js";const r=e(),i={barColor:r.primaryColor,tabTextColorHoverLine:r.primaryColor,tabTextColorActiveLine:r.primaryColor};export{i as default};

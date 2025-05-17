@@ -1,0 +1,6 @@
+import{N as r,aM as s,O as a,U as n,L as l}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class i extends r{constructor(e){super("TS.FrmUI.SFParaSln"),e&&this.setPKVal(e)}get HisUAC(){const e=new n;return e.IsDelete=!1,e.IsUpdate=!0,e.IsInsert=!1,e}get EnMap(){const e=new l("Sys_SFParaSln","转化方案");return e.AddMyPK(),e.AddTBString("RefPKVal",null,"实体主键",!1,!1,1,200,20),e.AddTBString("FrmID",null,"表单",!1,!1,1,200,20),e.AddTBString("ParaKey",null,"参数标记",!0,!0,1,200,100),e.AddTBString("ParaName",null,"参数名",!0,!0,0,200,100),e.AddDDLStringEnum("DataType","String","数据类型","@String=String@Int=Int@Float=Float",!1),e.AddDDLStringEnum("DBFrom","Frm","数据源","@Frm=表单数据@Normal=常量",!0),e.AddDDLSQL("FrmAttr",null,"表单字段",s.srcFrmFields,!0,null,!1,300),e.AddTBString("Vals",null,"常量值",!0,!1,0,200,100),e.SetHelperAlert("Vals",`
+    #### 帮助
+    - 常量是固定的值，比如：1,2,3
+    - 支持ccbpm表达式，比如： @WebUser.No,  @WebUser.Name,  @WebUser.DeptNo,  @WebUser.DeptName,  @WebUser.OrgNo, 
+    - 获得当前用户登录信息.
+    `),this._enMap=e,this._enMap}beforeInsert(){return this.MyPK||(this.MyPK=this.GetValStringByKey("RefPKVal")+"_"+this.GetValStringByKey("ParaKey")),Promise.resolve(!0)}}class m extends a{get GetNewEntity(){return new i}constructor(){super()}}export{i as SFParaSln,m as SFParaSlns};

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jflow</groupId>
+	<artifactId>jflow</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.11.RELEASE</version>
+		<relativePath/>
+	</parent>
+	
+	<modules>
+		<module>jflow-core</module>
+	    <module>jflow-web</module>
+  	</modules>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!--<jdk.version>11.0.2</jdk.version>-->
+		<jdk.version>1.8</jdk.version>
+		<!--指定tomcat版本号-->
+		<!--<tomcat.version>9.0.58</tomcat.version>-->
+
+		<!--<httpclient.version>4.5.1</httpclient.version>
+		<httpmime.version>4.3.2</httpmime.version>-->
+		<!--<com.google.auto.version>0.6</com.google.auto.version>-->
+		<!--<org.htmlparser.version>2.1</org.htmlparser.version>-->
+		<!--<javax.mail.version>1.6.0</javax.mail.version>-->
+		<!--<jaxen.version>1.1.4</jaxen.version>-->
+		<!--<morph.version>1.1.1</morph.version>-->
+		<!--<cglib.version>3.1</cglib.version>-->
+		<!--<com.sun.version>1.5.0</com.sun.version>-->
+
+
+		<!-- Shiro -->
+		<shiro.version>1.11.0</shiro.version>
+		<!-- XML文件的读取 -->
+		<dom4j.version>1.6.1</dom4j.version>
+		<!-- 拼音 -->
+		<pinyin4j.version>2.5.1</pinyin4j.version>
+		<!-- Apache Commons -->
+		<commons-pool2.version>2.6.2</commons-pool2.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<commons-net.version>3.5</commons-net.version>
+		<!-- 文件写入,上传-->
+		<commons-fileupload.version>1.2.1</commons-fileupload.version>
+		<commons-io.version>2.11.0</commons-io.version>
+
+		<!-- JSON -->
+		<json-lib.version>2.4</json-lib.version>
+		<!-- api的依赖 生成Excel文件-->
+		<org.apache.poi.version>4.1.2</org.apache.poi.version>
+		<!-- 文件打成压缩包 -->
+		<org.apache.ant.version>1.9.7</org.apache.ant.version>
+		<!-- 上传文件到FTP/SFTP -->
+		<com.jcraft.version>0.1.54</com.jcraft.version>
+		<!-- Qrcode 二维码需要的jar包 -->
+		<com.google.zxing.version>2.2</com.google.zxing.version>
+		<!-- 多个PDF文件合并 -->
+		<pdfbox.version>2.0.8</pdfbox.version>
+		<!-- 开发者表单后台打印 -->
+		<jsoup.version>1.13.1</jsoup.version>
+		<!-- 上传文件到阿里云 -->
+		<aliyun.sdk.version>3.15.0</aliyun.sdk.version>
+
+		<!--springfox-swagger2-->
+		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
+		<okhttp.version>3.14.9</okhttp.version>
+	</properties>
+	<!-- 设定中央仓库 -->
+	<repositories>
+		<repository>
+			<id>aliyun-repos</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
+
+
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliyun-repos</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</pluginRepository>
+
+	</pluginRepositories>
+	<build>
+		<plugins>
+			<!-- compiler插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,10 @@
+var d=Object.defineProperty;var h=(s,r,t)=>r in s?d(s,r,{enumerable:!0,configurable:!0,writable:!0,value:t}):s[r]=t;var m=(s,r,t)=>h(s,typeof r!="symbol"?r+"":r,t);var l=(s,r,t)=>new Promise((n,a)=>{var e=i=>{try{p(t.next(i))}catch(c){a(c)}},o=i=>{try{p(t.throw(i))}catch(c){a(c)}},p=i=>i.done?n(i.value):Promise.resolve(i.value).then(e,o);p((t=t.apply(s,r)).next())});import{bb as y,aL as f,aB as u,aC as C}from"./entry/index-M8VErHPE-1727507756861.js";import{TBCascader as P}from"./TBCascader-DP49Q_7q.js";import{PageBaseGroupEdit as E}from"./PageBaseGroupEdit-JIgqoTiq.js";import{GloComm as w}from"./GloComm-DZ1gELjv.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";import"./Help-D0bDMZWg.js";import"./FrmTrack-0uAZQ3B_.js";import"./DBAccess-CzjFzLoq.js";import"./SFPara-DL_8hzxu.js";import"./SFColumn-Q_PoS_2g.js";class R extends E{constructor(){super("GPE_Cascader");m(this,"Desc0",` 
+  #### 帮助
+  - 用于解决三级级联的关系选择,比如：省份、城市、区县
+  - 也可以采用级联的模式.
+  - 系统的存储类似于pop的有两个字段，一个字段abc, 影子字段abcT。
+  - 字段：abc存储的是编号，格式为: 37-29-23 
+  - 字段: abcT存储的是名称，格式为: 山东省-菏泽市-定陶区.  这个字段是隐藏字段,由系统自动增加上的.
+  #### 效果图
+  - ![级联选择器:效果图.](/resource/WF/CCForm/Cascader.png "级联选择器")
+   `);this.PageTitle="级联选择器"}Init(){return l(this,null,function*(){this.entity=new y,this.KeyOfEn="DoWay",yield this.entity.InitDataForMapAttr("Cascader",this.GetRequestVal("PKVal"),"None"),this.AddGroup("A","字段格式"),this.Blank("None","不启用",this.Desc0),this.AddEntity("Cascader3","启用3级级联",new P,this.Desc0),this.Btns=[{pageNo:"Cascader3",list:["填充"]}]})}AfterSave(t,n){return l(this,null,function*(){if(t!="None"){let a=this.GetRequestVal("PKVal");a.endsWith("_Cascader")&&(a=a.replace("_Cascader",""));const e=new f,o=a;e.setPKVal(a+"T"),(yield e.RetrieveFromDBSources())==0&&(e.setPKVal(o),yield e.RetrieveFromDBSources(),e.MyPK=e.MyPK+"T",e.KeyOfEn=e.KeyOfEn+"T",e.Name=e.Name+"T",e.UIVisible=!1,e.UIIsEnable=!1,yield e.Insert())}if(t==n)throw new Error("Method not implemented.")})}BtnClick(t,n,a){var e;if(a==="落值填充"||a==="填充"){const o=w.UrlEn("TS.MapExt.FullData",(e=this.entity)==null?void 0:e.MyPK);return new u(C.OpenUrlByDrawer75,o)}}}export{R as GPE_Cascader};

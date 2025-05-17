@@ -1,0 +1,7 @@
+var y=Object.defineProperty;var D=(e,r,t)=>r in e?y(e,r,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[r]=t;var l=(e,r,t)=>D(e,typeof r!="symbol"?r+"":r,t);var u=(e,r,t)=>new Promise((o,a)=>{var n=i=>{try{p(t.next(i))}catch(m){a(m)}},s=i=>{try{p(t.throw(i))}catch(m){a(m)}},p=i=>i.done?o(i.value):Promise.resolve(i.value).then(n,s);p((t=t.apply(e,r)).next())});import{PageBaseGroupEdit as d}from"./PageBaseGroupEdit-JIgqoTiq.js";import{aB as E,aC as c,bb as I,ba as f}from"./entry/index-M8VErHPE-1727507756861.js";import{GloComm as h}from"./GloComm-DZ1gELjv.js";import{EnumHidItem as G}from"./EnumHidItem-B7ueNatS.js";import"./Help-D0bDMZWg.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";import"./FrmTrack-0uAZQ3B_.js";import"./DBAccess-CzjFzLoq.js";import"./SFPara-DL_8hzxu.js";import"./SFColumn-Q_PoS_2g.js";class O extends d{constructor(){super("GPE_EnumHidItems");l(this,"Desc0",`
+  #### 帮助
+  - 禁用：不启用.
+  `);l(this,"Desc1",`
+  #### 帮助
+  - 启用
+  `);this.PageTitle="点击事件隐藏选项"}AfterSave(t,o){}BtnClick(t,o,a){var n;if(a=="字典维护"){const s=h.UrlSearch("TS.FrmUI.SFTable");return new E(c.OpenUrlByDrawer75,s)}if(a==="落值填充"||a==="填充"){const s=h.UrlEn("TS.MapExt.FullData",(n=this.entity)==null?void 0:n.MyPK);return new E(c.OpenUrlByDrawer75,s)}}Init(){return u(this,null,function*(){this.entity=new I,this.KeyOfEn=f.DoWay,yield this.entity.InitDataForMapAttr("EnumHidItems",this.GetRequestVal("PKVal")),this.AddGroup("A","点击事件隐藏选项"),this.Blank("0","禁用",this.Desc0),this.AddEntity("1","启用",new G,this.Desc1)})}}export{O as GPE_EnumHidItems};

@@ -1,0 +1,1 @@
+import{aZ as r,a_ as i}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class D extends r{constructor(t,s){super(t,s)}get PK(){return"OID"}get PKVal(){return this.OID}get OID(){return this.GetValIntByKey("OID")}set OID(t){this.SetValByKey("OID",t)}}class O extends i{}export{O as EntitiesOID,D as EntityOID};

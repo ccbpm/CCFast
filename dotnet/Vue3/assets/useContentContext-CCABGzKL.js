@@ -1,0 +1,1 @@
+import{ap as n,aq as o}from"./entry/index-C6uBgOW5-1730430676707.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";const t=Symbol();function i(e){return n(e,t,{native:!0})}function C(){return o(t)}export{i as createContentContext,C as useContentContext};

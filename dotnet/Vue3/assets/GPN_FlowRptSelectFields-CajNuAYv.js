@@ -1,0 +1,10 @@
+var _=Object.defineProperty;var u=(s,e,t)=>e in s?_(s,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):s[e]=t;var S=(s,e,t)=>u(s,typeof e!="symbol"?e+"":e,t);var D=(s,e,t)=>new Promise((l,r)=>{var p=a=>{try{o(t.next(a))}catch(n){r(n)}},c=a=>{try{o(t.throw(a))}catch(n){r(n)}},o=a=>a.done?l(a.value):Promise.resolve(a.value).then(p,c);o((t=t.apply(s,e)).next())});import E from"./HttpHandler-Ebi1068_.js";import{b9 as P,bc as w,aB as K,aC as y}from"./entry/index-M8VErHPE-1727507756861.js";import{Node as R}from"./Node-B6HRFhwD.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";import"./EntityNodeID-De9k9loD.js";class H extends P{constructor(){super("GPN_FlowRptSelectFields");S(this,"SelectAttrs",`
+  #### 帮助
+  - 您看到的是流程的业务字段,选择这些字段组成查询列表.
+  - 选择要展示的字段，点击下一步.
+
+  `);this.PageTitle="选择字段"}Init(){return D(this,null,function*(){const t=parseInt(this.PKVal+"01"),l=new R(t);yield l.Retrieve();let r=l.NodeFrmID;r==""&&(r="ND"+parseInt(this.PKVal)+"01");const p=`SELECT OID as No, Lab as Name FROM Sys_GroupField WHERE FrmID='${r}' AND CtrlID='' `,c=` SELECT KeyOfEn AS No, Name, GroupID FROM Sys_MapAttr WHERE FK_MapData='${r}' 
+    AND UIContralType <=4 AND KeyOfEn NOT IN ('OID','Rec','RDT','FID','Title','BillNo','BillState','FlowStarter',
+    'FlowEmps','FlowStartRDT','WFState','Emps')
+    AND UIVisible=1 ORDER BY GroupID,Idx
+    `;this.SelectItemsByGroupList("SelectAttrs","选择字段",this.SelectAttrs,!0,p,c)})}Save_TextBox_X(t,l,r,p,c){return D(this,null,function*(){if(t=="SelectAttrs"){const o=this.PKVal,a=new R(parseInt(o+"01"));yield a.Retrieve();let n=a.NodeFrmID;n==""&&(n="ND"+parseInt(o)+"01");const F=new w;yield F.Retrieve("FK_MapData",n);const I="FlowRpt"+o;yield new w().Delete("FK_MapData",I);const m=new E("BP.WF.HttpHandler.WF_Rpt");m.AddPara("FlowNo",this.PKVal),m.DoMethodReturnString("SearchFlow_InitFields");const f=r.split(",");let N=1;for(const d of f){const i=F.find(A=>A.KeyOfEn===d);i&&(i.FK_MapData=I,i.MyPK=i.FK_MapData+"_"+d,N++,i.Idx=N,yield i.Insert())}return new K(y.Message,"设置完成，请点击关闭按钮.")}})}GenerSorts(){return D(this,null,function*(){return Promise.resolve([])})}}export{H as GPN_FlowRptSelectFields};

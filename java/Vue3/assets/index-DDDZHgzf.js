@@ -1,0 +1,1 @@
+var r=(a,t,e)=>new Promise((f,h)=>{var g=c=>{try{n(e.next(c))}catch(o){h(o)}},i=c=>{try{n(e.throw(c))}catch(o){h(o)}},n=c=>c.done?f(c.value):Promise.resolve(c.value).then(g,i);n((e=e.apply(a,t)).next())});function m(a){return r(this,null,function*(){})}export{m as changeTheme};

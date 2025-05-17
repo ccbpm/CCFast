@@ -1,0 +1,7 @@
+import{E as r,U as l,h as n}from"./entry/index-C6uBgOW5-1730430676707.js";import{WindowTemplateAttr as e}from"./WindowTemplate-DdOTsEqk.js";import{SFDBSrc as u}from"./SFDBSrc-DKIMsnoa.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";class A extends r{constructor(t){super("TS.CCFast.Windows.ChartRate"),t&&this.setPKVal(t)}get HisUAC(){const t=new l;return t.IsDelete=!1,t.IsUpdate=!0,t.IsInsert=!1,t}get EnMap(){const t=new n("GPM_WindowTemplate","百分比扇形图");return t.GroupBarShowModel=0,t.AddGroupAttr("基本信息"),t.AddTBStringPK(e.No,null,"编号",!0,!0,1,40,200),t.AddTBInt(e.ColSpan,1,"占的列数",!0,!1),t.AddTBString(e.Name,null,"标题",!0,!1,0,300,20,!0),t.AddTBString(e.Icon,null,"Icon",!0,!1,0,100,20,!0),t.AddTBString(e.MoreLab,null,"更多标签",!0,!1,0,300,20,!0),t.AddTBString(e.MoreUrl,null,"更多链接",!0,!1,0,300,20,!0),t.SetHelperAlert(e.MoreUrl,`
+    #### 帮助
+    - url链接可以配置外链，以http:// 或者 https:// 开头
+      外链可以为任意互联网地址 - 例如ccflow官网: http://ccflow.org
+    - url链接也可以配置系统内部的链接， 以self://开头
+      系统内部链接可以配置系统工作地址 - 例如打开编号001的流程: self://WF/MyFlow?FK_Flow=001 
+    `),t.AddDDLSysEnum(e.MoreLinkModel,0,"打开方式",!0,!0,e.MoreLinkModel,"@0=新窗口@1=本窗口@2=覆盖新窗口"),t.AddGroupAttr("数据源"),t.AddDDLEntities(e.DBSrc,null,"数据源",new u,!0),t.AddTBString(e.LabOfFZ,null,"分子标签",!0,!1,0,100,20),t.AddTBStringDoc(e.SQLOfFZ,null,"分子表达式",!0,!1,!0),t.AddTBString(e.LabOfFM,null,"分母标签",!0,!1,0,100,20),t.AddTBStringDoc(e.SQLOfFM,null,"分子表达式",!0,!1,!0),t.AddTBString(e.LabOfRate,null,"率标签",!0,!1,0,100,20),this._enMap=t,this._enMap}}export{A as ChartRate};

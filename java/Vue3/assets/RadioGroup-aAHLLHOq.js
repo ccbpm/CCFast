@@ -1,0 +1,1 @@
+import{useDesignerTheme as r}from"./form-Bg9E1Us6.js";import"./vue-BXIlYw1E.js";const o=r(),i={buttonTextColorActive:o.primaryColor,buttonBorderColorActive:o.primaryColor,boxShadowHover:o.primaryColor,buttonTextColorHover:o.primaryColor,buttonBoxShadowFocus:`inset 0 0 0 1px ${o.primaryColor}, 0 0 0 2px ${o.primaryColorRgba}`};export{i as default};

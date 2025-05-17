@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9D27BAB-758D-4205-BFC8-76B49A4C87F1}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>BP.En30</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BP.En30</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/BP.En30/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\..\..\CCFlowCloud\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DmProvider">
+      <HintPath>..\..\RefDLL\DmProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.17.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\Google.Protobuf.3.17.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.Informix">
+      <HintPath>..\..\RefDLL\IBM.Data.Informix.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\RefDLL\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RefDLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\RefDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\RefDLL\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extensions.Logging">
+      <HintPath>..\..\RefDLL\NLog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Web.AspNetCore">
+      <HintPath>..\..\RefDLL\NLog.Web.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\RefDLL\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\..\RefDLL\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\System.Buffers.4.5.1\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.EnterpriseServices">
+      <Name>System.EnterpriseServices</Name>
+      <HintPath>..\..\WF\bin\System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\System.Memory.4.5.4\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\..\RefDLL\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\MySql.Data.8.0.25\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CCFlowCloud\packages\MySql.Data.8.0.25\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DA\AtPara.cs" />
+    <Compile Include="DA\Cash.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DA\DBLoad.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DA\DTTemp.cs" />
+    <Compile Include="DA\Cash2019.cs" />
+    <Compile Include="DA\CashFrmTemplate.cs" />
+    <Compile Include="DTS\DataIOEn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\GENoName.cs" />
+    <Compile Include="GPM\WFEmp.cs" />
+    <Compile Include="GPM\EmpExt.cs" />
+    <Compile Include="Pub\Current.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pub\Engine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pub\NY.cs" />
+    <Compile Include="Pub\TableFieldAddComment.cs" />
+    <Compile Include="En\EnDtl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EnObj.cs" />
+    <Compile Include="En\Entities.cs" />
+    <Compile Include="En\Entity.cs" />
+    <Compile Include="DA\KeyVal.cs" />
+    <Compile Include="En\UAC.cs" />
+    <Compile Include="GPM\DeptStation.cs" />
+    <Compile Include="GPM\Emp.cs" />
+    <Compile Include="Port\Team.cs" />
+    <Compile Include="Port\TeamEmp.cs" />
+    <Compile Include="Port\TeamType.cs" />
+    <Compile Include="Difference\CacheHelper.cs" />
+    <Compile Include="Difference\DA.cs" />
+    <Compile Include="Difference\HttpContextHelper.cs" />
+    <Compile Include="Difference\Glo.cs" />
+    <Compile Include="OverrideFile.cs" />
+    <Compile Include="Port\StationType.cs" />
+    <Compile Include="Pub\Rpt2Base.cs" />
+    <Compile Include="References\IJsonWrapper.cs" />
+    <Compile Include="References\JsonData.cs" />
+    <Compile Include="References\JsonException.cs" />
+    <Compile Include="References\JsonMapper.cs" />
+    <Compile Include="References\JsonMockWrapper.cs" />
+    <Compile Include="References\JsonReader.cs" />
+    <Compile Include="References\JsonWriter.cs" />
+    <Compile Include="References\Lexer.cs" />
+    <Compile Include="References\ParserToken.cs" />
+    <Compile Include="Service References\ccportal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\BuessUnitBase.cs" />
+    <Compile Include="Sys\CCFormAPI.cs" />
+    <Compile Include="Sys\CCFormParse.cs" />
+    <Compile Include="Sys\DictDtl.cs" />
+    <Compile Include="Sys\EnumLab.cs" />
+    <Compile Include="Sys\EnumAth.cs" />
+    <Compile Include="Sys\EnumLib.cs" />
+    <Compile Include="Sys\EnVer.cs" />
+    <Compile Include="Sys\EnVerDtl.cs" />
+    <Compile Include="Sys\EvenListFlow.cs" />
+    <Compile Include="Sys\EvenListFrm.cs" />
+    <Compile Include="Sys\EvenListNode.cs" />
+    <Compile Include="Sys\Base\FormEventBase.cs" />
+    <Compile Include="Sys\FrmEvent.cs" />
+    <Compile Include="Sys\FrmEventBase.cs" />
+    <Compile Include="Sys\FrmUI\ComponentsFieldList.cs" />
+    <Compile Include="Sys\FrmUI\ExtAthSingle.cs" />
+    <Compile Include="Sys\FrmUI\ExtMap.cs" />
+    <Compile Include="Sys\FrmUI\ExtScore.cs" />
+    <Compile Include="Sys\FrmUI\ExtImg.cs" />
+    <Compile Include="Sys\FrmUI\FrmAttachmentSingle.cs" />
+    <Compile Include="Sys\FrmUI\FrmImgAth.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrGovDocFile.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrDocWordReceive.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrDocWord.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrFixed.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrCard.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrCheck.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrFlowBBS.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrDataView.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrSFTable.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrString.cs" />
+    <Compile Include="Sys\FrmUI\SFTableClass.cs" />
+    <Compile Include="Sys\FrmUI\SFTable.cs" />
+    <Compile Include="Sys\FrmUI\MapFrameExt.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrSFSQL.cs" />
+    <Compile Include="Sys\FrmUI\ExtLink.cs" />
+    <Compile Include="Sys\FrmUI\ExtHandWriting.cs" />
+    <Compile Include="Sys\GloVarExt.cs" />
+    <Compile Include="Sys\MapAttrEnum.cs" />
+    <Compile Include="Sys\MapExtXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\MapFrame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\FrmTree.cs" />
+    <Compile Include="Sys\SFTableDict.cs" />
+    <Compile Include="Sys\GEEntityExcelFrm.cs" />
+    <Compile Include="Sys\GEEntityWordFrm.cs" />
+    <Compile Include="Sys\Base\Glo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\GloVar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pub\PubClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\SysFileManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\SystemConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\ExtContral.cs" />
+    <Compile Include="Sys\FrmUI\FrmAttachmentExt.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrEnum.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrNum.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrDT.cs" />
+    <Compile Include="Sys\FrmUI\MapAttrBoolen.cs" />
+    <Compile Include="Sys\GEEntityMyPK.cs" />
+    <Compile Include="Sys\Base\FormEventBaseDtl.cs" />
+    <Compile Include="Sys\UserLog.cs" />
+    <Compile Include="Sys\XML\ChMulTone.cs" />
+    <Compile Include="Sys\MapDataTemplate.cs" />
+    <Compile Include="Sys\XML\ActiveAttr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\EnumInfoXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\RegularExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\RegularExpressionDtl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\SQLList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\XmlEn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\XML\XmlMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\Langue.cs" />
+    <Compile Include="Sys\SFTableSQL.cs" />
+    <Compile Include="Tools\BaseFileUtils.cs" />
+    <Compile Include="Tools\Cryptography.cs" />
+    <Compile Include="DA\EnumDA.cs" />
+    <Compile Include="DA\DataType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DA\DBAccess.cs" />
+    <Compile Include="DA\DBUrl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\chs2py.cs" />
+    <Compile Include="Tools\CRC32Helper.cs" />
+    <Compile Include="Tools\DataSet2Json.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\EncHelper.cs" />
+    <Compile Include="Tools\Entitis2Json.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\FTP\FtpConnection.cs" />
+    <Compile Include="Tools\FTP\FtpException.cs" />
+    <Compile Include="Tools\FTP\FtpStream.cs" />
+    <Compile Include="Tools\FTP\FtpTransferType.cs" />
+    <Compile Include="Tools\FTP\GenericRights.cs" />
+    <Compile Include="Tools\FTP\InternetOpenType.cs" />
+    <Compile Include="Tools\FTP\InternetPort.cs" />
+    <Compile Include="Tools\FTP\InternetService.cs" />
+    <Compile Include="Tools\FTP\NativeMethods.cs" />
+    <Compile Include="Tools\FTP\Win32FindData.cs" />
+    <Compile Include="Tools\JiaMi\ConfigInformation.cs" />
+    <Compile Include="Tools\JiaMi\decode.cs" />
+    <Compile Include="Tools\JiaMi\DecryptAndEncryptionHelper.cs" />
+    <Compile Include="Tools\JSON.cs" />
+    <Compile Include="DA\Log.cs" />
+    <Compile Include="DA\Para.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\Luban.cs" />
+    <Compile Include="Tools\NLogUtil.cs" />
+    <Compile Include="Tools\NPinyin\Pinyin.cs" />
+    <Compile Include="Tools\NPinyin\PyCode.cs" />
+    <Compile Include="Tools\NPinyin\PyHash.cs" />
+    <Compile Include="Tools\DealString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\PubGlo.cs" />
+    <Compile Include="Tools\SecurityDES.cs" />
+    <Compile Include="Tools\StringExpressionCalculate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DTS\Enum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DTS\FF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityOIDName.cs" />
+    <Compile Include="En\EntityMM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityNo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityNoName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityOID.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\Attr.cs" />
+    <Compile Include="En\AttrFile.cs" />
+    <Compile Include="En\AttrOfOneVSM.cs" />
+    <Compile Include="En\AttrSearch.cs" />
+    <Compile Include="En\Map.cs" />
+    <Compile Include="En\Row.cs" />
+    <Compile Include="En\EntityTree.cs" />
+    <Compile Include="Sys\Base\EventBase.cs" />
+    <Compile Include="Sys\EventDemo.cs" />
+    <Compile Include="GPM\Dept.cs" />
+    <Compile Include="GPM\DeptEmp.cs" />
+    <Compile Include="GPM\DeptEmpStation.cs" />
+    <Compile Include="Tools\Verify.cs" />
+    <Compile Include="Web\GuestUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\GroupEnsTemplate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\FrmImgAthDB.cs" />
+    <Compile Include="Sys\FrmEleDB.cs" />
+    <Compile Include="En\GETree.cs" />
+    <Compile Include="Sys\RptTemplate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\EnsAppGroupXml.cs" />
+    <Compile Include="Sys\GEDtl.cs" />
+    <Compile Include="Sys\GroupField.cs" />
+    <Compile Include="Sys\MapData.cs" />
+    <Compile Include="Sys\MapAttr.cs" />
+    <Compile Include="En\AttrOfSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\RefMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityMyPK.cs" />
+    <Compile Include="En\SQLCash.cs" />
+    <Compile Include="En\ClassFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\EntityDBAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\QueryObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="En\Method.cs" />
+    <Compile Include="En\SqlBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Port\Emp.cs" />
+    <Compile Include="Port\Dept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Port\Station.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\WebUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\MapDtl.cs" />
+    <Compile Include="Sys\GEEntity.cs" />
+    <Compile Include="Sys\MapExt.cs" />
+    <Compile Include="Sys\FrmRB.cs" />
+    <Compile Include="Sys\FrmImg.cs" />
+    <Compile Include="Sys\FrmAttachment.cs" />
+    <Compile Include="Sys\FrmImgAth.cs" />
+    <Compile Include="Sys\FrmBtn.cs" />
+    <Compile Include="Sys\FrmAttachmentDB.cs" />
+    <Compile Include="Sys\SFTable.cs" />
+    <Compile Include="Sys\CField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\DefVal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\Serial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\SysEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\UserRegedit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sys\SysDocFile.cs" />
+    <Compile Include="Sys\SysEnumMain.cs" />
+    <Compile Include="Sys\EnCfg.cs" />
+    <Compile Include="Sys\SFDBSrc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable1.datasource" />
+    <None Include="Service References\ccportal\PortalInterface.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ccportal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ccportal\PortalInterface.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ccportal\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ccportal\configuration.svcinfo">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ccportal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

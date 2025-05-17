@@ -1,0 +1,1 @@
+import{a2 as e}from"./entry/index-M8VErHPE-1727507756861.js";const t={name:"AccepterOfOrg"};function r(_,c,n,a,p,s){return null}const o=e(t,[["render",r]]),l=Object.freeze(Object.defineProperty({__proto__:null,default:o},Symbol.toStringTag,{value:"Module"}));export{l as _};

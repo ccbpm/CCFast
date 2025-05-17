@@ -1,0 +1,1 @@
+import{w as o}from"./entry/index-C6uBgOW5-1730430676707.js";import{_ as r}from"./Description.vue_vue_type_script_lang-BMI30z26.js";import{useDescription as a}from"./useDescription-CKHDzr16.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";const s=o(r);export{s as Description,a as useDescription};

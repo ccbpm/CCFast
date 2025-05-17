@@ -1,0 +1,10 @@
+var D=Object.defineProperty;var R=(r,s,e)=>s in r?D(r,s,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[s]=e;var u=(r,s,e)=>R(r,typeof s!="symbol"?s+"":s,e);var m=(r,s,e)=>new Promise((a,c)=>{var p=t=>{try{n(e.next(t))}catch(i){c(i)}},P=t=>{try{n(e.throw(t))}catch(i){c(i)}},n=t=>t.done?a(t.value):Promise.resolve(t.value).then(p,P);n((e=e.apply(r,s)).next())});import{SyncData as d}from"./SyncData-BCXvRA7o.js";import{SyncDataField as S}from"./SyncDataField-CEOgQs9w.js";import{b9 as f,aB as F,aC as N}from"./entry/index-M8VErHPE-1727507756861.js";import"./DBAccess-CzjFzLoq.js";import"./SFPara-DL_8hzxu.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";import"./SFColumn-Q_PoS_2g.js";class V extends f{constructor(){super("GPN_SelectTableAndFields");u(this,"Docs0",`
+  #### 帮助
+  - 请在右边的下拉框里选择要同步的数据表.
+  - 选择要同步的流程业务字段.
+  - 点击创建按钮，系统就会自动把要同步的业务字段信息，写入到从表里.
+  - 通过配置流程数据与要同步的字段关系,完成同步内容设置.
+`);u(this,"Docs1",`
+  #### 帮助
+  - 自动抄送给要绑定的人员.
+`);this.PageTitle="表与字段",this.ForEntityClassID="TS.AttrFlow.SyncDataField"}Init(){return m(this,null,function*(){this.AddGroup("A","选择流程业务字段,在选择要同步的数据表");const e=this.RequestVal("RefPKVal"),a=new d;a.MyPK=e,yield a.RetrieveFromDBSources();const p=`SELECT KeyOfEn as No, Name FROM Sys_MapAttr WHERE FK_MapData='ND${Number.parseInt(a.FlowNo)}Rpt'  ORDER BY GroupID,Idx`;this.SelectItemsByList("DBSrc","选择要同步的数据",this.Docs0,!0,p)})}GenerSorts(){return m(this,null,function*(){return Promise.resolve([])})}Save_TextBox_X(e,a,c,p,P){return m(this,null,function*(){const n=this.RequestVal("RefPKVal"),t=new d;if(t.MyPK=n,yield t.RetrieveFromDBSources(),!t.PTable&&t.PTable!=a){const l=`您确定要更改同步到的数据表吗？原来的表是[${t.PTable}],现在的表是[${a}]'`;window.confirm(l)==!0&&(t.PTable=a,yield t.Update())}const i=c.split(","),w=p.split(","),o=new S;for(let l=0;l<i.length;l++){const y=i[l];o.MyPK=n+"_"+y,(yield o.IsExits())!=!0&&(o.RefPKVal=n,o.AttrKey=y,o.AttrName=w[l],o.AttrType=1,o.IsSync=!0,o.FlowNo=t.FlowNo,yield o.Insert())}return new F(N.CloseAndReload)})}}export{V as GPN_SelectTableAndFields};

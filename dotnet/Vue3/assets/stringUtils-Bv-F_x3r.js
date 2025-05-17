@@ -1,0 +1,1 @@
+function f(e){if(Array.isArray(e)&&e.length>0){const s=e[0],n=Object.keys(s);for(const o of n)if(o.toLocaleLowerCase()==="no"&&o!=="No")for(const r of e)r.No=r[o];else if(o.toLocaleLowerCase()==="name"&&o!=="Name")for(const r of e)r.Name=r[o]}return e}export{f as handleNoNameField};

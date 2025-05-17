@@ -1,0 +1,1 @@
+import{add as r,del as n}from"./componentMap-Dvusz5kv.js";import{t as e}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";function f(t,o){r(t,o),e(()=>{n(t)})}export{f as useComponentRegister};

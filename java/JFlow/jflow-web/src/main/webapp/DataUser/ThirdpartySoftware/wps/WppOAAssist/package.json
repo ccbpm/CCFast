@@ -1,0 +1,12 @@
+{
+    "name": "WppOAAssist",
+    "addonType": "wpp",
+    "version": "1.0.0",
+    "description": "这个工程为WPS演示项目一个简单的OA场景集成的WPS加载项——OA助手，旨在帮助大家能够快速理解并熟悉WPS加载项机制以及和浏览器调用交互的流程。",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}

@@ -1,0 +1,12 @@
+{
+	"name": "WpsOAAssist",
+	"addonType": "wps",
+	"version": "1.0.0",
+	"description": "这个工程为WPS文字项目常见的OA场景集成下的WPS加载项——OA助手，项目使用了丰富的WPS API的功能，可以帮助大家能够快速理解并熟悉WPS加载项机制以及和浏览器调用交互的流程。",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC"
+}

@@ -1,0 +1,1 @@
+import{i as a}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";const i=new Map;function u(t){const{loadComponent:s}=a(),o=t.split("?")[0],r=o.lastIndexOf("/"),e=o.substring(r+1);if(!e.endsWith(".vue"))throw new Error("路径需要以.vue结尾");const n=i.get(e);return n||s(t)}export{u as default};

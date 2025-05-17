@@ -1,0 +1,1 @@
+import{j as i}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";function p(){const{VITE_GLOB_API_URL:o}=i();let t=o;return/^\/.*\/$/.test(t)&&(t=window.location.origin+t),t}export{p as getVstoHost};

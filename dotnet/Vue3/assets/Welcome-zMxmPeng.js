@@ -1,0 +1,1 @@
+import{d as e,aa as o,o as t,Z as s,_ as a}from"./vue-DGeTOT5N.js";import{a2 as r}from"./entry/index-M8VErHPE-1727507756861.js";import"./antd-DkiF_jXA.js";const c={class:"wrapper"},n=e({__name:"Welcome",setup(_){return o().query.FrmID,t(()=>{}),(m,u)=>(s(),a("div",c))}}),l=r(n,[["__scopeId","data-v-2683df56"]]);export{l as default};

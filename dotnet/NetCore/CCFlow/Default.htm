@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>驰骋BPM云服务-企业微信</title>
+    <!--通用JS-->
+    <script src="/WF/Scripts/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="/WF/Scripts/QueryString.js" type="text/javascript"></script>
+    <script src="/WF/Scripts/config.js" type="text/javascript"></script>
+    <script src="/WF/Comm/Gener.js" type="text/javascript"></script>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        //页面启动函数.
+        $(function () {
+            LoadUnitImg();
+        });
+
+        //企业微信登录.
+        function MobileQiYeWeixinLogin() {
+            var handler = new HttpHandler("BP.Cloud.HttpHandler.Root");
+
+            var data = handler.DoMethodReturnString("QiYeWeiXinSaoMa");
+            if (data.indexOf('err@') == 0) {
+                alert(data);
+                return;
+            }
+
+            window.open(data, 'top');
+            //window.location.href = data;
+            return;
+        }
+        //企业微信安装.
+        function MobileQiYeWeixinInstall() {
+            var handler = new HttpHandler("BP.Cloud.HttpHandler.Root");
+
+            var data = handler.DoMethodReturnString("QiYeWeiXinSaoMaInstall");
+            if (data.indexOf('err@') == 0) {
+                alert(data);
+                return;
+            }
+            window.open(data, 'top');
+            // window.location.href = data;
+            return;
+        }
+        //注册企业微信并安装
+        function RegistQiYeWeixin() {
+            var handler = new HttpHandler("BP.Cloud.HttpHandler.Root");
+
+            var data = handler.DoMethodReturnString("RegistQiYeWeixin");
+            if (data.indexOf('err@') == 0) {
+                alert(data);
+                return;
+            }
+            window.open(data, 'top');
+            // window.location.href = data;
+            return;
+        }
+        //生成小程序二维码
+        function LoadUnitImg() {
+            var handler = new HttpHandler("BP.Cloud.HttpHandler.Root");
+            handler.AddPara("page", "pages/Home/Home");
+            handler.AddPara("imgName", "regUnit");
+            var data = handler.DoMethodReturnString("CreateUnitWxCode");
+            if (data.indexOf("err@") >= 0) {
+                var imgUrl = "../ImgCode/RegUnit/regUnit.jpg";
+                $("#AddEmpImg").attr("width", window.screen.availWidth);
+                $("#AddEmpImg").attr("src", imgUrl);
+            }
+            else {
+                data = "data:image/png;base64," + data
+                $("#AddEmpImg").attr("width", window.screen.availWidth);
+                $("#AddEmpImg").attr("src", data);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <center>
+        <table style="width:auto">
+            <tr>
+                <td colspan="2">
+                    <div id="x" style="float:left">
+                        <img src="Title.png" style="max-width:300px" alt="驰骋BPM">
+
+                    </div>
+
+
+                    <div id="x" style="float:right;">
+                        <a href="javascript:MobileQiYeWeixinLogin()"><img src="./Imgs/login_white_big.png" alt="我要扫码登录"></a>
+
+                        <!--<a href="https://open.work.weixin.qq.com/" target="_blank"><img src="Imgs/WXServies.png" style="width:150px;" /></a>-->
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    驰骋BPM已经入住企业微信，成为企业微信服务商。
+                    极简设计、零代码构建本组织的BPM系统。
+
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <fieldset>
+
+                        <legend> 我要安装到驰骋BPM云到企业微信.</legend>
+
+                        <ul>
+                            <li>
+                                <a href="javascript:MobileQiYeWeixinInstall()"><img src="./Imgs/install_blue_big.png" /></a>
+                            </li>
+                        </ul>
+
+
+                        <legend>还没有企业微信？我要注册。</legend>
+                        <ul>
+                            <li>
+                                <a href="javascript:RegistQiYeWeixin()">
+                                    <img src="./Imgs/register_white_big.png" alt="我要注册企业微信">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <legend>小程序注册，请用微信扫描小程序二维码注册.</legend>
+                        <ul>
+                            <li><img id="AddEmpImg" style="width:200px;" src="" />小程序二维码 </li>
+                        </ul>
+
+                        <legend>没有企业微信，那就网站注册</legend>
+                        <ul>
+                            <li>简单注册就拥有本组织的BPM系统.</li>
+                            <li>您登录后，需要自己维护组织结构(用户、部门、岗位、以及对应关系).</li>
+                            <li>
+                                <h3>
+                                    <a href="RegisterByWebSite.htm" target="_blank">
+                                        网站注册
+                                    </a>
+                                </h3>
+                            </li>
+
+                            <li>
+                                <a href="LoginWebSite.htm" target="_blank">
+                                    我已经注册过,登录用户登录.
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/CCMobilePortal/Login.htm" target="_blank">
+                                    手机端登录....
+                                </a>
+                            </li>
+
+                            <li>
+                                手机Web版本扫码登录
+                                <div id="qrcodeContent">
+                                    <div id="qrcode"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                </td>
+                <td valign="top">
+
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>品牌保障-功能强大</legend>
+                        <ul>
+                            <li>驰骋BPM云完全继承了ccflow全部功能. </li>
+                            <li>ccflow是国内知名开源的老牌工作流程引擎. </li>
+                            <li>ccflow性能稳定，功能强大，低代码开发. </li>
+                            <li> 适合国情：发送、退回、移交、加签、打印等.</li>
+                            <li>驰骋BPM云,让高大上的BPM系统平民化. </li>
+                        </ul>
+
+                        <legend>PC移动端同步应用</legend>
+                        <ul>
+                            <li>1.直接网站注册驰骋BPM，三分钟搞定. </li>
+                            <li>2.与钉钉,微信深度集成,点击组织结构即可使用. </li>
+                            <li>3.待办、发起、手机微信、钉钉就可以完成. </li>
+                            <li>4.消息提醒功能手机、钉钉、邮件都可以接受消息. </li>
+                            <li>5.海量的表单模版，拿来就可以用. </li>
+                            <li>6.与微信深度集成，组织架构（人员部门岗位变更后）即时数据同步。 </li>
+                        </ul>
+
+                        <legend>节约成本-管理省心</legend>
+                        <ul>
+                            <li>不需要购买服务器，申请域名。  </li>
+                            <li>不需要配备高级的运维人员。  </li>
+                            <li>无需担心数据安全、备份、丢失。  </li>
+                            <li>不需要单独维护组织结构，直接与微信钉钉集成并同步。  </li>
+                            <li>专业的服务团队是您企业应用的有力保障。 </li>
+                        </ul>
+                    </fieldset>
+
+                </td>
+            </tr>
+        </table>
+    </center>
+    <div style="width:100%;height:30px;background-color:white;text-align:center;line-height:30px;color:black;opacity:0.90;">
+        2003-2030 ccbpm.cn 版权所有&nbsp;&nbsp;&nbsp;&nbsp;
+        鲁ICP备12028153-6号
+    </div>
+</body>
+</html>

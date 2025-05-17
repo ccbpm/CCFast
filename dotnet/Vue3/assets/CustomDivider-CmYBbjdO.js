@@ -1,0 +1,1 @@
+import{d as c,c as r,Z as n,_ as a,X as l}from"./vue-BXIlYw1E.js";const u=c({__name:"CustomDivider",props:{height:{type:String,default:"1px"},width:{type:String,default:"100%"},color:{type:String,default:"#cccccc"}},setup(e){const t=e,o=r(()=>({height:t.height,width:t.width,backgroundColor:t.color}));return(i,s)=>(n(),a("div",{style:l(o.value)},null,4))}});export{u as default};

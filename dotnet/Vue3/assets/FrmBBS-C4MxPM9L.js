@@ -1,0 +1,1 @@
+import{a2 as e}from"./entry/index-M8VErHPE-1727507756861.js";import{Z as o,_ as t,$ as r}from"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";const c={},s=r("h2",null,"BBS.vue",-1),n=[s];function _(a,i){return o(),t("div",null,n)}const f=e(c,[["render",_]]);export{f as default};

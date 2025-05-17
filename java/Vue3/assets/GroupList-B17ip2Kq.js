@@ -1,0 +1,1 @@
+import{a6 as e}from"./entry/index-C6uBgOW5-1730430676707.js";const t={name:"GroupList"};function o(_,n,s,c,a,p){return null}const r=e(t,[["render",o]]),i=Object.freeze(Object.defineProperty({__proto__:null,default:r},Symbol.toStringTag,{value:"Module"}));export{i as _};

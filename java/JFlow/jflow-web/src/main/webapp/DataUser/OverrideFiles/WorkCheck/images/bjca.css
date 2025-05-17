@@ -1,0 +1,34 @@
+BODY {	FONT-SIZE: 12px}
+TD {	FONT-SIZE: 12px}
+A.map:link {	COLOR: #FF6600; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.map:visited {	 COLOR: #FF6600; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.map:hover {	COLOR: #FFCC00; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.g:link {	COLOR: #666600; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.g:visited {	 COLOR: #666600; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.g:hover {	COLOR: #FF9900; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A:link {	COLOR: #0600ee; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A:visited {	COLOR: #0600ee; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A:hover {	COLOR: #CC0000; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.title:link {	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.title:visited {	COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: none}
+A.title:hover {	 COLOR: #ffffff; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line:link {	COLOR: #3300FF; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line:visited {	COLOR: #3300FF; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line:hover {	 COLOR: #0066FF; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line1:link {	COLOR: #666666; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line1:visited {	COLOR: #666666; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.line1:hover {	 COLOR: #CC0000; FONT-SIZE: 12px; TEXT-DECORATION: underline}
+A.big:link {	COLOR: #cc0000; FONT-SIZE: 12px; font-weight: 900;  TEXT-DECORATION: underline }
+A.big:visited {	COLOR: #cc0000; FONT-SIZE: 12px;  font-weight: 900; TEXT-DECORATION: underline}
+A.big:hover {	 COLOR: #cc0000; FONT-SIZE: 12px;  font-weight: 900; TEXT-DECORATION: underline}
+.f1 {BORDER-BOTTOM: 1px inset; BORDER-LEFT: 1px inset; BORDER-RIGHT: 1px inset; BORDER-TOP: 1px inset; height: 14pt; font-size: 12px}
+.f2 {BACKGROUND-COLOR: #cccccc; BORDER-BOTTOM: 1px ridge; BORDER-LEFT: #ffffff 1px ridge; BORDER-RIGHT: 1px ridge; BORDER-TOP: #ffffff 1px ridge; height: 14pt; font-size: 12px}
+.L {	COLOR: #ffffff; FONT-SIZE: 13px; font-weight: bold}
+.L14 {	LINE-HEIGHT: 140%}
+.L15 {	LINE-HEIGHT: 150%}
+.L16 {	LINE-HEIGHT: 160%}
+.L17 {	LINE-HEIGHT: 170%}
+.L18 {	LINE-HEIGHT: 180%}
+.td2 {  color: #CC0000; line-height: 150%}
+.zs {border-top: 1px solid  #000000; border-right: 1px solid  #000000; border-bottom: 1px solid  #000000; border-left: 1px solid  #000000;}
+.l13 {  line-height: 120%}

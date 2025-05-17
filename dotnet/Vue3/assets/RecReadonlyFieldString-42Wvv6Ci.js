@@ -1,0 +1,7 @@
+var o=(n,e,r)=>new Promise((u,i)=>{var d=t=>{try{s(r.next(t))}catch(a){i(a)}},l=t=>{try{s(r.throw(t))}catch(a){i(a)}},s=t=>t.done?u(t.value):Promise.resolve(t.value).then(d,l);s((r=r.apply(n,e)).next())});import{N as A,U as p,L as f}from"./entry/index-M8VErHPE-1727507756861.js";import"./vue-DGeTOT5N.js";import"./antd-DkiF_jXA.js";class I extends A{constructor(e){super("TS.CCBill.RecReadonlyFieldString"),e&&(this.MyPK=e)}get HisUAC(){const e=new p;return e.IsDelete=!0,e.IsUpdate=!0,e.IsInsert=!1,e}get EnMap(){const e=new f("Frm_DBRole","表单条件");return e.AddMyPK(),e.AddTBString("AttrID","","字段ID",!0,!0,0,200,20,!1),e.AddTBString("AttrKey","","字段",!0,!0,0,200,20,!1),e.AddTBString("AttrName","","字段名",!0,!0,0,200,20,!1),e.AddDDLStringEnum("OperatorMark","=","操作符",`@dengyu=等于
+    @budengyu=不等于
+    @like=包含
+    @notlike=不包含
+    @in=在范围内
+    @notin=不在范围内
+    `,!0,"",!1),e.AddTBString("OperatorValue","","值",!0,!1,0,200,20,!0),e.AddTBAtParas(2e3),e.AddBoolean("IsEnable",!0,"是否启用？",!0,!0,!0),e.ParaFields=",AttrID,AttrKey,AttrName,OperatorMark,OperatorValue,",e.AddTBString("Docs","","值",!1,!1,0,200,20,!1),this._enMap=e,this._enMap}beforeUpdateInsertAction(){const e=`字段: [${this.AttrKey}${this.AttrName}] [${this.OperatorMark}] [${this.OperatorValue}] `;return this.Docs=e,Promise.resolve(!0)}beforeInsert(){return o(this,null,function*(){return Promise.resolve(!0)})}}export{I as RecReadonlyFieldString};

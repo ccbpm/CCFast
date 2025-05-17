@@ -1,0 +1,1 @@
+var e=(o,s,c)=>new Promise((r,l)=>{var d=t=>{try{n(c.next(t))}catch(a){l(a)}},i=t=>{try{n(c.throw(t))}catch(a){l(a)}},n=t=>t.done?r(t.value):Promise.resolve(t.value).then(d,i);n((c=c.apply(o,s)).next())});class m{constructor(){}static BtnClick(s,c,r,l,d){return e(this,null,function*(){})}}export{m as FrmDtlBtnRowClick};

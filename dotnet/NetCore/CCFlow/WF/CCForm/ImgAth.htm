@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>图片附件</title>
+    <link href="../Scripts/easyUI145/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/Jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
+    <link href="../../DataUser/Style/ccbpm.css" rel="stylesheet" type="text/css" />
+    
+    <script src="../Scripts/easyUI145/jquery.min.js" type="text/javascript"></script>
+    <script src="../Scripts/easyUI145/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Scripts/Jcrop/jquery.Jcrop.js" type="text/javascript"></script>
+    <script src="../Scripts/QueryString.js" type="text/javascript"></script>
+    <script src="../Scripts/config.js" type="text/javascript"></script>
+    <script src="../Comm/Gener.js" type="text/javascript"></script>
+
+    <script language="javascript" type="text/javascript">
+        var imgH = "";
+        var imgW = "";
+        var FK_MapData = "";
+        var CtrlID = "";
+        var RefPKVal = "";
+        var zoomW = 620;
+        var zoomH = 400;
+
+        function mousePosition(ev) {
+            if (ev.pageX || ev.pageY) {
+                return { x: ev.pageX, y: ev.pageY };
+            }
+            return {
+                x: ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+                y: ev.clientY + document.body.scrollTop - document.body.clientTop
+            };
+        }
+
+        function mouseMove(ev) {
+            ev = ev || window.event;
+            var mousePos = mousePosition(ev);
+            document.getElementById('xxx').value = mousePos.x;
+            document.getElementById('yyy').value = mousePos.y;
+        }
+
+        function Show(el) {
+            var x = Number(document.getElementById('xxx').value) - el.offsetLeft;
+            var y = Number(document.getElementById('yyy').value) - el.offsetTop;
+            $("#marginTop").val(y);
+            $("#marginLeft").val(x);
+        }
+
+        //框选矩形
+        function showCoords(c) {
+            $('#x').val(c.x);
+            $('#y').val(c.y);
+            $('#x2').val(c.x2);
+            $('#y2').val(c.y2);
+            $('#w').val(c.w);
+            $('#h').val(c.h);
+        }
+
+        //上传图片
+        function ajaxFileUpload() {
+            var filePath = $("#fileImagAth").val();
+            if ("" != filePath) {
+                var fileType = getFileType(filePath);
+                //判断上传的附件是否为图片  
+                if ("jpg" != fileType && "jpeg" != fileType && "bmp" != fileType && "png" != fileType && "gif" != fileType) {
+                    $("#fileImagAth").val("");
+                    alert("请上传JPG,JPEG,BMP,PNG,GIF格式的图片");
+                    return;
+                }
+            }
+            
+ 
+
+            var formData = new FormData();
+            var name = $("input").val();
+            formData.append("file", $("#fileImagAth")[0].files[0]);
+            formData.append("name", name);
+
+            var doMethod = "FrmImgAthDB_Upload";
+            var httpHandlerName = "BP.WF.HttpHandler.WF_CCForm";
+            $.ajax({
+                url: dynamicHandler + "?DoType=HttpHandler&DoMethod="+ doMethod +"&HttpHandlerName=" + httpHandlerName + "&FK_MapData=" + FK_MapData + "&CtrlID=" + CtrlID + "&RefPKVal=" + RefPKVal + "&zoomW=" + zoomW + "&zoomH=" + zoomH,
+                type: 'POST',
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                dataType: 'html',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                beforeSend: function () {
+
+                },
+                success: function (data) {
+
+                    if (data.indexOf('err@') == 0) {
+                        alert(data);
+                        return;
+                    }
+
+                    //alert(data + '\t\n 如果父页面不能刷新，请关闭当前表单设计器重新打开.');
+                    Reload();
+                },
+                error: function (data) {
+                    alert("系统错误:" + data);
+                    return;
+                }
+            });
+        }
+
+        //确认剪切
+        function zoomOut() {
+            //数据检查
+            var cX = $('#x').val();
+            var cY = $('#y').val();
+            var cX2 = $('#x2').val();
+            var cY2 = $('#y2').val();
+            var cW = $('#w').val();
+            var cH = $('#h').val();
+            if (cW == 0 || cH == 0) {
+                alert("请选择范围后再试。");
+                return;
+            }
+            //获取图片尺寸
+            var jcrop_api = $.Jcrop("#myImage");
+            //var zoomWH = jcrop_api.getBounds();
+
+            //获取已上传数据
+            var handler = new HttpHandler("BP.WF.HttpHandler.WF_CCForm");
+            handler.AddPara("FK_MapData", FK_MapData);
+            handler.AddPara("RefPKVal", RefPKVal);
+            handler.AddPara("CtrlID", CtrlID);
+            handler.AddPara("zoomW", zoomW);
+            handler.AddPara("zoomH", zoomH);
+            handler.AddPara("cX", cX);
+            handler.AddPara("cY", cY);
+            handler.AddPara("cW", cW);
+            handler.AddPara("cH", cH);
+            var data = handler.DoMethodReturnString("FrmImgAthDB_Cut");
+            if (data.indexOf('err@') == 0) {
+                    alert(data);
+                    return;
+             }
+
+            if (data.length > 0) {
+                $("#imgCut").attr("src", data);
+                $("#HD_ImgAthSrc").val(data);
+
+                var jcrop_api = $.Jcrop("#myImage");
+                if (jcrop_api) {
+                    var sourceImg = $("#HD_SImgAthSrc").val();
+                    jcrop_api.setImage(sourceImg);
+                }
+             }
+             AddImgLisenerEvent();
+
+           
+            //给父窗体赋值
+            ImgAthSrc();
+            //window.parent.location.href = window.parent.location.href;
+            //关闭窗体
+            parent.$("#eudlg").dialog("close");
+
+        }
+
+        //初始化图片
+        function InitImgAth() {
+
+            
+            var fileFullName = "";
+            var fileName = "";
+            if (FK_MapData.indexOf("ND") != -1) {
+                fileFullName = basePath + "/DataUser/ImgAth/Data/" + CtrlID + "_" + RefPKVal + ".png";
+                fileName = basePath + "/DataUser/ImgAth/Upload/" + CtrlID + "_" + RefPKVal + ".png";
+            } else {
+                fileFullName = basePath + "/DataUser/ImgAth/Upload/" + FK_MapData + "_" + CtrlID + "_" + RefPKVal + ".png";
+                fileName = basePath + "/DataUser/ImgAth/Upload/" + FK_MapData + "_" + CtrlID + "_" + RefPKVal + ".png";
+            }
+
+
+//            var img = new Image();
+//            img.onload = function () {
+//                document.getElementById("myImage").setAttribute("src", fileName + "?M=" + Math.random());
+//                document.getElementById("imgCut").setAttribute("src", fileFullName + "?M=" + Math.random());
+//            }
+//            img.onerror = function () {
+
+//            }
+            document.getElementById("myImage").setAttribute("src", fileName + "?M=" + Math.random());
+            document.getElementById("imgCut").setAttribute("src", fileFullName + "?M=" + Math.random());
+
+            $('#myImage').Jcrop();
+            $("#HD_ImgAthSrc").val(fileFullName);
+            $("#HD_SImgAthSrc").val(fileName);
+            AddImgLisenerEvent();
+
+          
+        }
+        
+        //图片事件
+        function AddImgLisenerEvent() {
+            //IE8 不支持框选，提供手动输入方法
+            if ($.browser.msie && $.browser.version.split('.')[0] == '8') {
+                document.onmousemove = mouseMove;
+                $("#handInput").show();
+                $("#myImage").unbind.bind("click", function () {
+                    Show();
+                });
+            } else {
+                //重新绑定
+                jQuery('#myImage').Jcrop({
+                    boxWidth: 620,
+                    boxHeight: 400,
+                    onChange: showCoords,
+                    onSelect: showCoords
+                });
+            }
+        }
+        
+        //初始化函数
+        $(function () {
+            $("#handInput").hide();
+            imgH = GetQueryString("H");
+            imgW = GetQueryString("W");
+            FK_MapData = GetQueryString("FK_MapData");
+            CtrlID = GetQueryString("CtrlID");
+            RefPKVal = GetQueryString("RefPKVal");
+            if (RefPKVal == null || RefPKVal == undefined)
+                RefPKVal = 0;
+            InitImgAth();
+            //设置图片大小
+            $("#imgCut").css("width", imgW).css("height", imgH);
+        });
+
+        //返回图片路径
+        function ImgAthSrc() {
+            var imgSrc = $("#HD_ImgAthSrc").val();
+            $("#imgSrc", window.parent.document).attr("value", imgSrc);
+        }
+
+        function returnSrc(){
+            return $("#HD_ImgAthSrc").val();
+        }
+    </script>
+    <style type="text/css">
+        #biankuang
+        {
+            height:400px;width:620px; overflow:hidden;
+            margin:0px;
+        }
+        #myImage
+        {
+            width:620px;
+            height:400px;
+        }
+        .tdCutImg
+        {
+            height:200px;
+            width:260px;
+            text-align:center;
+        }
+        #imgCut
+        {
+            height:220px;width:180px;
+            margin-top:5px;
+        }
+        .tdBtnCut
+        {
+            height:130px;
+        }
+        #handInput input
+        {
+            width:36px;
+        }
+        #fileImagAth
+        {
+            width:180px;
+        }
+    </style>
+</head>
+<body>
+
+	<form action="" enctype="multipart/form-data" method="post">
+    <table style="width:100%; height:430px;">
+        <tr>
+            <td rowspan="2">
+                <div id="biankuang">
+                    <img id="myImage" src="" alt="" />
+                </div>
+            </td>
+            <td class="tdCutImg">
+               <fieldset id="imgCutPanel">
+                <legend>预览</legend>
+                <img id="imgCut" src="" alt="" />
+               </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdBtnCut">
+                <div id="handInput">
+                    <p>
+                        <label>IE8不支持框选，手动输入：</label>
+                    </p>
+                    <p>
+                        <label>距顶端<input type="text" id="marginTop" name="x" /></label>
+                        <label>距左侧<input type="text" id="marginLeft" name="x" /></label>
+                    </p>                    
+                </div>
+                <input type="file" value="选择图片" name="fileImagAth" id="fileImagAth" onchange="ajaxFileUpload()" />
+                <input type="button" value="确认剪裁并保存" onclick="zoomOut()"/> 
+
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="xxx" value="0" />
+    <input type="hidden" id="yyy" value="0" />
+    <input type="hidden" id="x" value="0" />
+    <input type="hidden" id="y" value="0" />
+    <input type="hidden" id="x2" value="0" />
+    <input type="hidden" id="y2" value="0" />
+    <input type="hidden" id="w" value="0" />
+    <input type="hidden" id="h" value="0" />
+    <input type="hidden" id="HD_ImgAthSrc" value="/DataUser/ImgAth/Data/ND101ImgAth1_0.png" />
+    <input type="hidden" id="HD_SImgAthSrc" value="/DataUser/ImgAth/Data/ND101ImgAth1_0.png" />
+    </form>
+</body>
+</html>

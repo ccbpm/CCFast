@@ -1,0 +1,8 @@
+var T=Object.defineProperty;var c=(p,r,t)=>r in p?T(p,r,{enumerable:!0,configurable:!0,writable:!0,value:t}):p[r]=t;var E=(p,r,t)=>c(p,typeof r!="symbol"?r+"":r,t);var _=(p,r,t)=>new Promise((a,n)=>{var m=o=>{try{s(t.next(o))}catch(e){n(e)}},i=o=>{try{s(t.throw(o))}catch(e){n(e)}},s=o=>o.done?a(o.value):Promise.resolve(o.value).then(m,i);s((t=t.apply(p,r)).next())});import{MapAttr as I}from"./MapAttr-B1mxD3vP.js";import{b5 as N,G as u,l as D}from"./entry/index-C6uBgOW5-1730430676707.js";import"./Events-D9tOL1Ad.js";import"./vue-BXIlYw1E.js";import"./antd-Dd9L3uAF.js";class y extends N{constructor(){super("GPN_ComponentGroup");E(this,"Pop_TreeEns_Dept2Emp",`
+  #### 帮助
+  - 左树右表模式的人员选择器.
+
+  #### 数据存储.
+  - 数据存在Sys_MapExt的扩展属性里.
+
+    `);this.PageTitle="新建分组自定义组件"}Init(){this.AddGroup("A","报表"),this.TextBox2_NameNo("Pop_TreeEns_Dept2Emp","柱状图",this.Pop_TreeEns_Dept2Emp,"Str","字段ID","字段名称","选择人员"),this.AddIcon("icon-user","Pop_TreeEns_Dept2Emp"),this.TextBox2_NameNo("Pop_TreeEns_Dept232E1mp","饼状图",this.Pop_TreeEns_Dept2Emp,"Str","字段ID","字段名称","选择人员"),this.AddIcon("icon-user","Pop_TreeEns_Dept2Emp"),this.TextBox2_NameNo("Pop_TreeEns_Dept322E1mp","2维报表",this.Pop_TreeEns_Dept2Emp,"Str","字段ID","字段名称","选择人员"),this.AddIcon("icon-user","Pop_TreeEns_Dept2Emp")}GenerSorts(){return _(this,null,function*(){return Promise.resolve([])})}Save_TextBox_X(t,a,n,m,i){return _(this,null,function*(){if(t==="TreeEns_Dept2Emp"){const s=this.RequestVal("FrmID"),o=this.RequestVal("GroupField"),e=new I;if(e.GroupID=o,e.FK_MapData=s,e.MyPK=s+"_"+m,yield e.IsExits())return new u(D.Message,"附件ID已经存在");e.KeyOfEn=m,e.Name=n,yield e.Insert();const P="/@/WF/Comm/En.vue?EnName=TS.FrmUI.MapAttrEnum&PKVal="+e.MyPK;return new u(D.GoToUrl,P)}})}}export{y as GPN_ComponentGroup};

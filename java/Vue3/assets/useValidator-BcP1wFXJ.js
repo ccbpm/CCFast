@@ -1,0 +1,1 @@
+import{containerList as n}from"./FormComponents-CdID7OXc.js";function u(){return{isFalsyValue:t=>t==null||typeof t=="string"&&t.trim()==="",isContainer:(t,r)=>{try{return n.includes(`${t}_${r}`)}catch(s){return!1}}}}export{u as default};

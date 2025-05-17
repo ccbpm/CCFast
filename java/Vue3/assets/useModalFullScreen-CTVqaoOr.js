@@ -1,0 +1,1 @@
+import{f as o,c as t,u as n}from"./vue-BXIlYw1E.js";function c(r){const a=o(!1),l=t(()=>{const e=n(r.wrapClassName)||"";return n(a)?`fullscreen-modal ${e} `:n(e)});function s(e){e&&e.stopPropagation(),a.value=!n(a)}return{getWrapClassName:l,handleFullScreen:s,fullScreenRef:a}}export{c as useFullScreen};

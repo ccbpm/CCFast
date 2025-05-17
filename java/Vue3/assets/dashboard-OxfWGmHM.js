@@ -1,0 +1,1 @@
+const o={dashboard:"Dashboard",about:"About",workbench:"Workbench",analysis:"Analysis"},e=Object.freeze(Object.defineProperty({__proto__:null,default:o},Symbol.toStringTag,{value:"Module"}));export{e as _};
